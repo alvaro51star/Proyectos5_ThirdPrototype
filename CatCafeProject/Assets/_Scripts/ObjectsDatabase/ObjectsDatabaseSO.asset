@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ec101448317004c8cfa05768ed714c, type: 3}
+  m_Name: ObjectsDatabaseSO
+  m_EditorClassIdentifier: 
+  objectDatas:
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 0}
+    <Prize>k__BackingField: 0
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 0}
+    <Prize>k__BackingField: 0
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 0}
+    <Prize>k__BackingField: 0
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 0}
+    <Prize>k__BackingField: 0
