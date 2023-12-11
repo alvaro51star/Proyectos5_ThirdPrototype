@@ -26,4 +26,7 @@ public class ObjectData
 
     [field: SerializeField]
     public int Prize {get; private set;} = 0;
+
+    [field: SerializeField]
+    public bool IsUnlocked {get; private set;}
 }
