@@ -27,6 +27,6 @@ public class ObjectData
     [field: SerializeField]
     public int Prize {get; private set;} = 0;
 
-    [field: SerializeField]
-    public bool IsUnlocked {get; private set;}
+    //[field: SerializeField]
+    //public bool IsUnlocked {get; private set;} puede que esto no haga falta de esta manera //!preguntar como se desbloquearan los objetos
 }
