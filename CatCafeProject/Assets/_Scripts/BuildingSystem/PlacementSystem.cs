@@ -73,6 +73,5 @@ public class PlacementSystem : MonoBehaviour
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
         GameObject newObject = Instantiate(database.objectDatas[SelectedObjectIndex].Prefab);
         newObject.transform.position = grid.CellToWorld(gridPosition);
-
     }
 }
