@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ObjectsDatabaseSO", menuName = "CatCafeProject/ObjectsDatabaseSO", order = 0)]
 public class ObjectsDatabaseSO : ScriptableObject
 {
-    public List<ObjectData> objectDatas;
+    public List<ObjectData> objectData;
 }
 
 [Serializable]
@@ -17,16 +17,25 @@ public class ObjectData
 
     [field: SerializeField]
     public int ID { get; private set; }
-    
+
     [field: SerializeField]
     public Vector2Int Size { get; private set; } = Vector2Int.one;
-    
+
     [field: SerializeField]
     public GameObject Prefab { get; private set; }
 
     [field: SerializeField]
-    public int Prize {get; private set;} = 0;
+    public int Prize { get; private set; } = 0;
 
+    [field: SerializeField]
+    public FurnitureType furnitureType { get; private set; }
     //[field: SerializeField]
     //public bool IsUnlocked {get; private set;} puede que esto no haga falta de esta manera //!preguntar como se desbloquearan los objetos
+}
+
+public enum FurnitureType
+{
+    Carpet,
+    Chair,
+    Table
 }
