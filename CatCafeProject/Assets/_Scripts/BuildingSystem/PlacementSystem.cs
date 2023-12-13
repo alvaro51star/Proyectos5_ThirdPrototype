@@ -8,27 +8,27 @@ using Vector3 = UnityEngine.Vector3;
 public class PlacementSystem : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mouseIndicator;
-    [SerializeField]
     private InputManager inputManager;
     [SerializeField]
     private Grid grid;
 
     [SerializeField]
     private ObjectsDatabaseSO database;
-    private int SelectedObjectIndex = -1;
 
     [SerializeField]
     private GameObject gridVisualization;
 
     private GridData floorData, furnitureData;
 
-    private List<GameObject> placedGameObjects = new();
-
     [SerializeField]
     private PreviewSystem preview;
 
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
+
+    [SerializeField]
+    private ObjectPlacer objectPlacer;
+
+    IBuildingState buildingState;
 
     private void Start()
     {
@@ -39,8 +39,7 @@ public class PlacementSystem : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"SelectedObjectIndex: {SelectedObjectIndex}");
-        if (SelectedObjectIndex < 0)
+        if (buildingState == null)
         {
             return;
         }
@@ -49,40 +48,36 @@ public class PlacementSystem : MonoBehaviour
 
         if (lastDetectedPosition != gridPosition)
         {
-            bool placementValidity = CheckPlacementValidity(gridPosition, SelectedObjectIndex);
-            mouseIndicator.transform.position = mousePosition;
-
-            preview.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
+            buildingState.UpdateState(gridPosition);
             lastDetectedPosition = gridPosition;
         }
     }
 
-
-
     private void StopPlacement()
     {
-        SelectedObjectIndex = -1;
+        if (buildingState == null)
+        {
+            return;
+        }
         gridVisualization.SetActive(false);
-        preview.StopShowingPreview();
+        buildingState.EndState();
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;
         lastDetectedPosition = Vector3Int.zero;
+        buildingState = null;
     }
 
     public void StartPlacement(int ID)
     {
         StopPlacement();
-        SelectedObjectIndex = database.objectData.FindIndex(data => data.ID == ID);
-        if (SelectedObjectIndex < 0)
-        {
-            Debug.LogError($"No ID found {ID}");
-            return;
-        }
-
         gridVisualization.SetActive(true);
-        preview.StartShowingPlacementPreview(
-            database.objectData[SelectedObjectIndex].Prefab,
-            database.objectData[SelectedObjectIndex].Size);
+        buildingState = new PlacementState(ID,
+                                           grid,
+                                           preview,
+                                           database,
+                                           floorData,
+                                           furnitureData,
+                                           objectPlacer);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
@@ -96,29 +91,6 @@ public class PlacementSystem : MonoBehaviour
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
 
-        bool placementValidity = CheckPlacementValidity(gridPosition, SelectedObjectIndex);
-        if (placementValidity == false)
-        {
-            return;
-        }
-
-        GameObject newObject = Instantiate(database.objectData[SelectedObjectIndex].Prefab);
-        newObject.transform.position = grid.CellToWorld(gridPosition);
-        placedGameObjects.Add(newObject);
-        GridData selectedData = database.objectData[SelectedObjectIndex].furnitureType == FurnitureType.Carpet ? floorData : furnitureData;
-
-        selectedData.AddObjectAt(gridPosition,
-            database.objectData[SelectedObjectIndex].Size,
-            database.objectData[SelectedObjectIndex].ID,
-            placedGameObjects.Count - 1);
-
-        preview.UpdatePosition(grid.CellToWorld(gridPosition), false);
-    }
-
-    private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    {
-        GridData selectedData = database.objectData[selectedObjectIndex].furnitureType == FurnitureType.Carpet ? floorData : furnitureData;
-
-        return selectedData.CanPlaceObjectAt(gridPosition, database.objectData[selectedObjectIndex].Size);
+        buildingState.OnAction(gridPosition);
     }
 }
