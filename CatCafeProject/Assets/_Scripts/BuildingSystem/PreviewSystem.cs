@@ -73,14 +73,14 @@ public class PreviewSystem : MonoBehaviour
     private void ApplyFeedBack(bool validity)
     {
         Color c = validity ?  Color.white: Color.red;
-        cellIndicatorRenderer.material.color = c;
         c.a = 0.5f;
+        cellIndicatorRenderer.material.color = c;
         previewMaterialsInstance.color = c;
     }
 
     private void MoveCursor(Vector3 position)
     {
-        throw new NotImplementedException();
+        cellIndicator.transform.position = position;
     }
 
     private void MovePreview(Vector3 position)
