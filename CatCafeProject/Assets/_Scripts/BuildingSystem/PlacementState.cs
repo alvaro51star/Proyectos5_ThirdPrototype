@@ -53,7 +53,8 @@ public class PlacementState : IBuildingState
         //Aqui el de se coloca correctamente
         int index = objectPlacer.PlaceObject(
             database.objectData[selectedObjectIndex].Prefab,
-            grid.CellToWorld(gridPosition));
+            grid.CellToWorld(gridPosition),
+            database.objectData[selectedObjectIndex]);
 
         GridData selectedData = database.objectData[selectedObjectIndex].furnitureType == FurnitureType.Carpet ? floorData : furnitureData;
 

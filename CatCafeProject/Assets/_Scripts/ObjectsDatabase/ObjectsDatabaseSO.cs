@@ -29,6 +29,9 @@ public class ObjectData
 
     [field: SerializeField]
     public FurnitureType furnitureType { get; private set; }
+
+    [field: SerializeField]
+    public FurnitureTheme furnitureTheme { get; private set; }
     //[field: SerializeField]
     //public bool IsUnlocked {get; private set;} puede que esto no haga falta de esta manera //!preguntar como se desbloquearan los objetos
 }
@@ -37,5 +40,22 @@ public enum FurnitureType
 {
     Carpet,
     Chair,
-    Table
+    Table,
+    Bed,
+    Mesa,
+    CatTower,
+    Decoration,
+    Font,
+    Sofa,
+    Lamp,
+    GeneralFurniture
+}
+
+public enum FurnitureTheme
+{
+    None,
+    Flowers,
+    Hearts,
+    Leaves,
+    Fishes
 }

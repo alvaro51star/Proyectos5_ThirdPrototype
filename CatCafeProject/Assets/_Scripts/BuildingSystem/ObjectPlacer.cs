@@ -7,12 +7,17 @@ public class ObjectPlacer : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> placedGameObjects = new();
+    [SerializeField] private Transform parent;
 
-    public int PlaceObject(GameObject prefab, Vector3 position)
+    public int PlaceObject(GameObject prefab, Vector3 position, ObjectData objectData)
     {
-        GameObject newObject = Instantiate(prefab);
+        GameObject newObject = Instantiate(prefab, parent);
         newObject.transform.position = position;
+        newObject.AddComponent<FurnitureData>();
+        newObject.GetComponent<FurnitureData>().AssignFurnitureData(objectData);
         placedGameObjects.Add(newObject);
-        return placedGameObjects.Count - 1;
+        int index = placedGameObjects.Count - 1;
+        newObject.GetComponent<FurnitureData>().AssingIndexInObjectsCreated(index);
+        return index;
     }
 }

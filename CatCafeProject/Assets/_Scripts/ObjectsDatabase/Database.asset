@@ -20,6 +20,7 @@ MonoBehaviour:
       type: 3}
     <Prize>k__BackingField: 10
     <furnitureType>k__BackingField: 0
+    <furnitureTheme>k__BackingField: 0
   - <Name>k__BackingField: Chair
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
@@ -27,13 +28,15 @@ MonoBehaviour:
       type: 3}
     <Prize>k__BackingField: 20
     <furnitureType>k__BackingField: 1
+    <furnitureTheme>k__BackingField: 0
   - <Name>k__BackingField: Big Bed
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
     <Prize>k__BackingField: 50
-    <furnitureType>k__BackingField: 2
+    <furnitureType>k__BackingField: 3
+    <furnitureTheme>k__BackingField: 0
   - <Name>k__BackingField: Table
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 2, y: 1}
@@ -41,3 +44,4 @@ MonoBehaviour:
       type: 3}
     <Prize>k__BackingField: 30
     <furnitureType>k__BackingField: 2
+    <furnitureTheme>k__BackingField: 0
