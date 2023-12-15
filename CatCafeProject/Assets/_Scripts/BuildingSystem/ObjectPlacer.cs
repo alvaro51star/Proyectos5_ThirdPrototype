@@ -20,4 +20,14 @@ public class ObjectPlacer : MonoBehaviour
         newObject.GetComponent<FurnitureData>().AssingIndexInObjectsCreated(index);
         return index;
     }
+
+    internal void RemoveObjectAt(int gameObjectIndex)
+    {
+        if (placedGameObjects.Count <= gameObjectIndex || placedGameObjects[gameObjectIndex] == null)
+        {
+            return;
+        }
+        Destroy(placedGameObjects[gameObjectIndex]);
+        placedGameObjects[gameObjectIndex] = null;
+    }
 }
