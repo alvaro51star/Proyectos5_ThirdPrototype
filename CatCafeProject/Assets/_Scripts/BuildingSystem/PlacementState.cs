@@ -41,7 +41,7 @@ public class PlacementState : IBuildingState
         previewSystem.StopShowingPreview();
     }
 
-    public void OnAction(Vector3Int gridPosition)
+    public void OnAction(Vector3Int gridPosition) //!Aqui es donde iria la comprobacion del dinero
     {
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
         if (placementValidity == false)
