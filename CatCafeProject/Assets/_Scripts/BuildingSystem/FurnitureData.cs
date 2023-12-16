@@ -11,6 +11,7 @@ public class FurnitureData : MonoBehaviour
     [SerializeField] private FurnitureType furnitureType;
     [SerializeField] private FurnitureTheme furnitureTheme;
     [SerializeField] private int listIndex;
+    [SerializeField] private Vector2Int rotation;
 
     public delegate void FurnitureAction(FurnitureData furnitureData, Vector3 position);
     public static event FurnitureAction OnCreateFurniture, OnDestroyFurniture;
@@ -38,12 +39,12 @@ public class FurnitureData : MonoBehaviour
 
     public void AssignFurnitureData(ObjectData objectData)
     {
-        this.furnitureName = objectData.Name;
-        this.furnitureId = objectData.ID;
-        this.furnitureSize = objectData.Size;
-        this.furniturePrize = objectData.Prize;
-        this.furnitureType = objectData.furnitureType;
-        this.furnitureTheme = objectData.furnitureTheme;
+        furnitureName = objectData.Name;
+        furnitureId = objectData.ID;
+        furnitureSize = objectData.Size;
+        furniturePrize = objectData.Prize;
+        furnitureType = objectData.furnitureType;
+        furnitureTheme = objectData.furnitureTheme;
     }
 
     public void AssingIndexInObjectsCreated(int index)
