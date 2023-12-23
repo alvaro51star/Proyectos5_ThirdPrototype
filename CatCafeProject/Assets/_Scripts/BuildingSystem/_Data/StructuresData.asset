@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b84be0e6d67eb84b837237865aeecbd, type: 3}
+  m_Name: StructuresData
+  m_EditorClassIdentifier: 
+  structures:
+  - name: Wall
+    ID: 0
+    size: {x: 1, y: 1}
+    objectPlacementType: 2
+    prefab: {fileID: 454405300934370620, guid: 16bfb3862f6e6704f854cdb58d709081, type: 3}
+    previewObject: {fileID: 5023585483840505682, guid: 194b2597d523bd04d91c0b228bd173e5,
+      type: 3}
+  - name: Floor
+    ID: 1
+    size: {x: 2, y: 2}
+    objectPlacementType: 1
+    prefab: {fileID: 175886647813805099, guid: 6bafb9556d35ba840bebea4eea7d34c2, type: 3}
+    previewObject: {fileID: 175886647813805099, guid: 6bafb9556d35ba840bebea4eea7d34c2,
+      type: 3}
+  - name: Window
+    ID: 2
+    size: {x: 2, y: 1}
+    objectPlacementType: 3
+    prefab: {fileID: 200308021796249705, guid: 69d526bb2e0558a44945047260e08658, type: 3}
+    previewObject: {fileID: 200308021796249705, guid: 69d526bb2e0558a44945047260e08658,
+      type: 3}
+  - name: Door
+    ID: 3
+    size: {x: 2, y: 1}
+    objectPlacementType: 3
+    prefab: {fileID: 4180586168491985918, guid: b5dbef82417fa2c4687cae1138f12494,
+      type: 3}
+    previewObject: {fileID: 4180586168491985918, guid: b5dbef82417fa2c4687cae1138f12494,
+      type: 3}
+  - name: BedBig
+    ID: 4
+    size: {x: 2, y: 2}
+    objectPlacementType: 5
+    prefab: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
+      type: 3}
+    previewObject: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
+      type: 3}
+  - name: BedSmall
+    ID: 5
+    size: {x: 1, y: 2}
+    objectPlacementType: 5
+    prefab: {fileID: 5850475931862319619, guid: 9ff0a40e81c213747b2c254c44aaeadd,
+      type: 3}
+    previewObject: {fileID: 5850475931862319619, guid: 9ff0a40e81c213747b2c254c44aaeadd,
+      type: 3}
+  - name: Chair
+    ID: 6
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4428052050468720457, guid: e033e50487fb016449143cd70d837387,
+      type: 3}
+    previewObject: {fileID: 4428052050468720457, guid: e033e50487fb016449143cd70d837387,
+      type: 3}
+  - name: Table
+    ID: 7
+    size: {x: 2, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 3493615974341626966, guid: c8183485a28237d4385a3c7ef8659faa,
+      type: 3}
+    previewObject: {fileID: 3493615974341626966, guid: c8183485a28237d4385a3c7ef8659faa,
+      type: 3}
+  - name: Fridge
+    ID: 8
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 4344590435354947618, guid: 52be3717e97d1b64c9d5f3ae6558791f,
+      type: 3}
+    previewObject: {fileID: 4344590435354947618, guid: 52be3717e97d1b64c9d5f3ae6558791f,
+      type: 3}
+  - name: Cabinet
+    ID: 9
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 8268923537045151292, guid: fbadd4c5d23c14b4588dd8a9a86e5e26,
+      type: 3}
+    previewObject: {fileID: 8268923537045151292, guid: fbadd4c5d23c14b4588dd8a9a86e5e26,
+      type: 3}
+  - name: Kitchen Sink
+    ID: 10
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 3128097552613286756, guid: c9e3ae9ecee90b24fb441381c028ac9d,
+      type: 3}
+    previewObject: {fileID: 3128097552613286756, guid: c9e3ae9ecee90b24fb441381c028ac9d,
+      type: 3}
+  - name: Toilet
+    ID: 11
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 7057042017470530667, guid: c038690cb6e5905429e13c35460e2199,
+      type: 3}
+    previewObject: {fileID: 7057042017470530667, guid: c038690cb6e5905429e13c35460e2199,
+      type: 3}
+  - name: Sink
+    ID: 12
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}

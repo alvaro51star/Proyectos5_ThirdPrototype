@@ -12,7 +12,7 @@ public class ButtonData : MonoBehaviour
     [SerializeField] private TextMeshProUGUI furniturePrize;
     [SerializeField] private Button button;
     private int id = -1;
-    [SerializeField] private PlacementSystem placementSystem;
+    //[SerializeField] private PlacementSystem placementSystem;
     [SerializeField] private Image image; //!Por implementar
 
 
@@ -31,14 +31,14 @@ public class ButtonData : MonoBehaviour
     {
         if (id >= 0)
         {
-            placementSystem.StartPlacement(id);
+            //placementSystem.StartPlacement(id);
         }
     }
 
-    public void AssignData(ObjectData item, PlacementSystem placementSystem)
-    {
-        furnitureName.text = item.Name;
-        furniturePrize.text = item.Prize.ToString();
-        this.placementSystem = placementSystem;
-    }
+    // public void AssignData(ObjectData item, PlacementSystem placementSystem)
+    // {
+    //     furnitureName.text = item.Name;
+    //     furniturePrize.text = item.Prize.ToString();
+    //     this.placementSystem = placementSystem;
+    // }
 }

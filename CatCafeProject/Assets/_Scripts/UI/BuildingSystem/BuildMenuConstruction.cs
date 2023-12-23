@@ -7,7 +7,7 @@ public class BuildMenuConstruction : MonoBehaviour
     [SerializeField] private ObjectsDatabaseSO database;
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform panelTransform;
-    [SerializeField] private PlacementSystem placementSystem;
+    //[SerializeField] private PlacementSystem placementSystem;
     
 
     private void Awake()
@@ -15,7 +15,7 @@ public class BuildMenuConstruction : MonoBehaviour
         foreach (var item in database.objectData)
         {
             GameObject newButton = Instantiate(buttonPrefab, panelTransform);
-            newButton.GetComponent<ButtonData>().AssignData(item, placementSystem);
+            //newButton.GetComponent<ButtonData>().AssignData(item, placementSystem);
         }
     }
 }
