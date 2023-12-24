@@ -50,4 +50,6 @@ public class ItemData
     public GameObject prefab;
     [Tooltip("If empty will be set to prefab object")]
     public GameObject previewObject;
+    public int buyValue;
+    public int sellValue;
 }
