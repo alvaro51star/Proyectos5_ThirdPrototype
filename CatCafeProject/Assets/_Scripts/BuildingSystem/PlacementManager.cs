@@ -138,12 +138,19 @@ public class PlacementManager : MonoBehaviour
                 selectionResult
                 )
         );
-            if (selectionResult.placementValidity)
+            if (selectionResult.placementValidity && itemData.buyValue <= EconomyManager.instance.GetCurrentMoney()) //?Prueba
             {
                 if (itemData.objectPlacementType == PlacementType.Floor || itemData.objectPlacementType == PlacementType.Wall)
+                {
+                    EconomyManager.instance.ModifyCurrentMoney(-itemData.buyValue);
                     OnPlaceConstructionObject?.Invoke();
+                }
                 else
+                {
+                    EconomyManager.instance.ModifyCurrentMoney(-itemData.buyValue);
                     OnPlaceFurnitureObject?.Invoke();
+                }
+
             }
 
         }
@@ -166,7 +173,11 @@ public class PlacementManager : MonoBehaviour
                     selectionResult
                     )
             );
-        OnRemoveObject?.Invoke();
+        if (OnRemoveObject != null)
+        {
+            OnRemoveObject.Invoke();
+            EconomyManager.instance.ModifyCurrentMoney(itemData.sellValue); //?Modifica el valor de nuestro dinero
+        }
     }
 
     /// <summary>
@@ -392,7 +403,7 @@ public class PlacementManager : MonoBehaviour
             return;
         Vector3 selectedPosition = input.GetSelectedMapPosition();
         previousPosition = gridManager.GetCellPosition(selectedPosition, PlacementType.FreePlacedObject);
-        
+
         //Check if we have clicked on the selection grid or outside of it
         if (previousPosition.HasValue == false)
         {
@@ -408,7 +419,7 @@ public class PlacementManager : MonoBehaviour
         }
         else
         {
-            
+
             Debug.Log("Selected a ");
             input.OnMousePressed -= TrySelectingObjectToMove;
             SelectionResult result = new SelectionResult
@@ -416,7 +427,7 @@ public class PlacementManager : MonoBehaviour
                 isEdgeStructure = false,
                 placementValidity = true,
                 selectedGridPositions = new List<Vector3Int> { previousPosition.Value },
-                selectedPositions = new List<Vector3> { gridManager.GetWorldPosition(previousPosition.Value)},
+                selectedPositions = new List<Vector3> { gridManager.GetWorldPosition(previousPosition.Value) },
                 selectedPositionGridCheckRotation = new List<Quaternion> { Quaternion.identity },
                 selectedPositionsObjectRotation = new List<Quaternion> { Quaternion.identity }
             };

@@ -56,9 +56,4 @@ public class FurnitureData : MonoBehaviour
     {
         OnDestroyFurniture?.Invoke(this, transform.position);
     }
-
-    private void Start()
-    {
-
-    }
 }

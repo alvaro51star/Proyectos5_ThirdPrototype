@@ -1974,6 +1974,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1732763773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1760905694905179653, guid: 6fbf78654494b1f47b75155282e57fb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3747371372935224173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825280515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2128,52 @@ Transform:
   - {fileID: 913320103}
   - {fileID: 865723653}
   - {fileID: 2137882164}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1882751683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882751685}
+  - component: {fileID: 1882751684}
+  m_Layer: 0
+  m_Name: EconomyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1882751684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882751683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b505f87b6f1eac408c24c676605bffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMoney: 5000
+  currentMoney: 0
+--- !u!4 &1882751685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882751683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2023046531
@@ -2475,6 +2533,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863831181036336285, guid: 6fbf78654494b1f47b75155282e57fb8,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1732763773}
     - target: {fileID: 1935210268359622553, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2698,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 3868821128450447196, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4171236382341798188, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
@@ -2818,7 +2881,7 @@ PrefabInstance:
     - target: {fileID: 5498995706932432438, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 5498995706932432438, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
@@ -3027,3 +3090,4 @@ SceneRoots:
   - {fileID: 1871086871}
   - {fileID: 3747371372935224173}
   - {fileID: 502193444}
+  - {fileID: 1882751685}

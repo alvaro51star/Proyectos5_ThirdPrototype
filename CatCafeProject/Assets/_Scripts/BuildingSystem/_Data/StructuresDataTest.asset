@@ -21,8 +21,8 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
-    buyValue: 0
-    sellValue: 0
+    buyValue: 200
+    sellValue: 100
   - name: BedSmall
     ID: 5
     size: {x: 1, y: 2}
@@ -31,8 +31,8 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 5850475931862319619, guid: 9ff0a40e81c213747b2c254c44aaeadd,
       type: 3}
-    buyValue: 0
-    sellValue: 0
+    buyValue: 50
+    sellValue: 30
   - name: Chair
     ID: 6
     size: {x: 1, y: 1}

@@ -12,9 +12,9 @@ public class UIPlacementController : MonoBehaviour
     public UnityEvent OnUndoRequested, OnMoveRequest, OnResetMovementButton, OnCancelPlacement, OnMovementStateEntered;
 
     public void SelectObjectWithIndex(int index)
-        => OnObjectSelected?.Invoke(index); 
+        => OnObjectSelected?.Invoke(index);
 
-    public void RequestUndo() 
+    public void RequestUndo()
         => OnUndoRequested?.Invoke();
 
     public void MoveRequest()

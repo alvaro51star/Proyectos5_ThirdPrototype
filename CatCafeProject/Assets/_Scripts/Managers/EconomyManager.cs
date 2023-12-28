@@ -16,6 +16,10 @@ public class EconomyManager : MonoBehaviour
             Destroy(this);
             return;
         }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void Start()
@@ -27,11 +31,22 @@ public class EconomyManager : MonoBehaviour
         else
         {
             currentMoney = defaultMoney;
+            PlayerPrefs.SetInt("CurrentMoney", currentMoney);
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log("Current money: " + currentMoney);
     }
 
     public void ModifyCurrentMoney(int value)
     {
         currentMoney += value;
+    }
+
+    public int GetCurrentMoney()
+    {
+        return currentMoney;
     }
 }

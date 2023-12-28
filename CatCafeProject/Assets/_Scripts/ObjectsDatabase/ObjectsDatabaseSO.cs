@@ -33,27 +33,3 @@ public class ObjectData
     [field: SerializeField]
     public FurnitureTheme furnitureTheme { get; private set; }
 }
-
-public enum FurnitureType
-{
-    Carpet,
-    Chair,
-    Table,
-    Bed,
-    Mesa,
-    CatTower,
-    Decoration,
-    Font,
-    Sofa,
-    Lamp,
-    GeneralFurniture
-}
-
-public enum FurnitureTheme
-{
-    None,
-    Flowers,
-    Hearts,
-    Leaves,
-    Fishes
-}
