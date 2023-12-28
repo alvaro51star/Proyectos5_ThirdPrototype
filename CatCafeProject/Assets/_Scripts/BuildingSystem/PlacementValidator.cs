@@ -121,4 +121,9 @@ public static class PlacementValidator
         }
         return true;
     }
+
+    public static bool CheckMoneyLeft(ItemData itemData)
+    {
+        return itemData.buyValue <= EconomyManager.instance.GetCurrentMoney();
+    }
 }

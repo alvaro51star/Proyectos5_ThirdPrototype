@@ -22,7 +22,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     bool selected = false;
 
-    Color defaultColor;
+    [SerializeField] private Color defaultColor;
 
     [SerializeField]
     private bool changeColorOnClock = true;
@@ -36,7 +36,6 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         button = GetComponent<Button>();
         defaultColor = button.image.color;
-
     }
 
     public void ResetButton()
@@ -44,7 +43,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         selected = false;
         button.image.color = defaultColor;
         button.transform.localScale = Vector3.one;
-        //button.image.DOColor(defaultColor, fadeDuration);
+        button.image.DOColor(defaultColor, fadeDuration);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

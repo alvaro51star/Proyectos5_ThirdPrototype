@@ -44,7 +44,7 @@ public class PlacementManager : MonoBehaviour
     [SerializeField]
     private GameObject destoryPreview;
 
-    public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered;
+    public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered, OnFailedObjectPlaced;
     public UnityEvent<bool> OnToggleUndo;
 
     private void Start()
@@ -138,21 +138,22 @@ public class PlacementManager : MonoBehaviour
                 selectionResult
                 )
         );
-            if (selectionResult.placementValidity && itemData.buyValue <= EconomyManager.instance.GetCurrentMoney()) //?Prueba
+            if (selectionResult.placementValidity && itemData.buyValue <= EconomyManager.instance.GetCurrentMoney()) //!Prueba
             {
+                Debug.Log("Entro el el placement"); //!DebugLog
                 if (itemData.objectPlacementType == PlacementType.Floor || itemData.objectPlacementType == PlacementType.Wall)
                 {
-                    EconomyManager.instance.ModifyCurrentMoney(-itemData.buyValue);
                     OnPlaceConstructionObject?.Invoke();
                 }
                 else
                 {
-                    EconomyManager.instance.ModifyCurrentMoney(-itemData.buyValue);
                     OnPlaceFurnitureObject?.Invoke();
                 }
-
             }
-
+            else
+            {
+                OnFailedObjectPlaced?.Invoke(); //this reproduces sounds when it fails to place the object
+            }
         }
 
 

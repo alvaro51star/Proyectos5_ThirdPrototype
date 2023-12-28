@@ -33,11 +33,13 @@ public class StructurePlacementCommand : ICommand
     public void Execute()
     {
         placementManager.PlaceStructureAt(selectionResult,placementData, this.itemData);
+        EconomyManager.instance.ModifyCurrentMoney(-this.itemData.buyValue);
 
     }
 
     public void Undo()
     {
         placementManager.RemoveStructureAt(selectionResult, placementData);
+        EconomyManager.instance.ModifyCurrentMoney(this.itemData.buyValue);
     }
 }

@@ -68,8 +68,8 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 5850475931862319619, guid: 9ff0a40e81c213747b2c254c44aaeadd,
       type: 3}
-    buyValue: 0
-    sellValue: 0
+    buyValue: 150
+    sellValue: 75
   - name: Chair
     ID: 6
     size: {x: 1, y: 1}

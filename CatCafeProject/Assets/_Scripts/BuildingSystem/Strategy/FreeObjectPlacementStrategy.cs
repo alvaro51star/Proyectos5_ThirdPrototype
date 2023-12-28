@@ -64,7 +64,8 @@ public class FreeObjectPlacementStrategy : SelectionStrategy
             placementData,
             selectionData.PlacedItemData.size,
             selectionData.GetSelectedPositionsGridRotation(),
-            false);
+            false)
+            && PlacementValidator.CheckMoneyLeft(selectionData.PlacedItemData); //*Creo que ahora ya funciona bien lo del sistema
 
         //Only if the previous check was TRUE
         if (validity)
