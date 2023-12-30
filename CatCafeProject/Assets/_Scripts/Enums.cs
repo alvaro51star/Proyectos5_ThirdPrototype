@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enums
 {
-    
+
 }
 
 public enum FurnitureType
@@ -31,11 +31,20 @@ public enum FurnitureTheme
     Fishes
 }
 
-public enum CatDifficulty{
+public enum CatDifficulty
+{
     Easy,
     Normal,
     Hard,
     Rich
+}
+
+public enum FoodTypes
+{
+    Milk,
+    Donut,
+    OreoCupcake,
+    CarrotPie
 }
 
 
