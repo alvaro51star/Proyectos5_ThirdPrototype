@@ -43,8 +43,8 @@ public enum FoodTypes
 {
     Milk,
     Donut,
-    OreoCupcake,
-    CarrotPie
+    Cupcake,
+    Cake
 }
 
 
