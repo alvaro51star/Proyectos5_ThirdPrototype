@@ -63,5 +63,5 @@ public class InputManager : MonoBehaviour
             OnToggleDelete?.Invoke(false);
     }
 
-
+//TODO Se puede hacer lo de que el input sea por botones aqui
 }
