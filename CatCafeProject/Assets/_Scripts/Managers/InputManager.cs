@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private LayerMask placementLayermask;
 
-    public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo;
+    public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo, OnInteracting;
 
     public event Action<int> OnRotate;
 
@@ -61,6 +61,9 @@ public class InputManager : MonoBehaviour
             OnToggleDelete?.Invoke(true);
         if (Input.GetKeyUp(KeyCode.LeftControl))
             OnToggleDelete?.Invoke(false);
+
+        if(Input.GetKeyDown(KeyCode.E))
+            OnInteracting?.Invoke();
     }
 
 //TODO Se puede hacer lo de que el input sea por botones aqui
