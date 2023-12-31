@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool canMove = true; //para facilitar pausa
-    [SerializeField, Range(2, 10)] private float speed;
+    [SerializeField] private float speed;
     private Vector3 directionInput;
     private float directionX, directionZ;
 

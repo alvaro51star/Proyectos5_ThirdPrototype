@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-    public delegate void PlayerInside();
-    public static event PlayerInside OnPlayerInside;
-
-    public delegate void PlayerOutside();
-    public static event PlayerOutside OnPlayerOutSide;
+    [SerializeField] InputManager InputManager;
 
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (OnPlayerInside != null)
-            {
-                OnPlayerInside();
-            }
+            InputManager.OnInteracting += Prueba; //suma la funcion da igual si reciba el input o no, despues input hara que las funciones del evento se hagan
         }
     }
 
@@ -25,10 +18,18 @@ public class InteractiveObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (OnPlayerOutSide != null)
-            {
-                OnPlayerOutSide();
-            }
+            InputManager.OnInteracting -= Prueba; 
         }
+    }
+
+    protected virtual void Prueba()
+    {
+        Debug.Log("prueba evento");
+    }
+
+    private void OnDisable()
+    {
+        InputManager.OnInteracting -= Prueba;
+
     }
 }

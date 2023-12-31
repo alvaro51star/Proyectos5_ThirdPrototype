@@ -18,7 +18,7 @@ public class FoodSpawner : MonoBehaviour
     }
     //timer en corutina para evitar update, TENER CUIDADO EN PAUSA
 
-    private void SpawnFood (float seconds)
+    public void SpawnFood (float seconds) //se llamara el resto de veces con un evento (cuando has cogido la comida)
     {
         StartCoroutine(SpawnTimer(seconds));
         Instantiate(foodGO, spawnLocation);
@@ -27,4 +27,5 @@ public class FoodSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
     }
+
 }
