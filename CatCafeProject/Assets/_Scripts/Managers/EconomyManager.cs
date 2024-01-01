@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class EconomyManager : MonoBehaviour
 
     [SerializeField] private int defaultMoney = 100;
     [SerializeField] private int currentMoney = 0;
+
+    public static event Action<int> OnMoneyUpdated;
 
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class EconomyManager : MonoBehaviour
     public void ModifyCurrentMoney(int value)
     {
         currentMoney += value;
+        OnMoneyUpdated?.Invoke(currentMoney);
     }
 
     public int GetCurrentMoney()

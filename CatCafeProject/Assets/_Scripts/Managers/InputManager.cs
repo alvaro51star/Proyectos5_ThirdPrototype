@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             OnCancle?.Invoke();
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
             OnUndo?.Invoke();
 
         if (Input.GetMouseButtonDown(0))
@@ -62,9 +62,9 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftControl))
             OnToggleDelete?.Invoke(false);
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
             OnInteracting?.Invoke();
     }
 
-//TODO Se puede hacer lo de que el input sea por botones aqui
+    //TODO Se puede hacer lo de que el input sea por botones aqui
 }
