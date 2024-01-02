@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
-{
+{ //solamente se usara como padre para interactuar
     [SerializeField] InputManager InputManager;
 
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            InputManager.OnInteracting += Prueba; //suma la funcion da igual si reciba el input o no, despues input hara que las funciones del evento se hagan
+            InputManager.OnInteracting += Interaction; //suma la funcion da igual si reciba el input o no, despues input hara que las funciones del evento se hagan
         }
     }
 
@@ -18,18 +18,17 @@ public class InteractiveObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InputManager.OnInteracting -= Prueba; 
+            InputManager.OnInteracting -= Interaction; 
         }
     }
 
-    protected virtual void Prueba()
+    protected virtual void Interaction()
     {
-        Debug.Log("prueba evento");
+
     }
 
     private void OnDisable()
     {
-        InputManager.OnInteracting -= Prueba;
-
+        InputManager.OnInteracting -= Interaction;
     }
 }

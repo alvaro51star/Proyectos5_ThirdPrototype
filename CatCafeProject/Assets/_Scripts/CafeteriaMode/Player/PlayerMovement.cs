@@ -10,7 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private Vector3 directionInput;
     private float directionX, directionZ;
+    private CharacterController characterController;
 
+    private void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
     void Update()
     {
         GetInputDirection();
@@ -18,11 +23,12 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
+
     private void Movement()
     {
         if (canMove)
         {
-            transform.Translate(directionInput.normalized * (speed * Time.deltaTime));
+            characterController.SimpleMove(directionInput.normalized * speed);
         }
         //else anim de idle
     }
