@@ -8,30 +8,21 @@ public class InteractiveCupboard : InteractiveObject
 {
     [SerializeField] private FoodTypes foodType;
     [SerializeField] private FoodSpawner foodSpawner;
+    private PlayerFoodController playerFoodController;
 
     protected override void OnTriggerEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
-
         if(other.GetComponent<PlayerFoodController>() != null)
         {
-            PlayerFoodController foodController = other.GetComponent<PlayerFoodController>();
-            foodController.foodType = foodType;
-            FoodSpawner.OnTakeFood += foodController.TakeFood;            
+            playerFoodController = other.GetComponent<PlayerFoodController>();        
         }
+        base.OnTriggerEnter(other);
     }
 
-    protected override void OnTriggerExit(Collider other)
-    {
-        base.OnTriggerExit(other);
-
-        if (other.GetComponent<PlayerFoodController>() != null)
-        {
-            FoodSpawner.OnTakeFood -= other.GetComponent<PlayerFoodController>().TakeFood;
-        }
-    }
     protected override void Interaction()
     {
+        playerFoodController.foodType = foodType;
         foodSpawner.DisableSpawnedFood();
+        playerFoodController.EnableFoodGO(true);
     }
 }
