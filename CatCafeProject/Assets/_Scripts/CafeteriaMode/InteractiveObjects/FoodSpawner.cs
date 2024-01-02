@@ -5,10 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
-{       
+{
+    public static event Action OnTakeFood;//para que el player coja la comida
+
     [SerializeField] private GameObject foodGO;
     [SerializeField] private float secondsToSpawn;
-
 
     private void Start()
     {
@@ -33,7 +34,9 @@ public class FoodSpawner : MonoBehaviour
         foodGO.SetActive(false);
         if (!foodGO.activeSelf)
         {
+            Debug.Log(foodGO.activeSelf);
             InteractiveCupboard.OnFoodEnabled -= DisableSpawnedFood;
+            OnTakeFood?.Invoke();
         }
         StartCoroutine(SpawnTimer(secondsToSpawn));
     }

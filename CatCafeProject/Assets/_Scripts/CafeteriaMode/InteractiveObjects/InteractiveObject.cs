@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 { //solamente se usara como padre para interactuar
-    [SerializeField] InputManager InputManager;
+    [SerializeField] protected InputManager InputManager;
 
     protected virtual void OnTriggerEnter(Collider other)
     {
@@ -18,7 +18,7 @@ public class InteractiveObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InputManager.OnInteracting -= Interaction; 
+            InputManager.OnInteracting -= Interaction;
         }
     }
 
