@@ -14,7 +14,6 @@ public class FoodSpawner : MonoBehaviour
     private void Start()
     {
         foodGO.SetActive(true);
-        InteractiveCupboard.OnFoodEnabled += DisableSpawnedFood; //añadimos funcion para que si pueda desactivarla cuando interactue
     }
 
     //timer en corutina para evitar update, TENER CUIDADO EN PAUSA
@@ -22,20 +21,13 @@ public class FoodSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         foodGO.SetActive(true);
-        if (foodGO.activeSelf)
-        {
-            InteractiveCupboard.OnFoodEnabled += DisableSpawnedFood;
-        }
     }
 
-    private void DisableSpawnedFood()
+    public void DisableSpawnedFood()
     {
-        Debug.Log("DisableSpawnedFood is available");
         foodGO.SetActive(false);
         if (!foodGO.activeSelf)
         {
-            Debug.Log(foodGO.activeSelf);
-            InteractiveCupboard.OnFoodEnabled -= DisableSpawnedFood;
             OnTakeFood?.Invoke();
         }
         StartCoroutine(SpawnTimer(secondsToSpawn));

@@ -6,9 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(FoodSpawner))]
 public class InteractiveCupboard : InteractiveObject
 {
-    public static event Action OnFoodEnabled;
-
     [SerializeField] private FoodTypes foodType;
+    [SerializeField] private FoodSpawner foodSpawner;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -33,6 +32,6 @@ public class InteractiveCupboard : InteractiveObject
     }
     protected override void Interaction()
     {
-        OnFoodEnabled?.Invoke();//usado en FoodSpawner
+        foodSpawner.DisableSpawnedFood();
     }
 }
