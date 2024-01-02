@@ -44,13 +44,14 @@ public enum FoodTypes
     Milk,
     Donut,
     Cupcake,
-    Cake
+    Cake,
+    Nothing
 }
 
 public enum CatState
 {
     Happy,
-    Anoyed,
+    Annoyed,
     Angry
 }
 
