@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InteractiveTable : InteractiveObject
 {
-    private FoodTypes foodType;
+    [SerializeField] private FoodTypes orderedFood; //cuando haya gatos esto se cambiara segun su pedido
+    private FoodTypes playerFoodType;
     private PlayerFoodController tableFoodController;
     private PlayerFoodController playerFoodController;
 
@@ -24,10 +25,18 @@ public class InteractiveTable : InteractiveObject
     }
     protected override void Interaction()
     {
-        foodType = playerFoodController.foodType;
-        tableFoodController.foodType = foodType;
+        playerFoodType = playerFoodController.foodType;
 
-        playerFoodController.EnableFoodGO(false);
-        tableFoodController.EnableFoodGO(true);
+        if(playerFoodType == orderedFood)
+        {
+            tableFoodController.foodType = playerFoodType;
+
+            playerFoodController.EnableFoodGO(false);
+            tableFoodController.EnableFoodGO(true);
+        }
+        else
+        {
+            Debug.Log("Este no es el pedido");
+        }
     }
 }

@@ -1369,6 +1369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
+  orderedFood: 2
 --- !u!65 &525866731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2888,6 +2889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
+  orderedFood: 0
 --- !u!65 &1250711679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3267,6 +3269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
+  orderedFood: 1
 --- !u!65 &1523249515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3531,6 +3534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
+  orderedFood: 3
 --- !u!114 &1648616193
 MonoBehaviour:
   m_ObjectHideFlags: 0
