@@ -4234,7 +4234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  foodType: 4
   milkGO: {fileID: 393334519}
   donutGO: {fileID: 1572616174}
   cupcakeGO: {fileID: 1017381476}

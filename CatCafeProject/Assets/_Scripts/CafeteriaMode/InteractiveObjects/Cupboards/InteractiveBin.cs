@@ -16,5 +16,6 @@ public class InteractiveBin : InteractiveObject
     protected override void Interaction()
     {
         playerFoodController.EnableFoodGO(false);
+        playerFoodController.foodType = FoodTypes.Nothing;
     }
 }
