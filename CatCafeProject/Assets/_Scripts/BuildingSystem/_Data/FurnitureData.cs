@@ -47,8 +47,8 @@ public class FurnitureData
         furnitureName = itemData.name;
         furnitureId = itemData.ID;
         furniturePrize = itemData.buyValue;
-        furnitureType = itemData.;
-        furnitureTheme = itemData.;
+        furnitureType = itemData.furnitureType;
+        furnitureTheme = itemData.furnitureTheme;
     }
 
     public void AssingIndexInObjectsCreated(int index)
