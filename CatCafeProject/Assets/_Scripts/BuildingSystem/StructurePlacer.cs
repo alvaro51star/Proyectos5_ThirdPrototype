@@ -47,7 +47,8 @@ public class StructurePlacer : MonoBehaviour
     {
         int freeIndex = GetFreeIndex();
         GameObject newObject = Instantiate(objectToPlace);
-        //TODO colocar los datos en los scripts
+        newObject.AddComponent<FurnitureData>();
+        newObject.GetComponent<FurnitureData>().AssignFurnitureData(itemData); //Add data to the prefab to work with it later on
         newObject.transform.SetParent(transform);
         Vector3 placementPosition = new Vector3(position.x, yHeight, position.z);
         newObject.transform.position = placementPosition;
