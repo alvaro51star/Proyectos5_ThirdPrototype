@@ -47,6 +47,12 @@ public enum FoodTypes
     Cake
 }
 
+public enum CatState
+{
+    Happy,
+    Anoyed,
+    Angry
+}
 
 
 

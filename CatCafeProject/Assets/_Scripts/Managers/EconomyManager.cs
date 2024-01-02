@@ -53,4 +53,11 @@ public class EconomyManager : MonoBehaviour
     {
         return currentMoney;
     }
+
+    public int CalculateTip(CatDataSO catData, CatState catState, FoodTypes foodType)
+    {
+        
+
+        return 0;
+    }
 }

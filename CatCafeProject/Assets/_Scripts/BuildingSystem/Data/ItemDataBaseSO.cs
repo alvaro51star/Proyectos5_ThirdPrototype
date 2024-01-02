@@ -52,4 +52,6 @@ public class ItemData
     public GameObject previewObject;
     public int buyValue;
     public int sellValue;
+    public FurnitureTheme furnitureTheme;
+    public FurnitureType furnitureType;
 }

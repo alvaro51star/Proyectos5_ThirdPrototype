@@ -43,10 +43,11 @@ public class StructurePlacer : MonoBehaviour
     /// <param name="rotation"></param>
     /// <param name="yHeight"></param>
     /// <returns></returns>
-    public int PlaceStructure(GameObject objectToPlace, Vector3 position, Quaternion rotation, float yHeight)
+    public int PlaceStructure(GameObject objectToPlace, Vector3 position, Quaternion rotation, float yHeight, ItemData itemData)
     {
         int freeIndex = GetFreeIndex();
         GameObject newObject = Instantiate(objectToPlace);
+        //TODO colocar los datos en los scripts
         newObject.transform.SetParent(transform);
         Vector3 placementPosition = new Vector3(position.x, yHeight, position.z);
         newObject.transform.position = placementPosition;
