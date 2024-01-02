@@ -534,6 +534,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &263257353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263257354}
+  m_Layer: 0
+  m_Name: Mesas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263257354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263257353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1648616190}
+  - {fileID: 1250711676}
+  - {fileID: 1523249512}
+  - {fileID: 525866728}
+  m_Father: {fileID: 1351180111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264494175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1337,7 @@ Transform:
   m_Children:
   - {fileID: 662165021}
   - {fileID: 1860575422}
-  m_Father: {fileID: 1351180111}
+  m_Father: {fileID: 263257354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &525866729
 MonoBehaviour:
@@ -1334,7 +1369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
-  foodType: 0
 --- !u!65 &525866731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2822,7 +2856,7 @@ Transform:
   m_Children:
   - {fileID: 773283887}
   - {fileID: 264494176}
-  m_Father: {fileID: 1351180111}
+  m_Father: {fileID: 263257354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1250711677
 MonoBehaviour:
@@ -2854,7 +2888,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
-  foodType: 0
 --- !u!65 &1250711679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3129,11 +3162,8 @@ Transform:
   m_Children:
   - {fileID: 1914153980}
   - {fileID: 981406767}
+  - {fileID: 263257354}
   - {fileID: 2132182530}
-  - {fileID: 1648616190}
-  - {fileID: 1250711676}
-  - {fileID: 1523249512}
-  - {fileID: 525866728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492003781
@@ -3205,7 +3235,7 @@ Transform:
   m_Children:
   - {fileID: 496911469}
   - {fileID: 1690037624}
-  m_Father: {fileID: 1351180111}
+  m_Father: {fileID: 263257354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1523249513
 MonoBehaviour:
@@ -3237,7 +3267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
-  foodType: 0
 --- !u!65 &1523249515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3466,7 +3495,7 @@ Transform:
   m_Children:
   - {fileID: 1523810476}
   - {fileID: 603688518}
-  m_Father: {fileID: 1351180111}
+  m_Father: {fileID: 263257354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1648616191
 BoxCollider:
@@ -3502,7 +3531,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 767875549}
-  foodType: 0
 --- !u!114 &1648616193
 MonoBehaviour:
   m_ObjectHideFlags: 0
