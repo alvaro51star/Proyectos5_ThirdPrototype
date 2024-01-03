@@ -65,6 +65,4 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             OnInteracting?.Invoke();
     }
-
-    //TODO Se puede hacer lo de que el input sea por botones aqui
 }
