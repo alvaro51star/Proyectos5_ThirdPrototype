@@ -6,6 +6,9 @@ public class FurnitureManager : MonoBehaviour
 {
     public static FurnitureManager instance;
 
+    [SerializeField] private List<GameObject> furnitures;
+
+    
 
     private void Awake()
     {
