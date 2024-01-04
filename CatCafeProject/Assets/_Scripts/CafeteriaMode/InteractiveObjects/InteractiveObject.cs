@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 { //solamente se usara como padre para interactuar
-    [SerializeField] protected InputManager InputManager;
-
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

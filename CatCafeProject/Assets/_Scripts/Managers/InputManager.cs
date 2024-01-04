@@ -19,7 +19,9 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private LayerMask placementLayermask;
 
-    public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo, OnInteracting;
+    public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo;
+
+    public static event Action OnInteracting;
 
     public event Action<int> OnRotate;
 

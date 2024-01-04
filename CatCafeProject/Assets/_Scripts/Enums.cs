@@ -55,5 +55,9 @@ public enum CatState
     Angry
 }
 
-
+public enum GameModes
+{
+    Decoration,
+    Cafeteria
+}
 
