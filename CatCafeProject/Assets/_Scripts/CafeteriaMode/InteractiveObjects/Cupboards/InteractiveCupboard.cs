@@ -8,13 +8,13 @@ public class InteractiveCupboard : InteractiveObject
 {
     [SerializeField] private FoodTypes foodType;
     [SerializeField] private FoodSpawner foodSpawner;
-    private PlayerFoodController playerFoodController;
+    private FoodController playerFoodController;
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<PlayerFoodController>() != null)
+        if(other.GetComponent<FoodController>() != null)
         {
-            playerFoodController = other.GetComponent<PlayerFoodController>();        
+            playerFoodController = other.GetComponent<FoodController>();        
         }
         base.OnTriggerEnter(other);
     }

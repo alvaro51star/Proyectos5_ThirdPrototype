@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InteractiveBin : InteractiveObject
 {
-    private PlayerFoodController playerFoodController;
+    private FoodController playerFoodController;
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerFoodController>() != null)
+        if (other.GetComponent<FoodController>() != null)
         {
-            playerFoodController = other.GetComponent<PlayerFoodController>();
+            playerFoodController = other.GetComponent<FoodController>();
         }
         base.OnTriggerEnter(other);
     }

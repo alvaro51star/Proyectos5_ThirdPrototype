@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (!DecorationMode.activeSelf)
         {
-            navMeshSurface.BuildNavMesh();//para esto hay que bakear una en el editor porque si no los agentes dan error
+            navMeshSurface.BuildNavMesh();
             CafeteriaMode?.SetActive(true);
         }
     }

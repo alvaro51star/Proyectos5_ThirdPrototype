@@ -7,20 +7,26 @@ public class InteractiveTable : InteractiveObject
 {
     [SerializeField] private FoodTypes orderedFood; //cuando haya gatos esto se cambiara segun su pedido
     private FoodTypes playerFoodType;
-    private PlayerFoodController tableFoodController;
-    private PlayerFoodController playerFoodController;
+    private FoodController tableFoodController;
+    private FoodController playerFoodController;
 
     private void Start()
     {
-        tableFoodController = GetComponent<PlayerFoodController>();
+        tableFoodController = GetComponent<FoodController>();
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerFoodController>() != null)
+        if (other.GetComponent<FoodController>() != null)
         {
-            playerFoodController = other.GetComponent<PlayerFoodController>();
+            playerFoodController = other.GetComponent<FoodController>();
         }
+
+        else if (other.GetComponent<ClientData>() != null)
+        {
+            orderedFood = other.GetComponent<ClientData>().foodOrdered;
+        }
+
         base.OnTriggerEnter(other);
     }
     protected override void Interaction()
@@ -29,7 +35,7 @@ public class InteractiveTable : InteractiveObject
 
         if(playerFoodType == orderedFood)
         {
-            tableFoodController.foodType = playerFoodType;
+            tableFoodController.foodType = orderedFood;
 
             playerFoodController.EnableFoodGO(false);
             tableFoodController.EnableFoodGO(true);

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFoodController : MonoBehaviour
+public class FoodController : MonoBehaviour
 {
-    public FoodTypes foodType;
+    [HideInInspector] public FoodTypes foodType;
     [SerializeField] private GameObject milkGO;
     [SerializeField] private GameObject donutGO;
     [SerializeField] private GameObject cupcakeGO;
