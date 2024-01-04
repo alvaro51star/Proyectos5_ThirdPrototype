@@ -2,13 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnitureManager : MonoBehaviour
+public class FurnitureManager: MonoBehaviour
 {
     public static FurnitureManager instance;
 
     [SerializeField] private List<GameObject> furnitures;
+    [SerializeField] private int totalFurnitures;
 
-    
+    [Space]
+    [Header("Values of each furniture")]
+    [SerializeField] private Dictionary<FurnitureTheme, int> furnitureTypeCountDictionary;
+
+    [Space]
+    private int flowerFurnitureTotal = 0, heartFurnitureTotal = 0, leavesFurnitureTotal = 0, fishFurnitureTotal = 0, noThemeFurnitureTotal = 0;
+
+    [Space]
+    [Header("Percentages")]
+    public float flowerFurniturePercentage;
+    public float heartFurniturePercentage;
+    public float leavesFurniturePercentage;
+    public float fishFurniturePercentage;
 
     private void Awake()
     {
@@ -23,5 +36,69 @@ public class FurnitureManager : MonoBehaviour
         }
     }
 
-    
+    public void SetFurnitureData()
+    {
+        GetFurnitures();
+        CalculateFurnitureCountByTheme();
+        CalculateFurniturePercentages();
+    }
+
+    private void GetFurnitures()
+    {
+        furnitures      = FindAnyObjectByType<StructurePlacer>().placedObjects;
+        totalFurnitures = furnitures.Count;
+    }
+
+    private void CalculateFurnitureCountByTheme()
+    {
+        foreach (GameObject item in furnitures)
+        {
+            if (item.TryGetComponent<FurnitureData>(out FurnitureData data))
+            {
+                switch (data.furnitureTheme)
+                {
+                    case FurnitureTheme.None: 
+                        noThemeFurnitureTotal++;
+                        break;
+                    case FurnitureTheme.Flowers: 
+                        flowerFurnitureTotal++;
+                        break;
+                    case FurnitureTheme.Hearts: 
+                        heartFurnitureTotal++;
+                        break;
+                    case FurnitureTheme.Leaves: 
+                        leavesFurnitureTotal++;
+                        break;
+                    case FurnitureTheme.Fishes: 
+                        fishFurnitureTotal++;
+                        break;
+                }
+            }
+        }
+    }
+
+    private void CalculateFurniturePercentages()
+    {
+        flowerFurniturePercentage = (flowerFurnitureTotal / totalFurnitures) * 100;
+        heartFurniturePercentage  = (heartFurnitureTotal / totalFurnitures) * 100;
+        leavesFurniturePercentage = (leavesFurnitureTotal / totalFurnitures) * 100;
+        fishFurniturePercentage   = (fishFurnitureTotal / totalFurnitures) * 100;
+    }
+
+    private void ResetFurnitureManagerData()
+    {
+        furnitures.Clear();
+        totalFurnitures = 0;
+
+        flowerFurniturePercentage = 0;
+        heartFurniturePercentage  = 0;
+        leavesFurniturePercentage = 0;
+        fishFurniturePercentage   = 0;
+
+        flowerFurnitureTotal  = 0;
+        heartFurnitureTotal   = 0;
+        leavesFurnitureTotal  = 0;
+        fishFurnitureTotal    = 0;
+        noThemeFurnitureTotal = 0;
+    }
 }

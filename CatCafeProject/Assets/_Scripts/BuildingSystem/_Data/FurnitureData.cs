@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnitureData : MonoBehaviour
+public class FurnitureData: MonoBehaviour
 {
     [SerializeField] private string furnitureName;
     [SerializeField] private int furnitureId;
     [SerializeField] private int furniturePrize;
-    [SerializeField] private FurnitureType furnitureType;
-    [SerializeField] private FurnitureTheme furnitureTheme;
+    [SerializeField] public FurnitureType furnitureType{private set; get;}
+    [SerializeField] public FurnitureTheme furnitureTheme {private set; get;}
     [SerializeField] private int listIndex;
 
     public delegate void FurnitureAction(FurnitureData furnitureData, Vector3 position);
@@ -17,37 +17,37 @@ public class FurnitureData : MonoBehaviour
 
     public FurnitureData(string furnitureName, int furnitureId, int furniturePrize, FurnitureType furnitureType, FurnitureTheme furnitureTheme)
     {
-        this.furnitureName = furnitureName;
-        this.furnitureId = furnitureId;
+        this.furnitureName  = furnitureName;
+        this.furnitureId    = furnitureId;
         this.furniturePrize = furniturePrize;
-        this.furnitureType = furnitureType;
+        this.furnitureType  = furnitureType;
         this.furnitureTheme = furnitureTheme;
     }
 
     public void AssignFurnitureData(string furnitureName, int furnitureId, int furniturePrize, FurnitureType furnitureType, FurnitureTheme furnitureTheme)
     {
-        this.furnitureName = furnitureName;
-        this.furnitureId = furnitureId;
+        this.furnitureName  = furnitureName;
+        this.furnitureId    = furnitureId;
         this.furniturePrize = furniturePrize;
-        this.furnitureType = furnitureType;
+        this.furnitureType  = furnitureType;
         this.furnitureTheme = furnitureTheme;
     }
 
     public void AssignFurnitureData(ObjectData objectData)
     {
-        furnitureName = objectData.Name;
-        furnitureId = objectData.ID;
+        furnitureName  = objectData.Name;
+        furnitureId    = objectData.ID;
         furniturePrize = objectData.Prize;
-        furnitureType = objectData.furnitureType;
+        furnitureType  = objectData.furnitureType;
         furnitureTheme = objectData.furnitureTheme;
     }
 
     public void AssignFurnitureData(ItemData itemData)
     {
-        furnitureName = itemData.name;
-        furnitureId = itemData.ID;
+        furnitureName  = itemData.name;
+        furnitureId    = itemData.ID;
         furniturePrize = itemData.buyValue;
-        furnitureType = itemData.furnitureType;
+        furnitureType  = itemData.furnitureType;
         furnitureTheme = itemData.furnitureTheme;
     }
 
