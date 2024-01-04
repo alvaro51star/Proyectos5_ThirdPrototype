@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
@@ -30,6 +31,18 @@ public class EconomyManager : MonoBehaviour
     [Header("Food Value List")]
     public List<FoodTypeValueTupla> foodTypeValues;
 
+    [Space]
+    [Header("Receip variables")]
+    [SerializeField]
+    private Dictionary<FoodTypes, int> orders = new Dictionary<FoodTypes, int> {
+        {FoodTypes.Milk,0},
+        {FoodTypes.Donut,0},
+        {FoodTypes.Cupcake,0},
+        {FoodTypes.Cake,0}
+    };
+
+    [SerializeField] private List<int> totalTipsList;
+
     //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
     private void Awake()
@@ -56,6 +69,8 @@ public class EconomyManager : MonoBehaviour
             currentMoney = defaultMoney;
             PlayerPrefs.SetInt("CurrentMoney", currentMoney);
         }
+
+        PrintReceip(); //!Prueba
     }
 
     private void Update()
@@ -76,6 +91,11 @@ public class EconomyManager : MonoBehaviour
 
     public int CalculateTotalMoney(CatDataSO catData, CatState catStateTime, CatState catStateDecoration, FoodTypes foodType, FurnitureTheme tableTheme)
     {
+        if (orders.TryGetValue(foodType, out int value)) //add order to the menu
+        {
+            orders.Add(foodType, value + 1);
+        }
+
         if (catData.difficulty == CatDifficulty.Rich)
         {
             return CalculateTip(catData, catStateTime, catStateDecoration, foodType, tableTheme) + GetFoodValue(foodType);
@@ -109,16 +129,12 @@ public class EconomyManager : MonoBehaviour
                 break;
         }
 
+        totalTipsList.Add(totalTip);
         return totalTip;
     }
 
     public int CalculateTip(CatDataSO catData, CatState catStateTime, CatState catStateDecoration, FoodTypes foodType, FurnitureTheme tableTheme)
     {
-        if (catData.difficulty != CatDifficulty.Rich)
-        {
-            return CalculateTip(catData, catStateTime, catStateDecoration, foodType);
-        }
-
         int totalTip = 0;
         int foodValue = GetFoodValue(foodType);
 
@@ -132,6 +148,7 @@ public class EconomyManager : MonoBehaviour
             totalTip += CalculateCatStateTip(foodValue * BAD_TABLE_PERCENT, catStateTime);
         }
 
+        totalTipsList.Add(totalTip);
         return totalTip;
     }
 
@@ -160,6 +177,22 @@ public class EconomyManager : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    public void PrintReceip()
+    {
+        int totalTips = 0;
+        foreach (KeyValuePair<FoodTypes, int> keyValue in orders)
+        {
+            int foodValue = GetFoodValue(keyValue.Key);
+            //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
+            Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
+        }
+        foreach (int tip in totalTipsList)
+        {
+            totalTips += tip;
+        }
+        Debug.Log(totalTips);
     }
 }
 
