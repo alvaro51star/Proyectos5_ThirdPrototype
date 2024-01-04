@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EconomyManager : MonoBehaviour
+public class EconomyManager: MonoBehaviour
 {
     [Header("Percentages")]
     [SerializeField] private float GOOD_TABLE_PERCENT = 0.35f;
-    [SerializeField] private float BAD_TABLE_PERCENT = 0.25f;
-    [SerializeField] private float TIME_PERCENT = 0.25f;
+    [SerializeField] private float BAD_TABLE_PERCENT  = 0.25f;
+    [SerializeField] private float TIME_PERCENT       = 0.25f;
     [SerializeField] private float DECORATION_PERCENT = 0.35f;
+
     [Space]
     [Header("Multipliers")]
     [SerializeField] private float NORMAL_MULTIPLIER = 1.1f;
-    [SerializeField] private float HARD_MULTIPLIER = 1.25f;
-    [SerializeField] private float RICH_MULTIPLIER = 1.5f;
+    [SerializeField] private float HARD_MULTIPLIER   = 1.25f;
+    [SerializeField] private float RICH_MULTIPLIER   = 1.5f;
 
 
     public static EconomyManager instance;
@@ -43,7 +44,7 @@ public class EconomyManager : MonoBehaviour
 
     [SerializeField] private List<int> totalTipsList;
 
-    //TODO hacer una lista de los precios del dia para incluirlos en el recibo
+      //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
     private void Awake()
     {
@@ -70,7 +71,7 @@ public class EconomyManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentMoney", currentMoney);
         }
 
-        PrintReceip(); //!Prueba
+        PrintReceip();  //!Prueba
     }
 
     private void Update()
@@ -91,7 +92,7 @@ public class EconomyManager : MonoBehaviour
 
     public int CalculateTotalMoney(CatDataSO catData, CatState catStateTime, CatState catStateDecoration, FoodTypes foodType, FurnitureTheme tableTheme)
     {
-        if (orders.TryGetValue(foodType, out int value)) //add order to the menu
+        if (orders.TryGetValue(foodType, out int value))  //add order to the menu
         {
             orders.Add(foodType, value + 1);
         }
@@ -108,23 +109,23 @@ public class EconomyManager : MonoBehaviour
 
     public int CalculateTip(CatDataSO catData, CatState catStateTime, CatState catStateDecoration, FoodTypes foodType)
     {
-        int totalTip = 0;
+        int totalTip  = 0;
         int foodValue = GetFoodValue(foodType);
 
         totalTip = CalculateCatStateTip(foodValue * TIME_PERCENT, catStateTime) + CalculateCatStateTip(foodValue * DECORATION_PERCENT, catStateDecoration);
 
         switch (catData.difficulty)
         {
-            case CatDifficulty.Easy:
+            case CatDifficulty.Easy: 
                 totalTip *= 1;
                 break;
-            case CatDifficulty.Normal:
+            case CatDifficulty.Normal: 
                 totalTip *= (int)NORMAL_MULTIPLIER;
                 break;
-            case CatDifficulty.Hard:
+            case CatDifficulty.Hard: 
                 totalTip *= (int)HARD_MULTIPLIER;
                 break;
-            case CatDifficulty.Rich:
+            case CatDifficulty.Rich: 
                 totalTip *= (int)RICH_MULTIPLIER;
                 break;
         }
@@ -135,7 +136,7 @@ public class EconomyManager : MonoBehaviour
 
     public int CalculateTip(CatDataSO catData, CatState catStateTime, CatState catStateDecoration, FoodTypes foodType, FurnitureTheme tableTheme)
     {
-        int totalTip = 0;
+        int totalTip  = 0;
         int foodValue = GetFoodValue(foodType);
 
         if (tableTheme == FurnitureTheme.Fishes)
@@ -156,13 +157,13 @@ public class EconomyManager : MonoBehaviour
     {
         switch (catState)
         {
-            case CatState.Happy:
+            case CatState.Happy: 
                 return (int)maxTip;
-            case CatState.Annoyed:
+            case CatState.Annoyed: 
                 return (int)(maxTip * 0.5f);
-            case CatState.Angry:
+            case CatState.Angry: 
                 return 0;
-            default:
+            default: 
                 return 0;
         }
     }
@@ -185,7 +186,7 @@ public class EconomyManager : MonoBehaviour
         foreach (KeyValuePair<FoodTypes, int> keyValue in orders)
         {
             int foodValue = GetFoodValue(keyValue.Key);
-            //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
+              //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
             Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
         }
         foreach (int tip in totalTipsList)
