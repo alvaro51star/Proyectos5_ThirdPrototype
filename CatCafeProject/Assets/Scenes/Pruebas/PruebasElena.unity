@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b9c7eca84039e46864999862e8a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  table: {fileID: 1334258028}
+  destination: {fileID: 1334258028}
 --- !u!143 &937215826
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2520,10 +2520,10 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523810477}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 5, y: 1.5, z: 2.5}
+  m_Extents: {x: 2, y: 1.5, z: 1.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -3419,6 +3419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractiveTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681414609414717219, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3271646759349568612, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
         type: 3}

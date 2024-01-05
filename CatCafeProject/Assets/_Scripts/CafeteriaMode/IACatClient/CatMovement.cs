@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,26 +7,30 @@ using UnityEngine.AI;
 
 public class CatMovement : MonoBehaviour
 {
-    [SerializeField] Transform table;
+    public event Action OnPathNotAvailable;
+
+    public Transform destination;
     private NavMeshAgent agent;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
         CalculateNewPath();
-        Debug.Log(CalculateNewPath());
         if(CalculateNewPath())
         {
-            agent.SetDestination(table.position);
+            agent.SetDestination(destination.position);
+        }
+        else
+        {
+            OnPathNotAvailable?.Invoke();//para que salga aviso de que no se puede
         }
     }
 
     bool CalculateNewPath() //and check if full path is available
     {
         var path = new NavMeshPath();
-        agent.CalculatePath(table.position, path);
-        Debug.Log("New path calculated");
-        if (agent.CalculatePath(table.position, path))
+        agent.CalculatePath(destination.position, path);
+        if (agent.CalculatePath(destination.position, path))
         {
             if (path.status != NavMeshPathStatus.PathComplete)
             {
