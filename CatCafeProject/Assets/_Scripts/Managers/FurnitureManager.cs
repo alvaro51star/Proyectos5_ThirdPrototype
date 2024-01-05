@@ -43,15 +43,15 @@ public class FurnitureManager: MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        GameManager.OnGameModeChange += SetUpManagerForGamemode;
-    }
+    // private void OnEnable()
+    // {
+    //     GameManager.OnGameModeChange += SetUpManagerForGamemode;
+    // }
 
-    private void OnDisable()
-    {
-        GameManager.OnGameModeChange -= SetUpManagerForGamemode;
-    }
+    // private void OnDisable()
+    // {
+    //     GameManager.OnGameModeChange -= SetUpManagerForGamemode;
+    // }
 
     private void SetUpManagerForGamemode(GameModes gameMode)
     {
@@ -75,7 +75,7 @@ public class FurnitureManager: MonoBehaviour
 
     private void GetFurnitures()
     {
-        furnitures      = FindAnyObjectByType<StructurePlacer>().placedObjects;
+        furnitures      = new List<GameObject>(FindAnyObjectByType<StructurePlacer>().placedObjects);
         totalFurnitures = furnitures.Count;
     }
 
@@ -120,15 +120,20 @@ public class FurnitureManager: MonoBehaviour
 
     private void CalculateFurniturePercentages()
     {
+        if (totalFurnitures == 0)
+        {
+            return;
+        }
         flowerFurniturePercentage = (flowerFurnitureTotal / totalFurnitures) * 100;
         heartFurniturePercentage  = (heartFurnitureTotal / totalFurnitures) * 100;
         leavesFurniturePercentage = (leavesFurnitureTotal / totalFurnitures) * 100;
         fishFurniturePercentage   = (fishFurnitureTotal / totalFurnitures) * 100;
     }
 
-    private void ResetFurnitureManagerData()
+    public void ResetFurnitureManagerData()
     {
         furnitures.Clear();
+        tableList.Clear();
         totalFurnitures = 0;
 
         flowerFurniturePercentage = 0;

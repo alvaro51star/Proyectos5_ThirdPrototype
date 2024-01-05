@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1124248893811688063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9097825297369824324}
+  - component: {fileID: 620799169500887192}
+  m_Layer: 0
+  m_Name: EconomyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9097825297369824324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124248893811688063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620799169500887192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124248893811688063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b505f87b6f1eac408c24c676605bffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GOOD_TABLE_PERCENT: 0.35
+  BAD_TABLE_PERCENT: 0.25
+  TIME_PERCENT: 0.25
+  DECORATION_PERCENT: 0.35
+  NORMAL_MULTIPLIER: 1.1
+  HARD_MULTIPLIER: 1.25
+  RICH_MULTIPLIER: 1.5
+  defaultMoney: 500
+  currentMoney: 0
+  foodTypeValues:
+  - foodType: 4
+    prize: 0
+  - foodType: 0
+    prize: 50
+  - foodType: 1
+    prize: 100
+  - foodType: 2
+    prize: 200
+  - foodType: 3
+    prize: 400
+  totalTipsList: 

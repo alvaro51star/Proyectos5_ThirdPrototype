@@ -22,6 +22,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Floor
     ID: 1
     size: {x: 2, y: 2}
@@ -31,6 +33,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Window
     ID: 2
     size: {x: 2, y: 1}
@@ -40,6 +44,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Door
     ID: 3
     size: {x: 2, y: 1}
@@ -50,6 +56,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: BedBig
     ID: 4
     size: {x: 2, y: 2}
@@ -60,6 +68,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 200
     sellValue: 100
+    furnitureTheme: 0
+    furnitureType: 0
   - name: BedSmall
     ID: 5
     size: {x: 1, y: 2}
@@ -70,6 +80,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 150
     sellValue: 75
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Chair
     ID: 6
     size: {x: 1, y: 1}
@@ -80,6 +92,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Table
     ID: 7
     size: {x: 2, y: 1}
@@ -88,8 +102,10 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 3493615974341626966, guid: c8183485a28237d4385a3c7ef8659faa,
       type: 3}
-    buyValue: 0
+    buyValue: 200
     sellValue: 0
+    furnitureTheme: 1
+    furnitureType: 2
   - name: Fridge
     ID: 8
     size: {x: 1, y: 1}
@@ -100,6 +116,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Cabinet
     ID: 9
     size: {x: 1, y: 1}
@@ -110,6 +128,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Kitchen Sink
     ID: 10
     size: {x: 1, y: 1}
@@ -120,6 +140,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Toilet
     ID: 11
     size: {x: 1, y: 1}
@@ -130,6 +152,8 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Sink
     ID: 12
     size: {x: 1, y: 1}
@@ -140,3 +164,5 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0

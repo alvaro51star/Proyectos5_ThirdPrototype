@@ -29,24 +29,26 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       ChangeGameMode(GameModes.Cafeteria);//esto obviamente no ira aqui
+       ChangeGameMode(GameModes.Decoration);//esto obviamente no ira aqui
     }
 
     public void ChangeGameMode(GameModes gameMode)
     {
-        OnGameModeChange?.Invoke(gameMode);
         switch (gameMode)
         {
             case GameModes.Decoration:
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
+                FurnitureManager.instance.ResetFurnitureManagerData();
                 break;
             case GameModes.Cafeteria:
+                FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 break;
             
         }
+        OnGameModeChange?.Invoke(gameMode);
     }
 
     private void CafeteriaGameMode()
