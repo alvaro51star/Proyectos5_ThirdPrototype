@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnitureManager: MonoBehaviour
+public class FurnitureManager : MonoBehaviour
 {
     public static FurnitureManager instance;
 
@@ -14,7 +14,11 @@ public class FurnitureManager: MonoBehaviour
     [SerializeField] private Dictionary<FurnitureTheme, int> furnitureTypeCountDictionary;
 
     [Space]
-    private int flowerFurnitureTotal = 0, heartFurnitureTotal = 0, leavesFurnitureTotal = 0, fishFurnitureTotal = 0, noThemeFurnitureTotal = 0;
+    private int flowerFurnitureTotal = 0;
+    private int heartFurnitureTotal = 0;
+    private int leavesFurnitureTotal = 0;
+    private int fishFurnitureTotal = 0;
+    private int noThemeFurnitureTotal = 0;
 
     [Space]
     [Header("Percentages")]
@@ -36,6 +40,28 @@ public class FurnitureManager: MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameManager.OnGameModeChange += SetUpManagerForGamemode;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameModeChange -= SetUpManagerForGamemode;
+    }
+
+    private void SetUpManagerForGamemode(GameModes gameMode)
+    {
+        if (gameMode == GameModes.Cafeteria)
+        {
+            SetFurnitureData();
+        }
+        else
+        {
+            ResetFurnitureManagerData();
+        }
+    }
+
     public void SetFurnitureData()
     {
         GetFurnitures();
@@ -45,7 +71,7 @@ public class FurnitureManager: MonoBehaviour
 
     private void GetFurnitures()
     {
-        furnitures      = FindAnyObjectByType<StructurePlacer>().placedObjects;
+        furnitures = FindAnyObjectByType<StructurePlacer>().placedObjects;
         totalFurnitures = furnitures.Count;
     }
 
@@ -57,19 +83,19 @@ public class FurnitureManager: MonoBehaviour
             {
                 switch (data.furnitureTheme)
                 {
-                    case FurnitureTheme.None: 
+                    case FurnitureTheme.None:
                         noThemeFurnitureTotal++;
                         break;
-                    case FurnitureTheme.Flowers: 
+                    case FurnitureTheme.Flowers:
                         flowerFurnitureTotal++;
                         break;
-                    case FurnitureTheme.Hearts: 
+                    case FurnitureTheme.Hearts:
                         heartFurnitureTotal++;
                         break;
-                    case FurnitureTheme.Leaves: 
+                    case FurnitureTheme.Leaves:
                         leavesFurnitureTotal++;
                         break;
-                    case FurnitureTheme.Fishes: 
+                    case FurnitureTheme.Fishes:
                         fishFurnitureTotal++;
                         break;
                 }
@@ -80,9 +106,9 @@ public class FurnitureManager: MonoBehaviour
     private void CalculateFurniturePercentages()
     {
         flowerFurniturePercentage = (flowerFurnitureTotal / totalFurnitures) * 100;
-        heartFurniturePercentage  = (heartFurnitureTotal / totalFurnitures) * 100;
+        heartFurniturePercentage = (heartFurnitureTotal / totalFurnitures) * 100;
         leavesFurniturePercentage = (leavesFurnitureTotal / totalFurnitures) * 100;
-        fishFurniturePercentage   = (fishFurnitureTotal / totalFurnitures) * 100;
+        fishFurniturePercentage = (fishFurnitureTotal / totalFurnitures) * 100;
     }
 
     private void ResetFurnitureManagerData()
@@ -91,14 +117,14 @@ public class FurnitureManager: MonoBehaviour
         totalFurnitures = 0;
 
         flowerFurniturePercentage = 0;
-        heartFurniturePercentage  = 0;
+        heartFurniturePercentage = 0;
         leavesFurniturePercentage = 0;
-        fishFurniturePercentage   = 0;
+        fishFurniturePercentage = 0;
 
-        flowerFurnitureTotal  = 0;
-        heartFurnitureTotal   = 0;
-        leavesFurnitureTotal  = 0;
-        fishFurnitureTotal    = 0;
+        flowerFurnitureTotal = 0;
+        heartFurnitureTotal = 0;
+        leavesFurnitureTotal = 0;
+        fishFurnitureTotal = 0;
         noThemeFurnitureTotal = 0;
     }
 }
