@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGameMode(GameModes gameMode)
     {
+        OnGameModeChange?.Invoke(gameMode);
         switch (gameMode)
         {
             case GameModes.Decoration:
@@ -46,7 +47,6 @@ public class GameManager : MonoBehaviour
                 break;
             
         }
-        OnGameModeChange?.Invoke(gameMode);
     }
 
     private void CafeteriaGameMode()
