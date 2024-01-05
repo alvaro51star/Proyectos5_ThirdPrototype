@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -936,7 +936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913320101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2170,6 +2170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GOOD_TABLE_PERCENT: 0.35
   BAD_TABLE_PERCENT: 0.25
+  TIME_PERCENT: 0.25
+  DECORATION_PERCENT: 0.35
+  NORMAL_MULTIPLIER: 1.1
+  HARD_MULTIPLIER: 1.25
+  RICH_MULTIPLIER: 1.5
   defaultMoney: 500
   currentMoney: 0
   foodTypeValues:
@@ -2183,6 +2188,7 @@ MonoBehaviour:
     prize: 200
   - foodType: 3
     prize: 400
+  totalTipsList: 
 --- !u!4 &1882751685
 Transform:
   m_ObjectHideFlags: 0

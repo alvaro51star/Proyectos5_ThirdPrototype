@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,14 @@ public class FurnitureManager : MonoBehaviour
 {
     public static FurnitureManager instance;
 
-    [SerializeField] private List<GameObject> furnitures;
+    public List<GameObject> furnitures;
+    public List<GameObject> tableList;
     [SerializeField] private int totalFurnitures;
 
     [Space]
     [Header("Values of each furniture")]
     [SerializeField] private Dictionary<FurnitureTheme, int> furnitureTypeCountDictionary;
+
 
     [Space]
     private int flowerFurnitureTotal = 0;
@@ -65,6 +68,7 @@ public class FurnitureManager : MonoBehaviour
     public void SetFurnitureData()
     {
         GetFurnitures();
+        GetTables();
         CalculateFurnitureCountByTheme();
         CalculateFurniturePercentages();
     }
@@ -73,6 +77,17 @@ public class FurnitureManager : MonoBehaviour
     {
         furnitures = FindAnyObjectByType<StructurePlacer>().placedObjects;
         totalFurnitures = furnitures.Count;
+    }
+
+    private void GetTables()
+    {
+        foreach (GameObject furniture in furnitures)
+        {
+            if (furniture.GetComponent<FurnitureData>().furnitureType == FurnitureType.Table)
+            {
+                tableList.Add(furniture);
+            }
+        }
     }
 
     private void CalculateFurnitureCountByTheme()
