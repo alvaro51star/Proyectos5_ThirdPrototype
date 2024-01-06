@@ -8,7 +8,7 @@ public class InteractiveObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InputManager.OnInteracting += Interaction; //suma la funcion da igual si reciba el input o no, despues input hara que las funciones del evento se hagan
+            InputManager.OnInteracting += Interaction;
         }
     }
 

@@ -277,6 +277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractiveTable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1681414609414717219, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3271646759349568612, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -452,6 +457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EconomyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124248893811688063, guid: 197e4df51816d9c4eb9c04be394fdaae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9097825297369824324, guid: 197e4df51816d9c4eb9c04be394fdaae,
         type: 3}
@@ -683,12 +693,12 @@ GameObject:
   m_Component:
   - component: {fileID: 263257354}
   m_Layer: 0
-  m_Name: Mesas
+  m_Name: Mesas (no finales)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &263257354
 Transform:
   m_ObjectHideFlags: 0
@@ -1005,6 +1015,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &375421837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1681414609414717219, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3253954132570006849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384904349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1052,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &392036928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392036929}
+  - component: {fileID: 392036930}
+  m_Layer: 0
+  m_Name: TableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &392036929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392036928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 753916490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392036930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392036928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa9764776604254b9e029d6bc675619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catMovement: {fileID: 937215825}
+  tableList:
+  - {fileID: 375421837}
 --- !u!1 &393334519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1623707788658912208, guid: d4fda9121a78eb54b9e1bf994df88c1a,
@@ -1305,6 +1368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractiveTable (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681414609414717219, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271646759349568612, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
         type: 3}
@@ -1833,6 +1901,7 @@ Transform:
   - {fileID: 1909805619}
   - {fileID: 937215824}
   - {fileID: 472057295}
+  - {fileID: 392036929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767875548
@@ -2838,6 +2907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractiveTable (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1681414609414717219, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3271646759349568612, guid: a5ec3c0dbd4ed3844b98bee22265d0a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2931,6 +3005,7 @@ MonoBehaviour:
   CafeteriaMode: {fileID: 753916489}
   DecorationMode: {fileID: 1331196359}
   navMeshSurface: {fileID: 472057294}
+  initialGameMode: 0
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
@@ -3448,7 +3523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1923342443
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject     CafeteriaMode;
     [SerializeField] private GameObject     DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
+    [SerializeField] private GameModes initialGameMode;
 
     public static event Action<GameModes> OnGameModeChange;
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       ChangeGameMode(GameModes.Decoration);//esto obviamente no ira aqui
+       ChangeGameMode(initialGameMode);
     }
 
     public void ChangeGameMode(GameModes gameMode)

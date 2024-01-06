@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class InteractiveTable : InteractiveObject
 {
-    [SerializeField] private FoodTypes orderedFood; //cuando haya gatos esto se cambiara segun su pedido
+    [SerializeField] private FoodController tableFoodController;
+    [SerializeField] private TableData tableData;    
     private FoodTypes playerFoodType;
-    private FoodController tableFoodController;
     private FoodController playerFoodController;
-
-    private void Start()
-    {
-        tableFoodController = GetComponent<FoodController>();
-    }
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -24,18 +19,18 @@ public class InteractiveTable : InteractiveObject
 
         else if (other.GetComponent<ClientData>() != null)
         {
-            orderedFood = other.GetComponent<ClientData>().foodOrdered;
+            tableData.orderedFood = other.GetComponent<ClientData>().foodOrdered;
         }
 
         base.OnTriggerEnter(other);
     }
-    protected override void Interaction()
+    protected override void Interaction()//take ordered food
     {
         playerFoodType = playerFoodController.foodType;
 
-        if(playerFoodType == orderedFood)
+        if(playerFoodType == tableData.orderedFood)
         {
-            tableFoodController.foodType = orderedFood;
+            tableFoodController.foodType = tableData.orderedFood;
 
             playerFoodController.EnableFoodGO(false);
             tableFoodController.EnableFoodGO(true);
@@ -43,6 +38,13 @@ public class InteractiveTable : InteractiveObject
         else
         {
             Debug.Log("Este no es el pedido");
+            //sonido "no"
         }
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+        tableData.TableIsFree();
     }
 }

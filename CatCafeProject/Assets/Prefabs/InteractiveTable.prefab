@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8238728616707983496}
   - component: {fileID: 2522344557598437090}
   - component: {fileID: 572390216314325}
+  - component: {fileID: 657039581152351353}
   m_Layer: 0
   m_Name: InteractiveTable
   m_TagString: Untagged
@@ -35,6 +36,7 @@ Transform:
   - {fileID: 713975700374310815}
   - {fileID: 172721759395430905}
   - {fileID: 4659560424513526169}
+  - {fileID: 6477298120255669221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8238728616707983496
@@ -70,7 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfafd90031392924d8645d844b7aa9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderedFood: 4
+  tableFoodController: {fileID: 572390216314325}
+  tableData: {fileID: 657039581152351353}
 --- !u!114 &572390216314325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +91,55 @@ MonoBehaviour:
   donutGO: {fileID: 2017309752162070178}
   cupcakeGO: {fileID: 717295721092193482}
   cakeGO: {fileID: 4706744817502042105}
+--- !u!114 &657039581152351353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681414609414717219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953779bdb5035134ab536e3574c57315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOcupied: 0
+  selectedChair: {fileID: 0}
+  orderedFood: 4
+  chairs:
+  - {fileID: 4659560424513526169}
+  - {fileID: 6477298120255669221}
+--- !u!1 &2363466681321952740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6477298120255669221}
+  m_Layer: 0
+  m_Name: Chair2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6477298120255669221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363466681321952740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3271646759349568612}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2765812716330841374
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4659560424513526169}
   m_Layer: 0
-  m_Name: Chair
+  m_Name: Chair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 8387006698645251208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.61, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
