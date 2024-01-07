@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class TablesManager : MonoBehaviour
 {
+    [SerializeField] private float secondsClientWaits;
     private CatMovement catMovement;
     private CatDataSO catData;
     public List<GameObject> tableList; //de momento usar esta, realmente usar las de FurnitureManager
     public List<TableData> tableDataList;
-    private List<TableData> availableTableDataList;
+    //private List<TableData> availableTableDataList;
     private int uselessTables;
     //las mesas avisan cuando esten libres//ocupadas
     //este script avisa al gato a cual puede ir
@@ -48,7 +49,7 @@ public class TablesManager : MonoBehaviour
         if (other.GetComponent<CatMovement>() != null)
         {            
             catMovement.OnPathNotAvailable -= CalculateUselessTables;
-            availableTableDataList.Clear();
+            //availableTableDataList.Clear();
         }
     }
 
@@ -62,18 +63,16 @@ public class TablesManager : MonoBehaviour
         }
     }   
 
-    public Transform CheckAvailableTables()//en futuro llamado por evento en TableData
+    public TableData CheckAvailableTables()//en futuro llamado por evento en TableData
     {
+        List<TableData> availableTableDataList = new List<TableData>();
+
         for(int i = 0; i < tableDataList.Count; i++)
         {
             if(!tableDataList[i].isOcupied)
             {
                 availableTableDataList.Add(tableDataList[i]);                
-            }
-            else
-            {
-                return null;
-            }
+            }            
         }
 
         for(int i = 0; i < catData.likes.Count; i++)
@@ -82,7 +81,7 @@ public class TablesManager : MonoBehaviour
             {
                 if (catData.likes[i] == availableTableDataList[j].furnitureTheme)
                 {
-                    return availableTableDataList[j].selectedChair;
+                    return availableTableDataList[j];
                 }
             }
         }
@@ -112,9 +111,13 @@ public class TablesManager : MonoBehaviour
 
     private IEnumerator WaitForClientMovement()
     {
-        yield return new WaitForSeconds(3f);
-        catMovement.MovementToDestination(CheckAvailableTables());
-        //availableTableDataList.Clear();
+        TableData tableAssigned = CheckAvailableTables();
+        tableAssigned.isOcupied = true;
+
+        yield return new WaitForSeconds(secondsClientWaits);
+
+        Transform destination = tableAssigned.selectedChair;
+        catMovement.MovementToDestination(destination);
     }
 
 }

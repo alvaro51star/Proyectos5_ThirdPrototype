@@ -1067,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa9764776604254b9e029d6bc675619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondsClientWaits: 2
   tableList:
   - {fileID: 375421837}
   - {fileID: 1939606761}
@@ -2445,6 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDestination: {fileID: 579652099}
+  tablesManager: {fileID: 0}
 --- !u!143 &937215826
 CharacterController:
   m_ObjectHideFlags: 0

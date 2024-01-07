@@ -17,7 +17,7 @@ public class InteractiveTable : InteractiveObject
             playerFoodController = other.GetComponent<FoodController>();
         }
 
-        else if (other.GetComponent<ClientData>() != null)
+        if (other.GetComponent<ClientData>() != null)
         {
             tableData.orderedFood = other.GetComponent<ClientData>().foodOrdered;
         }
