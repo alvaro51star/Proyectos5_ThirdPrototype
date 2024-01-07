@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class InteractiveTable : InteractiveObject
 {
-    [SerializeField] private FoodController tableFoodController;
+    [HideInInspector] public FoodController tableFoodController;
     [SerializeField] private TableData tableData;    
     private FoodTypes playerFoodType;
     private FoodController playerFoodController;
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<FoodController>() != null)
+        if (other.GetComponent<FoodController>())
         {
             playerFoodController = other.GetComponent<FoodController>();
         }
 
-        if (other.GetComponent<ClientData>() != null)
+        if (other.GetComponent<ClientData>())
         {
             tableData.orderedFood = other.GetComponent<ClientData>().foodOrdered;
+            Debug.Log(tableData.orderedFood);
         }
 
         base.OnTriggerEnter(other);
@@ -34,6 +35,7 @@ public class InteractiveTable : InteractiveObject
 
             playerFoodController.EnableFoodGO(false);
             tableFoodController.EnableFoodGO(true);
+            tableData.orderedFood = FoodTypes.Nothing;
         }
         else
         {
@@ -45,6 +47,9 @@ public class InteractiveTable : InteractiveObject
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        tableData.TableIsFree();
+        if(other.GetComponent<ClientData>())
+        {
+            //tableData.TableIsFree();
+        }
     }
 }

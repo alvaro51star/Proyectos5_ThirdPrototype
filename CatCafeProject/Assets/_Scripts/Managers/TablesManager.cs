@@ -17,7 +17,7 @@ public class TablesManager : MonoBehaviour
     //si primer gato no puede pasar a x mesa avisara aqui diciendo que es inutil
     //si primer gato no puede ir a ninguna mesa avisa para que salga notificacion "reiniciar" dia
 
-    private void Start()
+    private void Awake()
     {
         if(GameManager.instance.initialGameMode == GameModes.Cafeteria)//esto ahora para debug
         {
@@ -69,7 +69,7 @@ public class TablesManager : MonoBehaviour
 
         for(int i = 0; i < tableDataList.Count; i++)
         {
-            if(!tableDataList[i].isOcupied)
+            if(!tableDataList[i].isOcupied) //&& catMovement.CalculateNewPath(tableList[i].transform)
             {
                 availableTableDataList.Add(tableDataList[i]);                
             }            
@@ -84,27 +84,12 @@ public class TablesManager : MonoBehaviour
                     return availableTableDataList[j];
                 }
             }
-        }
+        }        
 
-        /*for(int i = 0; i < availableTableDataList.Count; i++)
-        {
-            for(int j = 0; j < catData.likes.Count; j++)
-            {
-                if (availableTableDataList[i].furnitureTheme == catData.likes[j])
-                {
-                    //catMovement.MovementToDestination(tableDataList[i].selectedChair);
-                    //StartCoroutine(WaitForClientMovement(tableDataList[i].selectedChair));
-                    return tableDataList[i].selectedChair;
-                }
-                else 
-                    return null;
-            }
-        }*/
-
-        /*for(int i = 0; i < availableTableDataList.Count; i++) //como hago que return la que menos distancia???
-        {
-            Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
-        }*/
+        //for (int i = 0; i < availableTableDataList.Count; i++) //como hago que return la que menos distancia???
+        //{
+        //    Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
+        //}
 
         return null;
     }
@@ -112,12 +97,14 @@ public class TablesManager : MonoBehaviour
     private IEnumerator WaitForClientMovement()
     {
         TableData tableAssigned = CheckAvailableTables();
+        tableAssigned.TableIsFree();
         tableAssigned.isOcupied = true;
 
         yield return new WaitForSeconds(secondsClientWaits);
 
         Transform destination = tableAssigned.selectedChair;
         catMovement.MovementToDestination(destination);
+        Debug.Log("client moves to  " + destination);
     }
 
 }
