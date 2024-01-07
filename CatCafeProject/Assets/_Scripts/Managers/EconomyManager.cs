@@ -76,7 +76,7 @@ public class EconomyManager: MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Current money: " + currentMoney);
+        //Debug.Log("Current money: " + currentMoney);
     }
 
     public void ModifyCurrentMoney(int value)
@@ -187,13 +187,13 @@ public class EconomyManager: MonoBehaviour
         {
             int foodValue = GetFoodValue(keyValue.Key);
               //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
-            Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
+            //Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
         }
         foreach (int tip in totalTipsList)
         {
             totalTips += tip;
         }
-        Debug.Log(totalTips);
+        //Debug.Log(totalTips);
     }
 }
 

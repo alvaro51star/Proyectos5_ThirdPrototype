@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject     CafeteriaMode;
     [SerializeField] private GameObject     DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
-    [SerializeField] private GameModes initialGameMode;
+    public GameModes initialGameMode;
 
     public static event Action<GameModes> OnGameModeChange;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     void Start()
     {
        ChangeGameMode(initialGameMode);
@@ -40,10 +41,10 @@ public class GameManager : MonoBehaviour
             case GameModes.Decoration:
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
-                FurnitureManager.instance.ResetFurnitureManagerData();
+                //FurnitureManager.instance.ResetFurnitureManagerData();
                 break;
             case GameModes.Cafeteria:
-                FurnitureManager.instance.SetFurnitureData();
+                //FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 break;
