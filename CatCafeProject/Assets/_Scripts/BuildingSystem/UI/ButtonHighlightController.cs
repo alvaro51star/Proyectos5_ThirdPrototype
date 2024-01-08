@@ -16,9 +16,14 @@ public class ButtonHighlightController : MonoBehaviour
 
     private void Awake()
     {
-        if(buttons.Count == 0)
+        GetButtons();
+    }
+
+    public void GetButtons()
+    {
+        if (buttons.Count == 0)
             buttons = new(GetComponentsInChildren<ButtonFeedback>());
-        foreach(var button in buttons)
+        foreach (var button in buttons)
         {
             button.OnClicked += SelectionFeedback;
         }

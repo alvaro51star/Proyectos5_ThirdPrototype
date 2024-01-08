@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structures:
   - name: BedBig
+    image: {fileID: 0}
     ID: 4
     size: {x: 2, y: 2}
     objectPlacementType: 5
@@ -23,7 +24,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 200
     sellValue: 100
+    furnitureTheme: 0
+    furnitureType: 0
   - name: BedSmall
+    image: {fileID: 0}
     ID: 5
     size: {x: 1, y: 2}
     objectPlacementType: 5
@@ -33,7 +37,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 50
     sellValue: 30
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Chair
+    image: {fileID: 0}
     ID: 6
     size: {x: 1, y: 1}
     objectPlacementType: 5
@@ -43,7 +50,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Table
+    image: {fileID: 0}
     ID: 7
     size: {x: 2, y: 1}
     objectPlacementType: 5
@@ -53,7 +63,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Fridge
+    image: {fileID: 0}
     ID: 8
     size: {x: 1, y: 1}
     objectPlacementType: 4
@@ -63,7 +76,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Cabinet
+    image: {fileID: 0}
     ID: 9
     size: {x: 1, y: 1}
     objectPlacementType: 5
@@ -73,7 +89,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Kitchen Sink
+    image: {fileID: 0}
     ID: 10
     size: {x: 1, y: 1}
     objectPlacementType: 4
@@ -83,7 +102,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Toilet
+    image: {fileID: 0}
     ID: 11
     size: {x: 1, y: 1}
     objectPlacementType: 4
@@ -93,7 +115,10 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
   - name: Sink
+    image: {fileID: 0}
     ID: 12
     size: {x: 1, y: 1}
     objectPlacementType: 4
@@ -103,3 +128,83 @@ MonoBehaviour:
       type: 3}
     buyValue: 0
     sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 13
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 14
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 15
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 16
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 17
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0
+  - name: Sink
+    image: {fileID: 0}
+    ID: 18
+    size: {x: 1, y: 1}
+    objectPlacementType: 4
+    prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
+      type: 3}
+    buyValue: 0
+    sellValue: 0
+    furnitureTheme: 0
+    furnitureType: 0

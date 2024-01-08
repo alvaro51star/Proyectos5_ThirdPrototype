@@ -11,8 +11,8 @@ public class ButtonData : MonoBehaviour
     [SerializeField] private TextMeshProUGUI furnitureName;
     [SerializeField] private TextMeshProUGUI furniturePrize;
     [SerializeField] private Button button;
-    private int id = -1;
-    //[SerializeField] private PlacementSystem placementSystem;
+    [SerializeField] private int id = -1;
+    [SerializeField] private UIPlacementController placementController;
     [SerializeField] private Image image; //!Por implementar
 
 
@@ -31,14 +31,18 @@ public class ButtonData : MonoBehaviour
     {
         if (id >= 0)
         {
-            //placementSystem.StartPlacement(id);
+            placementController.SelectObjectWithIndex(id);
         }
     }
 
-    // public void AssignData(ObjectData item, PlacementSystem placementSystem)
-    // {
-    //     furnitureName.text = item.Name;
-    //     furniturePrize.text = item.Prize.ToString();
-    //     this.placementSystem = placementSystem;
-    // }
+    public void AssignData(ItemData item, UIPlacementController placementController)
+    {
+        id = item.ID;
+        furniturePrize.text = item.buyValue.ToString();
+        this.placementController = placementController;
+        if (item.image != null)
+        {
+            image = item.image;
+        }
+    }
 }
