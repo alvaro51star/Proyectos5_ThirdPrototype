@@ -16,6 +16,7 @@ public class BuildMenuConstruction : MonoBehaviour
     private void Awake()
     {
         rectTransform = panelTransform.GetComponent<RectTransform>();
+        dataBase = FindObjectOfType<PlacementManager>().structuresData;
 
         foreach (var item in dataBase.structures)
         {

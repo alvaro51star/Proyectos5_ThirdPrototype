@@ -17,7 +17,7 @@ public class PlacementManager : MonoBehaviour
     private GridManager gridManager;
 
     [SerializeField]
-    private ItemDataBaseSO structuresData;
+    public ItemDataBaseSO structuresData;
 
     HashSet<Vector3Int> cellsSelected = new();
 
