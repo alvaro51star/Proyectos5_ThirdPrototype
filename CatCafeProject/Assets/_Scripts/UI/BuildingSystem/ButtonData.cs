@@ -13,7 +13,8 @@ public class ButtonData : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private int id = -1;
     [SerializeField] private UIPlacementController placementController;
-    [SerializeField] private Image image; //!Por implementar
+    [SerializeField] private Image image;
+    [SerializeField] private Image themeImage;
 
 
     public ButtonData(ObjectData item)
@@ -44,5 +45,7 @@ public class ButtonData : MonoBehaviour
         {
             image = item.image;
         }
+
+        themeImage = placementController.themeImages[(int)item.furnitureTheme];
     }
 }

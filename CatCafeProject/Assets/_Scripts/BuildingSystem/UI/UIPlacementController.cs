@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Controller to separate the UI elements (buttons) from directly being called by the Placement system (any system)
@@ -10,6 +12,8 @@ public class UIPlacementController : MonoBehaviour
 {
     public UnityEvent<int> OnObjectSelected;
     public UnityEvent OnUndoRequested, OnMoveRequest, OnResetMovementButton, OnCancelPlacement, OnMovementStateEntered;
+
+    public List<Image> themeImages;
 
     public void SelectObjectWithIndex(int index)
         => OnObjectSelected?.Invoke(index);
@@ -28,4 +32,6 @@ public class UIPlacementController : MonoBehaviour
 
     public void EnterMovementState()
         => OnMovementStateEntered?.Invoke();
+
+    
 }
