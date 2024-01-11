@@ -2315,7 +2315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b9c7eca84039e46864999862e8a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 1648616190}
+  catData: {fileID: 0}
+  initialDestination: {fileID: 0}
+  tablesManager: {fileID: 0}
 --- !u!143 &937215826
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2492,7 +2494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1331196360
 Transform:
   m_ObjectHideFlags: 0
@@ -2931,6 +2933,7 @@ MonoBehaviour:
   CafeteriaMode: {fileID: 753916489}
   DecorationMode: {fileID: 1331196359}
   navMeshSurface: {fileID: 472057294}
+  initialGameMode: 0
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
@@ -3948,32 +3951,32 @@ PrefabInstance:
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 528274331339088573, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1393157041224242416, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
@@ -4008,22 +4011,22 @@ PrefabInstance:
     - target: {fileID: 1623028459528292598, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1623028459528292598, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1623028459528292598, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1623028459528292598, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -255.93414
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1739039619563924788, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
@@ -4033,22 +4036,22 @@ PrefabInstance:
     - target: {fileID: 2925753395125865665, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2925753395125865665, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2925753395125865665, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2925753395125865665, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -128.75095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3696895838945522639, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
