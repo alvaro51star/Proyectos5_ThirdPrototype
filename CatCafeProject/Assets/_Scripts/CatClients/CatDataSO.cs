@@ -8,4 +8,5 @@ public class CatDataSO : ScriptableObject
     public CatDifficulty difficulty;
     public List<FurnitureTheme> likes;
     public List<FurnitureTheme> dislikes;
+    public GameObject catPrefab;
 }

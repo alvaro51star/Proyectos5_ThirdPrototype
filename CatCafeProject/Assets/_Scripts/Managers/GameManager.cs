@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private GameObject     CafeteriaMode;
-    [SerializeField] private GameObject     DecorationMode;
+    public int currentDay = 0;
+
+    [SerializeField] private GameObject CafeteriaMode;
+    [SerializeField] private GameObject DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
     public GameModes initialGameMode;
 
     public static event Action<GameModes> OnGameModeChange;
+    [Space]
+    [Header("Cats Variables")]
+    [SerializeField] private int catsPerDay = 3;
+    public List<CatDataSO> catDataList;
+    public List<CatDataSO> catForTheDay;
 
     private void Awake()
     {
@@ -31,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       ChangeGameMode(initialGameMode);
+        ChangeGameMode(initialGameMode);
     }
 
     public void ChangeGameMode(GameModes gameMode)
@@ -48,7 +55,7 @@ public class GameManager : MonoBehaviour
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 break;
-            
+
         }
         OnGameModeChange?.Invoke(gameMode);
     }
@@ -59,6 +66,15 @@ public class GameManager : MonoBehaviour
         {
             navMeshSurface.BuildNavMesh();
             CafeteriaMode?.SetActive(true);
+        }
+    }
+
+    public void SetCatsForTheDay()
+    {
+
+        for (int i = 0; i < catsPerDay; i++)
+        {
+            
         }
     }
 }
