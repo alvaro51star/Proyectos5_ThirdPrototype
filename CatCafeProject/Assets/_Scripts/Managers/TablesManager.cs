@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class TablesManager : MonoBehaviour
 {
@@ -10,14 +12,8 @@ public class TablesManager : MonoBehaviour
     private CatDataSO catData;
     public List<GameObject> tableList; //de momento usar esta, realmente usar las de FurnitureManager
     public List<TableData> tableDataList;
-    //private List<TableData> availableTableDataList;
-    private int uselessTables;
-    //las mesas avisan cuando esten libres//ocupadas
-    //este script avisa al gato a cual puede ir
-    //si primer gato no puede pasar a x mesa avisara aqui diciendo que es inutil
-    //si primer gato no puede ir a ninguna mesa avisa para que salga notificacion "reiniciar" dia
 
-    private void Awake()
+    private void Start()
     {
         if(GameManager.instance.initialGameMode == GameModes.Cafeteria)//esto ahora para debug
         {
@@ -25,7 +21,6 @@ public class TablesManager : MonoBehaviour
             {
                 tableDataList.Add(tableList[i].GetComponent<TableData>());
                 tableDataList[i].tablesManager = this;
-                //tableDataList[i].OnAvailableTable += CheckAvailableTables;
             }
         }              
     }
@@ -37,29 +32,19 @@ public class TablesManager : MonoBehaviour
             catMovement = other.GetComponent<CatMovement>();
             catData = other.GetComponent<ClientData>().catTpe;
             catMovement.tablesManager = this;
-            catMovement.OnPathNotAvailable += CalculateUselessTables;
 
             //if cat es primero en cola
-            StartCoroutine(WaitForClientMovement());
+            StartCoroutine(catMovement.WaitForClientMovement());
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void CalculateUselessTables(TableData uselessTable) //calculate number of tables that the client cant reach (no path available)
     {
-        if (other.GetComponent<CatMovement>() != null)
-        {            
-            catMovement.OnPathNotAvailable -= CalculateUselessTables;
-            //availableTableDataList.Clear();
-        }
-    }
-
-    private void CalculateUselessTables() //calculate number of tables that the client cant reach (no path available)
-    {
-        uselessTables++;
-        Debug.Log("useless tables: " + uselessTables);
-        if(uselessTables >= tableList.Count)
+        tableDataList.Remove(uselessTable);
+        
+        if(tableDataList.Count <= 0)
         {
-            Debug.Log("El cliente no puede pasar a ninguna mesa");//aqui ira el menu de "reinicio"
+            Debug.Log("El cliente no puede pasar a ninguna mesa");
         }
     }   
 
@@ -69,13 +54,23 @@ public class TablesManager : MonoBehaviour
 
         for(int i = 0; i < tableDataList.Count; i++)
         {
-            if(!tableDataList[i].isOcupied) //&& catMovement.CalculateNewPath(tableList[i].transform)
+            Transform destination = tableDataList[i].selectedChair;
+            bool canPass = catMovement.CalculateNewPath(destination);//da falso, no tiene sentido
+            Debug.Log("mesa"+ i + " canPass = " + canPass);
+            if(canPass)
             {
-                availableTableDataList.Add(tableDataList[i]);                
-            }            
+                if (!tableDataList[i].isOcupied)
+                {
+                    availableTableDataList.Add(tableDataList[i]);
+                }
+            }
+            else
+            {
+                CalculateUselessTables(tableDataList[i]);
+            }
         }
 
-        for(int i = 0; i < catData.likes.Count; i++)
+        for(int i = 0; i < catData.likes.Count; i++)//preferencia hacia mesas de la tematica que le guste
         {
             for (int j = 0; j < availableTableDataList.Count; j++)
             {
@@ -84,27 +79,34 @@ public class TablesManager : MonoBehaviour
                     return availableTableDataList[j];
                 }
             }
-        }        
+        }
 
-        //for (int i = 0; i < availableTableDataList.Count; i++) //como hago que return la que menos distancia???
-        //{
-        //    Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
-        //}
+        List<float> distanceList = new List<float>(availableTableDataList.Count);
+        float distance = Vector3.Distance(this.gameObject.transform.position, availableTableDataList[0].selectedChair.position); ;
+        float smallestDistance = distance;
+        int index = 0;
+        for (int i = 0; i < availableTableDataList.Count; i++) //preferencia hacia la mesa mas cercana
+        //como hago que return la que menos distancia??? con sort a lo mejor?
+        {
+            distance = Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
+            if(distance < smallestDistance)
+            {
+                index = i;
+                smallestDistance = distance;
+            }
+            //distanceList[i] = distance
+        }
+        return availableTableDataList[index];
 
-        return null;
+        if (availableTableDataList.Count > 0)
+        {
+            return availableTableDataList[0];//da error out of range????
+        }
+        else
+        {
+            Debug.Log("CHECK AVAILABLE TABLES DA NULL AAAH");
+            return null;
+        }
     }
-
-    private IEnumerator WaitForClientMovement()
-    {
-        TableData tableAssigned = CheckAvailableTables();
-        tableAssigned.TableIsFree();
-        tableAssigned.isOcupied = true;
-
-        yield return new WaitForSeconds(secondsClientWaits);
-
-        Transform destination = tableAssigned.selectedChair;
-        catMovement.MovementToDestination(destination);
-        Debug.Log("client moves to  " + destination);
-    }
-
+    
 }

@@ -20,20 +20,21 @@ public class TableData : MonoBehaviour
 
     private void Start()
     {
-        //TableIsFree();
+        ResetTableData(false);
     }
 
-    public void TableIsFree()
+    public void ResetTableData(bool freeOrOcupied)
     {
         orderedFood = FoodTypes.Nothing;//de momento aqui, casi mejor cuando gato "termina" de comer
-        if(isOcupied)
+        isOcupied = freeOrOcupied;
+
+        /*if(isOcupied)
             isOcupied= false;
         if(!isOcupied)
         {
             //OnAvailableTable?.Invoke();
-        }
+        }*/
         RandomChair();
-        Debug.Log("selectedFoodTransform" + selectedFoodTransform);
     }
 
     private void RandomChair()
