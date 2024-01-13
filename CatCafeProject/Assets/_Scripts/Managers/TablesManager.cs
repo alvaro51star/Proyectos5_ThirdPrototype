@@ -30,7 +30,7 @@ public class TablesManager : MonoBehaviour
         if(other.GetComponent<CatMovement>() != null)
         {
             catMovement = other.GetComponent<CatMovement>();
-            catData = other.GetComponent<ClientData>().catTpe;
+            catData = other.GetComponent<ClientData>().catType;
             catMovement.tablesManager = this;
 
             //if cat es primero en cola

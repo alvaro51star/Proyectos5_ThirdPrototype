@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fcde49cebcddf4aa847f08acf5f4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catTpe: {fileID: 11400000, guid: 46b1f122cb8c1294793a7296c65e9157, type: 2}
+  catType: {fileID: 11400000, guid: 46b1f122cb8c1294793a7296c65e9157, type: 2}
   foodOrdered: 0
 --- !u!1 &981406766
 GameObject:
