@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public int currentDay = 0;
+    public int week = 0;
 
     [SerializeField] private GameObject CafeteriaMode;
     [SerializeField] private GameObject DecorationMode;
@@ -18,9 +20,13 @@ public class GameManager : MonoBehaviour
     public static event Action<GameModes> OnGameModeChange;
     [Space]
     [Header("Cats Variables")]
-    [SerializeField] private int catsPerDay = 3;
+    [SerializeField] private int maxCatsPerDay = 6;
     public List<CatDataSO> catDataList;
-    public List<CatDataSO> catForTheDay;
+    public List<CatDataSO> catsForTheDay;
+
+    [SerializeField] private float easyCatsPercentage = 0.6f;
+    [SerializeField] private float normalCatsPercentage = 0.4f;
+    [SerializeField] private float hardCatsPercentage = 0f;
 
     private void Awake()
     {
@@ -38,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        week = currentDay / 7; //TODO PROBAR ESTO A VER SI FUNCIONA
         ChangeGameMode(initialGameMode);
     }
 
@@ -71,10 +78,24 @@ public class GameManager : MonoBehaviour
 
     public void SetCatsForTheDay()
     {
+        catsForTheDay.Clear();
 
-        for (int i = 0; i < catsPerDay; i++)
+        int catsNumber      = Random.Range(maxCatsPerDay - 2, maxCatsPerDay + 1);
+        int easyCatNumber   = (int)(catsNumber * easyCatsPercentage);
+        int normalCatNumber = (int)(catsNumber * normalCatsPercentage);
+        int hardCatNumber   = (int)(catsNumber * hardCatsPercentage);
+        //TODO REVISAR LOS VALORES DE LOS BUCLES FOR PARA VER SI COINCIDEN CON LOS DATOS DE LOS GATOS
+        for (int i = 0; i < easyCatNumber; i++)
         {
-            
+            catsForTheDay.Add(catDataList[Random.Range(0, 3)]);
+        }
+        for (int i = 0; i < normalCatNumber; i++)
+        {
+            catsForTheDay.Add(catDataList[Random.Range(3, 7)]);
+        }
+        for (int i = 0; i < hardCatNumber; i++)
+        {
+            catsForTheDay.Add(catDataList[Random.Range(7, 9)]);
         }
     }
 }
