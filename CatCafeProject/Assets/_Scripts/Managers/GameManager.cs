@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,10 +9,12 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    [Header("Date Variables")]
     public int currentDay = 0;
     public int week = 0;
 
+    [Space]
+    [Header("Modes Variables")]
     [SerializeField] private GameObject CafeteriaMode;
     [SerializeField] private GameObject DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float easyCatsPercentage = 0.6f;
     [SerializeField] private float normalCatsPercentage = 0.4f;
     [SerializeField] private float hardCatsPercentage = 0f;
+    [SerializeField] private float richCatsPercentage = 0f;
 
     private void Awake()
     {
@@ -44,8 +48,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        week = currentDay / 7; //TODO PROBAR ESTO A VER SI FUNCIONA
+        ChangeDay();
+        ChangeWeekNumber();
         ChangeGameMode(initialGameMode);
+        SetCatsForTheDay();
     }
 
     public void ChangeGameMode(GameModes gameMode)
@@ -80,22 +86,99 @@ public class GameManager : MonoBehaviour
     {
         catsForTheDay.Clear();
 
-        int catsNumber      = Random.Range(maxCatsPerDay - 2, maxCatsPerDay + 1);
-        int easyCatNumber   = (int)(catsNumber * easyCatsPercentage);
-        int normalCatNumber = (int)(catsNumber * normalCatsPercentage);
-        int hardCatNumber   = (int)(catsNumber * hardCatsPercentage);
-        //TODO REVISAR LOS VALORES DE LOS BUCLES FOR PARA VER SI COINCIDEN CON LOS DATOS DE LOS GATOS
+        int catsNumber;
+
+        int easyCatNumber;
+        int normalCatNumber;
+        int hardCatNumber;
+        int richCatNumber;
+
+        if (IsSeventhDay())
+        {
+
+            ChangeCatNumberPerWeek();
+            ChangeCatPercentagePerWeek();
+
+            catsNumber = Random.Range(maxCatsPerDay - 2, maxCatsPerDay + 1);
+            easyCatNumber = Mathf.RoundToInt(catsNumber * 0.1f);
+            normalCatNumber = Mathf.RoundToInt(catsNumber * 0.1f);
+            hardCatNumber = Mathf.RoundToInt(catsNumber * 0.5f);
+            richCatNumber = Mathf.RoundToInt(catsNumber * 0.3f);
+        }
+        else
+        {
+            catsNumber = Random.Range(maxCatsPerDay - 2, maxCatsPerDay + 1);
+            easyCatNumber = Mathf.RoundToInt(catsNumber * easyCatsPercentage);
+            normalCatNumber = Mathf.RoundToInt(catsNumber * normalCatsPercentage);
+            hardCatNumber = 0;
+            richCatNumber = 0;
+        }
+
+        Debug.Log($"Cats this day = {catsNumber} , Easy Cats = {easyCatNumber} , Normal Cats = {normalCatNumber} , Hard Cats = {hardCatNumber} , Rich Cats = {richCatNumber}");
+
         for (int i = 0; i < easyCatNumber; i++)
         {
             catsForTheDay.Add(catDataList[Random.Range(0, 3)]);
         }
         for (int i = 0; i < normalCatNumber; i++)
         {
-            catsForTheDay.Add(catDataList[Random.Range(3, 7)]);
+            catsForTheDay.Add(catDataList[Random.Range(3, 5)]);
         }
         for (int i = 0; i < hardCatNumber; i++)
         {
-            catsForTheDay.Add(catDataList[Random.Range(7, 9)]);
+            catsForTheDay.Add(catDataList[Random.Range(5, 7)]);
         }
+        for (int i = 0; i < richCatNumber; i++)
+        {
+            catsForTheDay.Add(catDataList[7]);
+        }
+
+        catsForTheDay = catsForTheDay.OrderBy(i => Guid.NewGuid()).ToList();
+    }
+
+    private bool IsSeventhDay()
+    {
+        if (currentDay % 7 == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void ChangeCatPercentagePerWeek()
+    {
+        if (week % 2 != 0 && week % 3 != 0)
+            return;
+
+
+        if (week % 2 == 0)
+        {
+            easyCatsPercentage -= 0.1f;
+            normalCatsPercentage += 0.1f;
+        }
+
+        if (week % 3 == 0)
+        {
+            easyCatsPercentage += 0.05f;
+            normalCatsPercentage -= 0.05f;
+        }
+
+        Math.Clamp(easyCatsPercentage, 0f, 1f);
+        Math.Clamp(normalCatsPercentage, 0f, 1f);
+    }
+
+    private void ChangeCatNumberPerWeek()
+    {
+        maxCatsPerDay += Random.Range(4, 7);
+    }
+
+    private void ChangeWeekNumber()
+    {
+        week = (currentDay / 7) + 1;
+    }
+
+    public void ChangeDay()
+    {
+        currentDay++;
     }
 }

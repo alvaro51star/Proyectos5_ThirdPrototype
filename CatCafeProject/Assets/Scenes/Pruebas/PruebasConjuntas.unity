@@ -3947,11 +3947,20 @@ MonoBehaviour:
   navMeshSurface: {fileID: 472057294}
   initialGameMode: 1
   maxCatsPerDay: 6
-  catDataList: []
+  catDataList:
+  - {fileID: 11400000, guid: 46b1f122cb8c1294793a7296c65e9157, type: 2}
+  - {fileID: 11400000, guid: 88b94de2ce78bd74ca329a8684e1da61, type: 2}
+  - {fileID: 11400000, guid: a2e5ba9015208064ab9cbec4e79bfbd6, type: 2}
+  - {fileID: 11400000, guid: 06a5559ddb3610e4b834779d98c02060, type: 2}
+  - {fileID: 11400000, guid: a18c1405b3eba684993f4810d82e5c8d, type: 2}
+  - {fileID: 11400000, guid: 9259307452112484686f4eac81ce9f31, type: 2}
+  - {fileID: 11400000, guid: de0dba2e9c0a10749bba49f27137075f, type: 2}
+  - {fileID: 11400000, guid: bdff56855c99e3c4889a1c66d2d3a673, type: 2}
   catsForTheDay: []
   easyCatsPercentage: 0.6
   normalCatsPercentage: 0.4
   hardCatsPercentage: 0
+  richCatsPercentage: 0
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
