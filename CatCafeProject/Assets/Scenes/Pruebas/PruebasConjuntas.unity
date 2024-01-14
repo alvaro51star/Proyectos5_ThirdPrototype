@@ -3941,13 +3941,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDay: 0
+  week: 0
   CafeteriaMode: {fileID: 753916489}
   DecorationMode: {fileID: 1331196359}
   navMeshSurface: {fileID: 472057294}
   initialGameMode: 1
-  catsPerDay: 3
+  maxCatsPerDay: 6
   catDataList: []
-  catForTheDay: []
+  catsForTheDay: []
+  easyCatsPercentage: 0.6
+  normalCatsPercentage: 0.4
+  hardCatsPercentage: 0
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
