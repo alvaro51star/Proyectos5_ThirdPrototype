@@ -7,10 +7,10 @@ using UnityEngine.AI;
 
 public class CatMovement : MonoBehaviour
 {
-    //[SerializeField] private CatDataSO catData;
     public Transform initialDestination;
     public TablesManager tablesManager;
     [SerializeField] private NavMeshAgent agent;
+    public TableData tableAssigned;
     private void Start()
     {
  
@@ -28,31 +28,27 @@ public class CatMovement : MonoBehaviour
         var path = new NavMeshPath();
 
         bool success = NavMesh.CalculatePath(agent.transform.position, destination.position, -1, path);
-        Debug.Log(path.status+" "+destination.name);//DA PATH INVALID PORQUE AL HABER LOS AGUJEROS DE LAS MESAS NO ENCUENTRA PATH
 
-        //if (agent.CalculatePath(destination.position, path))
         if(success)
         {            
-            /*if (path.status != NavMeshPathStatus.PathComplete)
+            if (path.status != NavMeshPathStatus.PathComplete)
             {
                 return false;
             }
             else
             {
                 return true;
-            }*/
-            return true;
+            }
         }
         else
         {
-            Debug.Log("no puede pasar ahi");
             return false;
         }
     }
 
     public IEnumerator WaitForClientMovement()
      {
-         TableData tableAssigned = tablesManager.CheckAvailableTables();//devuelve null                 
+        tableAssigned = tablesManager.CheckAvailableTables();                 
 
         yield return new WaitForSeconds(2f);
 
@@ -60,15 +56,13 @@ public class CatMovement : MonoBehaviour
         {
             tableAssigned.ResetTableData(false);//to get selectedChair
             Transform destination = tableAssigned.selectedChair;
-            Debug.Log("destino" + destination);
 
             MovementToDestination(destination);
-            Debug.Log("client moves to  " + destination);
         }
 
         else
         {
-            Debug.Log("tableAssigned = " + tableAssigned);
+            Debug.Log("no hay mesas libres");
         }
     }    
 }

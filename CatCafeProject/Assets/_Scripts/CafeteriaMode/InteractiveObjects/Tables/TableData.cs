@@ -44,6 +44,5 @@ public class TableData : MonoBehaviour
         selectedChair = chairs[random];
         selectedFoodTransform = foodTransforms[random];
         interactiveTable.tableFoodController = foodControllers[random];
-        Debug.Log("silla elegida = " + random);
     }
 }

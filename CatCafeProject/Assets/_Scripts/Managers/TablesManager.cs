@@ -55,8 +55,7 @@ public class TablesManager : MonoBehaviour
         for(int i = 0; i < tableDataList.Count; i++)
         {
             Transform destination = tableDataList[i].selectedChair;
-            bool canPass = catMovement.CalculateNewPath(destination);//da falso, no tiene sentido
-            Debug.Log("mesa"+ i + " canPass = " + canPass);
+            bool canPass = catMovement.CalculateNewPath(destination);
             if(canPass)
             {
                 if (!tableDataList[i].isOcupied)
@@ -86,7 +85,6 @@ public class TablesManager : MonoBehaviour
         float smallestDistance = distance;
         int index = 0;
         for (int i = 0; i < availableTableDataList.Count; i++) //preferencia hacia la mesa mas cercana
-        //como hago que return la que menos distancia??? con sort a lo mejor?
         {
             distance = Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
             if(distance < smallestDistance)
@@ -100,11 +98,10 @@ public class TablesManager : MonoBehaviour
 
         if (availableTableDataList.Count > 0)
         {
-            return availableTableDataList[0];//da error out of range????
+            return availableTableDataList[0];
         }
         else
         {
-            Debug.Log("CHECK AVAILABLE TABLES DA NULL AAAH");
             return null;
         }
     }

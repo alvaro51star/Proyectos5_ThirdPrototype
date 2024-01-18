@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClientData : MonoBehaviour
 {
     public CatDataSO catType;
-    public FoodTypes foodOrdered;//de momento cambiar en editor
+    public FoodTypes foodOrdered;
 
     private void Start()
     {
