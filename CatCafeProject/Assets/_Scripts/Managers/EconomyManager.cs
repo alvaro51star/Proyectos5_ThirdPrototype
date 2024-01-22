@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
@@ -222,6 +221,7 @@ public class EconomyManager : MonoBehaviour
             totalTips += tip;
         }
         totalMoneyEarnedForTheDay = totalFoodMoney + totalTips;
+        TestOrders(); //!Solo sirve para probar la lista, una vez se compruebe, lo borraré
         StartCoroutine(ShowReceipt(totalMoneyEarnedForTheDay, totalTips));
         //Debug.Log(totalTips);
     }
@@ -239,7 +239,7 @@ public class EconomyManager : MonoBehaviour
             {
                 if (orders[item.Key] > 0)
                 {
-                    item.Value.GetComponentInChildren<TextMeshProUGUI>().text = $"{GetFoodValue(item.Key)} x {orders[item.Key]}";
+                    item.Value.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{GetFoodValue(item.Key)} x {orders[item.Key]}";
                     item.Value.SetActive(true);
                     yield return new WaitForSeconds(0.5f);
                 }
@@ -257,6 +257,17 @@ public class EconomyManager : MonoBehaviour
         //TODO Despues faltaria activar un botoncito de siguiente dia
 
         yield return null;
+    }
+
+
+    private void TestOrders()
+    {
+        orders = new Dictionary<FoodTypes, int> {
+            {FoodTypes.Milk,UnityEngine.Random.Range(0, 3)},
+            {FoodTypes.Donut,UnityEngine.Random.Range(0, 3)},
+            {FoodTypes.Cupcake,UnityEngine.Random.Range(0, 3)},
+            {FoodTypes.Cake,UnityEngine.Random.Range(0, 3)}
+        };
     }
 }
 
