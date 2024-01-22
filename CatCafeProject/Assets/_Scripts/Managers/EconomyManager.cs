@@ -33,7 +33,7 @@ public class EconomyManager : MonoBehaviour
     public List<FoodTypeValueTupla> foodTypeValues;
 
     [Space]
-    [Header("Receip variables")]
+    [Header("Receipt variables")]
     [SerializeField]
     private Dictionary<FoodTypes, int> orders = new Dictionary<FoodTypes, int> {
         {FoodTypes.Milk,0},
@@ -43,6 +43,10 @@ public class EconomyManager : MonoBehaviour
     };
 
     [SerializeField] private List<int> totalTipsList;
+
+    [Space]
+    [Header("Receipt UI Variables")]
+    [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts;
 
     //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
@@ -140,7 +144,7 @@ public class EconomyManager : MonoBehaviour
         {
             return 0;
         }
-        
+
         int totalTip = 0;
         int foodValue = GetFoodValue(foodType);
 
@@ -188,9 +192,15 @@ public class EconomyManager : MonoBehaviour
     public void PrintReceip()
     {
         int totalTips = 0;
+        int totalFoodMoney = 0;
+        int totalMoneyEarnedForTheDay = 0;
         foreach (KeyValuePair<FoodTypes, int> keyValue in orders)
         {
-            int foodValue = GetFoodValue(keyValue.Key);
+            if (keyValue.Value != 0)
+            {
+                int foodValue = GetFoodValue(keyValue.Key);
+                totalFoodMoney += foodValue * keyValue.Value;
+            }
             //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
             //Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
         }
@@ -198,6 +208,7 @@ public class EconomyManager : MonoBehaviour
         {
             totalTips += tip;
         }
+        totalMoneyEarnedForTheDay = totalFoodMoney + totalTips;
         //Debug.Log(totalTips);
     }
 }
