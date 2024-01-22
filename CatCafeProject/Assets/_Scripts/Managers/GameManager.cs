@@ -43,13 +43,15 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        ChangeDay();
+        ChangeWeekNumber();
     }
 
 
     void Start()
     {
-        ChangeDay();
-        ChangeWeekNumber();
+        
         ChangeGameMode(initialGameMode);
         SetCatsForTheDay();
     }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -46,7 +48,8 @@ public class EconomyManager : MonoBehaviour
 
     [Space]
     [Header("Receipt UI Variables")]
-    [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts;
+    [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts = new();
+    [SerializeField] private ReceiptManagement receipt;
 
     //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
@@ -61,6 +64,8 @@ public class EconomyManager : MonoBehaviour
         {
             instance = this;
         }
+
+        receipt = FindAnyObjectByType<ReceiptManagement>(FindObjectsInactive.Include);
     }
 
     private void Start()
@@ -75,7 +80,15 @@ public class EconomyManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentMoney", currentMoney);
         }
 
-        PrintReceip();  //!Prueba
+        if (receipt != null)
+        {
+            foodReceiptTexts.Add(FoodTypes.Milk, receipt._milkText);
+            foodReceiptTexts.Add(FoodTypes.Donut, receipt._croissantText);
+            foodReceiptTexts.Add(FoodTypes.Cupcake, receipt._cupcakeText);
+            foodReceiptTexts.Add(FoodTypes.Cake, receipt._cakeText);
+        }
+
+        PrintReceipt();  //!Prueba
     }
 
     private void Update()
@@ -189,7 +202,7 @@ public class EconomyManager : MonoBehaviour
         return 0;
     }
 
-    public void PrintReceip()
+    public void PrintReceipt()
     {
         int totalTips = 0;
         int totalFoodMoney = 0;
@@ -209,7 +222,41 @@ public class EconomyManager : MonoBehaviour
             totalTips += tip;
         }
         totalMoneyEarnedForTheDay = totalFoodMoney + totalTips;
+        StartCoroutine(ShowReceipt(totalMoneyEarnedForTheDay, totalTips));
         //Debug.Log(totalTips);
+    }
+
+    private IEnumerator ShowReceipt(int totalMoneyEarnedForTheDay, int totalTips)
+    {
+        receipt._dayText.GetComponent<TextMeshProUGUI>().text = $"Day: {GameManager.instance.currentDay}";
+        receipt._weekText.GetComponent<TextMeshProUGUI>().text = $"Week: {GameManager.instance.week}";
+
+        receipt.gameObject.SetActive(true);
+
+        if (foodReceiptTexts.Count == orders.Count)
+        {
+            foreach (var item in foodReceiptTexts)
+            {
+                if (orders[item.Key] > 0)
+                {
+                    item.Value.GetComponentInChildren<TextMeshProUGUI>().text = $"{GetFoodValue(item.Key)} x {orders[item.Key]}";
+                    item.Value.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+        }
+
+        //receipt._tipsText.GetComponentInChildren<TextMeshProUGUI>().text = $"{totalTips} $";
+        receipt._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
+        receipt._tipsText.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        receipt._totalMoneyText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalMoneyEarnedForTheDay} $";
+        receipt._totalMoneyText.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+
+        //TODO Despues faltaria activar un botoncito de siguiente dia
+
+        yield return null;
     }
 }
 
