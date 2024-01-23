@@ -8,7 +8,7 @@ public class ClientsManager : MonoBehaviour
     [SerializeField] private QueueSlotsTrigger[] queueSlots;
     [SerializeField] private Transform parent;
     [SerializeField] private Transform atrilTransform;
-    [SerializeField] private int numberOfClients;   
+    [SerializeField] private int numberOfClients;
 
     private List<GameObject> clients = new List<GameObject>();
     private List<GameObject> catsInQueue = new List<GameObject>();
@@ -18,12 +18,12 @@ public class ClientsManager : MonoBehaviour
     {
         parent = queueSlots[queueSlots.Length - 1].transform;
 
-        if(GameManager.instance.initialGameMode == GameModes.Cafeteria)
+        if (GameManager.instance.initialGameMode == GameModes.Cafeteria)
         {
             OnCafeteriaGameMode();
         }
     }
-   
+
     private void OnCafeteriaGameMode()//llamarlo por evento al cambiar el modo de juego
     {
         InstantiateAndDisableClients();
@@ -40,13 +40,13 @@ public class ClientsManager : MonoBehaviour
             gameObject.SetActive(false);
             clients.Add(gameObject);
         }
-    }   
+    }
 
     private IEnumerator EnableClientsIfLastSlotIsNotOccupied()
     {
         if (!queueSlots[queueSlots.Length - 1].isOccupied)
         {
-            for(int i = 0; i < numberOfClients; i++)
+            for (int i = 0; i < numberOfClients; i++)
             {
                 if (!queueSlots[queueSlots.Length - 1].isOccupied)
                 {
@@ -69,51 +69,60 @@ public class ClientsManager : MonoBehaviour
                     break;
 
             }
-        }      
+        }
     }
 
     private void ClientsMovement()
     {
-        if(catsInQueue.Count > 0)
+        if (catsInQueue.Count > 0)
         {
             for (int i = 0; i < catsInQueue.Count; i++)
             {
-                for (int j = 0; j < queueSlots.Length - 1; j++)
+                for (int j = 0; j < queueSlots.Length; j++)
                 {
                     if (!queueSlots[queueSlots.Length - 1 - j].isOccupied)
                     {
-                        if (!queueSlots[0].isOccupied)
+                        if (queueSlots[queueSlots.Length - 1 - j] == queueSlots[0])
                         {
                             Debug.Log("primer slot libre");
-
-                            catsInQueue[i].GetComponent<CatMovement>().MovementToDestination(atrilTransform);
+                                catsInQueue[i].GetComponent<CatMovement>().MovementToDestination(atrilTransform);
                             catsInQueue.Remove(catsInQueue[i]);
-
-                            queueSlots[0].isOccupied = true;
+                                queueSlots[0].isOccupied = true;
                             return;
                         }
-
-                        else if (queueSlots[queueSlots.Length - 1 - j] != queueSlots[0])
+                        else
                         {
                             queueSlots[j].isOccupied = true;
-
                             Transform destination = queueSlots[queueSlots.Length - 1 - j].transform;
-                            catsInQueue[i].GetComponent<CatMovement>().MovementToDestination(destination);
+                            if (catsInQueue[i].activeSelf)
+                            {
+                                catsInQueue[i].GetComponent<CatMovement>().MovementToDestination(destination);
+                            }
                         }
-
                     }
-                }              
+                }
             }
         }
-        
     }
+
+    // private void ClientsMovement()
+    // {
+    //     int i;
+    //     for (i = 0; i < queueSlots.Length; i++)     
+    //     {
+    //         if (!queueSlots[i].isOccupied)
+    //         {
+    //             break;
+    //         }
+    //     }
+    // }
 
     private void Update()
     {
-        if(cafeteriaMode && (clients.Count == numberOfClients))
+        if (cafeteriaMode && (clients.Count == numberOfClients))
         {
             StartCoroutine(EnableClientsIfLastSlotIsNotOccupied());
-            if(catsInQueue.Count > 0)
+            if (catsInQueue.Count > 0)
             {
                 ClientsMovement();
             }
