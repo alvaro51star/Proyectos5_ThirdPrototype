@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public enum AudioClipsNames
 {
-    MoneySound
+    ClickSound
 }
 
 

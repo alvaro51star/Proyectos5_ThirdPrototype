@@ -50,6 +50,11 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts = new();
     [SerializeField] private ReceiptManagement receipt;
 
+    [Space]
+    [Header("Sound Variables")]
+    [SerializeField] private AudioClip moneySound;
+    [SerializeField] private AudioSource audioSource;
+
     //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
     private void Awake()
@@ -241,6 +246,7 @@ public class EconomyManager : MonoBehaviour
                 {
                     item.Value.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{GetFoodValue(item.Key)} x {orders[item.Key]}";
                     item.Value.SetActive(true);
+                    SoundManager.instance.ReproduceSound(moneySound, audioSource);
                     yield return new WaitForSeconds(0.5f);
                 }
             }
@@ -249,9 +255,11 @@ public class EconomyManager : MonoBehaviour
         //receipt._tipsText.GetComponentInChildren<TextMeshProUGUI>().text = $"{totalTips} $";
         receipt._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
         receipt._tipsText.transform.GetChild(0).gameObject.SetActive(true);
+        SoundManager.instance.ReproduceSound(moneySound, audioSource);
         yield return new WaitForSeconds(0.5f);
         receipt._totalMoneyText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalMoneyEarnedForTheDay} $";
         receipt._totalMoneyText.transform.GetChild(0).gameObject.SetActive(true);
+        SoundManager.instance.ReproduceSound(moneySound, audioSource);
         yield return new WaitForSeconds(0.5f);
 
         //TODO Despues faltaria activar un botoncito de siguiente dia
