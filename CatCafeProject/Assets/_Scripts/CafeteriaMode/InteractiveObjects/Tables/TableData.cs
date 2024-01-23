@@ -18,6 +18,10 @@ public class TableData : MonoBehaviour
     [SerializeField] private Transform[] foodTransforms;
     [SerializeField] private FoodController[] foodControllers;
 
+    private void Start()
+    {
+        selectedChair = chairs[0];
+    }
     public void ResetTableData(bool freeOrOcupied)
     {
         orderedFood = FoodTypes.Nothing;//de momento aqui, casi mejor cuando gato "termina" de comer

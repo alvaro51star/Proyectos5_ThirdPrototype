@@ -9,7 +9,7 @@ public class QueueSlotsTrigger : MonoBehaviour
     {
         if(other.GetComponent<CatMovement>())
         {
-            isOccupied = true;
+            //isOccupied = true;
         }
     }
 

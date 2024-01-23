@@ -6,13 +6,18 @@ using UnityEngine.AI;
 
 public class CatMovement : MonoBehaviour
 {
-    public Transform initialDestination;
+    //public Transform initialDestination;
     public TablesManager tablesManager;
     [SerializeField] private NavMeshAgent agent;
     public TableData tableAssigned;
+
+    private void OnEnable()
+    {
+        agent.enabled = true;
+    }
     private void Start()
     {
-        MovementToDestination(initialDestination);
+        //MovementToDestination(initialDestination);
     }
 
     public void MovementToDestination(Transform destination)
