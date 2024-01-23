@@ -49,21 +49,19 @@ public class UIMenus : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(m_gameScene);
-        Debug.Log("Play Game");
     }
 
     public void GoToInitialMenu()
     {
         m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
-        Debug.Log("Initial Active");
     }
 
     public void GoToCreditsPanel()
     {
         m_UIManager.DesactivateAllUIGameObjects();
-        m_UIManager.ActivateUIGameObjects(m_UIManager.creditsPanel, true);   
-        Debug.Log("Credits Panel Active");
+        m_UIManager.ActivateUIGameObjects(m_UIManager.creditsPanel, true);
+        Time.timeScale = 1;
     }
     public void PauseMenu()
     {
