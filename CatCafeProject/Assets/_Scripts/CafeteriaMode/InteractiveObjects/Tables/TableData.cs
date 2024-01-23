@@ -8,7 +8,7 @@ public class TableData : MonoBehaviour
 {
     //public event Action OnAvailableTable;
     public TablesManager tablesManager;
-    public bool isOcupied;
+    public bool isOcupied = false;
     [HideInInspector] public Transform selectedChair;
     [HideInInspector] public Transform selectedFoodTransform;
     public FoodTypes orderedFood;
@@ -17,11 +17,6 @@ public class TableData : MonoBehaviour
     [SerializeField] private Transform[] chairs;
     [SerializeField] private Transform[] foodTransforms;
     [SerializeField] private FoodController[] foodControllers;
-
-    private void Start()
-    {
-        ResetTableData(false);
-    }
 
     public void ResetTableData(bool freeOrOcupied)
     {

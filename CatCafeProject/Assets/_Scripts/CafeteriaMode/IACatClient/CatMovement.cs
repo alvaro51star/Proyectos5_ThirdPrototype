@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,9 +12,7 @@ public class CatMovement : MonoBehaviour
     public TableData tableAssigned;
     private void Start()
     {
- 
         MovementToDestination(initialDestination);
-
     }
 
     public void MovementToDestination(Transform destination)
@@ -54,7 +51,7 @@ public class CatMovement : MonoBehaviour
 
         if (tableAssigned)
         {
-            tableAssigned.ResetTableData(false);//to get selectedChair
+            tableAssigned.ResetTableData(true);//to get selectedChair
             Transform destination = tableAssigned.selectedChair;
 
             MovementToDestination(destination);

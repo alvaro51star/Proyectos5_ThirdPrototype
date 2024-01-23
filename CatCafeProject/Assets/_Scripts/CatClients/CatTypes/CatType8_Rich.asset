@@ -15,3 +15,5 @@ MonoBehaviour:
   difficulty: 3
   likes: 04000000
   dislikes: 
+  catPrefab: {fileID: 3241025089900421362, guid: fd9a3116d7f460a4b8684c52e9c4fee7,
+    type: 3}

@@ -9,15 +9,14 @@ public class ChairTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
-            if (other.GetComponent<CatMovement>().tableAssigned = tableData)
+        if (other.GetComponent<CatMovement>() && (other.GetComponent<CatMovement>().tableAssigned = tableData))
+        {
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+            agent.isStopped = true;
+            if (agent.remainingDistance == 0f)
             {
-                NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
-                agent.isStopped = true;
-                if (agent.remainingDistance == 0f)
-                {
-                    other.transform.rotation = this.transform.rotation;
-                }
+                other.transform.rotation = this.transform.rotation;
             }
+        }
     }
 }
