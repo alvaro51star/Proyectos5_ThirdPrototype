@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject player;
+
     [SerializeField]
     private AudioSource audioSource;
 
@@ -34,16 +36,10 @@ public class UIManager : MonoBehaviour
     {
         if (isInGame)
         {
-            /*
             if (player != null)
             {
                 player.SetActive(true);
             }
-            if (cameraPlayer != null)
-            {
-                cameraPlayer.GetComponent<CameraRotation>().enabled = true;
-            }
-            */
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -53,16 +49,10 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            /*
             if (player != null)
             {
                 player.SetActive(false);
             }
-            if (cameraPlayer != null)
-            {
-                cameraPlayer.GetComponent<CameraRotation>().enabled = false;
-            }
-            */
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

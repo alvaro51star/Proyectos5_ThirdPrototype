@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pruebas/PruebasEspe/PruebaMenuInicial.unity
     guid: 539301b9fbac11f498748c7f3b8b84fe
+  - enabled: 1
+    path: Assets/Scenes/Pruebas/PruebasEspe/PruebaJuego.unity
+    guid: 10ae61dc2ba24054b86d5f360ea8e338
   m_configObjects: {}

@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class UIMenus : MonoBehaviour
 {
-    [HideInInspector] public bool isPaused = false;
-
+    private GameObject m_player;
     private UIManager m_UIManager;
+
     private int m_initialScene = 0;
     private int m_gameScene = 1;
+
+    [HideInInspector] public bool isAMenuOrPanel = false;
+    [HideInInspector] public bool isPaused = false;
 
     void Start()
     {
         m_UIManager = GetComponent<UIManager>();
+        m_player = m_UIManager.player;
 
-        /*
         if (m_player)
         {
             m_player.SetActive(true);
             isAMenuOrPanel = false;
         }
-        */
 
         if (SceneManager.GetActiveScene().buildIndex == m_initialScene)
         {
@@ -46,21 +48,52 @@ public class UIMenus : MonoBehaviour
 
     public void PlayGame()
     {
-        // SceneManager.LoadScene(m_gameScene);
+        SceneManager.LoadScene(m_gameScene);
         Debug.Log("Play Game");
     }
 
     public void GoToInitialMenu()
     {
+        m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
-        m_UIManager.ActivateUIGameObjects(m_UIManager.creditsPanel, false);
         Debug.Log("Initial Active");
     }
 
     public void GoToCreditsPanel()
     {
-        m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, false);
+        m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.ActivateUIGameObjects(m_UIManager.creditsPanel, true);   
         Debug.Log("Credits Panel Active");
+    }
+    public void PauseMenu()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            if (m_player)
+            {
+                isAMenuOrPanel = true;
+            }
+
+            m_UIManager.IsInGame(false);
+            m_UIManager.DesactivateAllUIGameObjects();
+            m_UIManager.ActivateUIGameObjects(m_UIManager.pauseMenu, true);
+            isPaused = !isPaused;
+        }
+        else
+        {
+            if (m_player)
+            {
+                isAMenuOrPanel = false;
+            }
+            Resume();
+        }
+    }
+
+    public void Resume()
+    {
+        m_UIManager.DesactivateAllUIGameObjects();
+        m_UIManager.IsInGame(true);
     }
 }
