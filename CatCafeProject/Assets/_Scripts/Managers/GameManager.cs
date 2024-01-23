@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameModes initialGameMode;
 
     public static event Action<GameModes> OnGameModeChange;
+    public static event Action<List<CatDataSO>> OnCatListCreated;
     [Space]
     [Header("Cats Variables")]
     [SerializeField] private int maxCatsPerDay = 6;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
         }
 
         catsForTheDay = catsForTheDay.OrderBy(i => Guid.NewGuid()).ToList();
+        OnCatListCreated?.Invoke(catsForTheDay);
     }
 
     private bool IsSeventhDay()

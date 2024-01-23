@@ -91,8 +91,6 @@ public class EconomyManager : MonoBehaviour
             foodReceiptTexts.Add(FoodTypes.Cupcake, receipt._cupcakeText);
             foodReceiptTexts.Add(FoodTypes.Cake, receipt._cakeText);
         }
-
-        PrintReceipt();  //!Prueba
     }
 
     private void Update()
