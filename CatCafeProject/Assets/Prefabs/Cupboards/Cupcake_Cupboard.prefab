@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: foodType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9203643554105776797, guid: 756d4daf172455040a653a882819369d,
+        type: 3}
+      propertyPath: audioClip
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

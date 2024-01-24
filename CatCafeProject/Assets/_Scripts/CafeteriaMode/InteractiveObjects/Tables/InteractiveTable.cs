@@ -9,6 +9,7 @@ public class InteractiveTable : InteractiveObject
     [SerializeField] private TableData tableData;    
     private FoodTypes playerFoodType;
     private FoodController playerFoodController;
+    private ClientStates clientStates;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -23,6 +24,11 @@ public class InteractiveTable : InteractiveObject
             Debug.Log(tableData.orderedFood);
         }
 
+        if(other.GetComponent<ClientStates>())
+        {
+            clientStates = other.GetComponent<ClientStates>();
+        }
+
         base.OnTriggerEnter(other);
     }
     protected override void Interaction()//take ordered food
@@ -35,12 +41,18 @@ public class InteractiveTable : InteractiveObject
 
             playerFoodController.EnableFoodGO(false);
             tableFoodController.EnableFoodGO(true);
+
+            playerFoodController.foodType = FoodTypes.Nothing;
             tableData.orderedFood = FoodTypes.Nothing;
+
+            clientStates.isFed = true;//to stop state change
+
+            //SoundManager.instance.ReproduceSound();
         }
         else
         {
             Debug.Log("Este no es el pedido");
-            //sonido "no"
+            //SoundManager.instance.ReproduceSound(AudioClipsNames.NO);            
         }
     }
 
@@ -49,7 +61,7 @@ public class InteractiveTable : InteractiveObject
         base.OnTriggerExit(other);
         if(other.GetComponent<ClientData>())
         {
-            //tableData.TableIsFree();
+            tableData.ResetTableData(false);
         }
     }
 }

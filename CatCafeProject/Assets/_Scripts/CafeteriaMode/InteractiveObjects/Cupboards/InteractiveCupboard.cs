@@ -12,11 +12,12 @@ public class InteractiveCupboard : InteractiveObject
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<FoodController>() != null)
+        if(other.GetComponent<FoodController>() != null && other.GetComponent<FoodController>().foodType == FoodTypes.Nothing)
         {
-            playerFoodController = other.GetComponent<FoodController>();        
+            playerFoodController = other.GetComponent<FoodController>();
+
+            base.OnTriggerEnter(other);
         }
-        base.OnTriggerEnter(other);
     }
 
     protected override void Interaction()
@@ -24,5 +25,7 @@ public class InteractiveCupboard : InteractiveObject
         playerFoodController.foodType = foodType;
         foodSpawner.DisableSpawnedFood();
         playerFoodController.EnableFoodGO(true);
+
+        SoundManager.instance.ReproduceSound(AudioClipsNames.TakeFood);
     }
 }

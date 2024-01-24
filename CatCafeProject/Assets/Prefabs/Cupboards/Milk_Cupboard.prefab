@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milk_Cupboard
       objectReference: {fileID: 0}
+    - target: {fileID: 7114815970679727440, guid: 756d4daf172455040a653a882819369d,
+        type: 3}
+      propertyPath: foodType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203643554105776797, guid: 756d4daf172455040a653a882819369d,
+        type: 3}
+      propertyPath: audioClip
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9203643554105776797, guid: 756d4daf172455040a653a882819369d,
         type: 3}
       propertyPath: secondsToSpawn

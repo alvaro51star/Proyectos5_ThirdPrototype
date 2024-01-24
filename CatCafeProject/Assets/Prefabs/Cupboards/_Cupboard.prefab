@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodGO: {fileID: 8782221483824066532}
   secondsToSpawn: 5
+  audioClip: 0
 --- !u!65 &4575182401358323420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,8 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16977f2bee6245d4aae89aab5d6a93de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputManager: {fileID: 0}
-  foodType: 0
+  foodType: 4
   foodSpawner: {fileID: 9203643554105776797}
 --- !u!1 &8782221483824066532
 GameObject:

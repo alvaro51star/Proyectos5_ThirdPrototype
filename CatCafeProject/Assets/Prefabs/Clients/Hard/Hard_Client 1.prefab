@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hard_Client 1
       objectReference: {fileID: 0}
+    - target: {fileID: 508165369106889185, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5135055554825347036, guid: 367db26a9c9d5324087b216f8f53599d,
         type: 3}
       propertyPath: catType
@@ -69,6 +74,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8987064585501655006, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5514b3dd0007d4a41831499bdf96d7d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

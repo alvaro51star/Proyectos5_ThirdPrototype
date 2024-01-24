@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    //public static event Action OnTakeFood;//para que el player coja la comida
-
     [SerializeField] private GameObject foodGO;
     [SerializeField] private float secondsToSpawn;
+    [SerializeField] private AudioClipsNames audioClip;
 
     private void Start()
     {
@@ -18,18 +17,17 @@ public class FoodSpawner : MonoBehaviour
 
     //timer en corutina para evitar update, TENER CUIDADO EN PAUSA
     private IEnumerator SpawnTimer (float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
+    {        
+        yield return new WaitForSecondsRealtime(seconds);
         foodGO.SetActive(true);
+
+        SoundManager.instance.ReproduceSound(audioClip);
     }
 
     public void DisableSpawnedFood()
     {
         foodGO.SetActive(false);
-        if (!foodGO.activeSelf)
-        {
-            //OnTakeFood?.Invoke();
-        }
+
         StartCoroutine(SpawnTimer(secondsToSpawn));
     }
 }

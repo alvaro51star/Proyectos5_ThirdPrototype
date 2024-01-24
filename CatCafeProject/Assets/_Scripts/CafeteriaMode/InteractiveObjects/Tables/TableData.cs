@@ -22,10 +22,10 @@ public class TableData : MonoBehaviour
     {
         selectedChair = chairs[0];
     }
-    public void ResetTableData(bool freeOrOcupied)
+    public void ResetTableData(bool tableIsOccupied)
     {
         orderedFood = FoodTypes.Nothing;//de momento aqui, casi mejor cuando gato "termina" de comer
-        isOcupied = freeOrOcupied;
+        isOcupied = tableIsOccupied;
 
         /*if(isOcupied)
             isOcupied= false;

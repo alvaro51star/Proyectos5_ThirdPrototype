@@ -52,7 +52,8 @@ public enum CatState
 {
     Happy,
     Annoyed,
-    Angry
+    Angry,
+    Leaving
 }
 
 public enum GameModes
