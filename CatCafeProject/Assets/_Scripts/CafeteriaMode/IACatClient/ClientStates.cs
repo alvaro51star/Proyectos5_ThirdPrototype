@@ -74,39 +74,76 @@ public class ClientStates : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         FurnitureTheme furnitureTheme = catMovement.tableAssigned.furnitureTheme;
-        //CatState catDecorationState = CalculateDecorationState();
-        //int d = EconomyManager.instance.CalculateTotalMoney(clientData.catType, catState, catDecorationState,clientData.foodOrdered, furnitureTheme);
+        CatState catDecorationState = CalculateDecorationState();
+        int money = EconomyManager.instance.CalculateTotalMoney(clientData.catType, catState, catDecorationState, clientData.foodOrdered, furnitureTheme);
+        EconomyManager.instance.ModifyCurrentMoney(money);
         Debug.Log("cliente se ha comido su pedido");
         TimeStateChange(CatState.Leaving);
     }
 
-    /*private CatState CalculateDecorationState()
+    private CatState CalculateDecorationState()
     {
         int likeness = 0;
-        //si mas de 50 esta contento
-        //si menos de 50% esta serio
-        //si menos de 80% esta enfadado
-
-        //FurnitureManager.instance.
 
         foreach(var item in clientData.catType.likes)
         {
             switch(item)
             {
                 case FurnitureTheme.Flowers:
-                    Furn
+                    if(FurnitureManager.instance.flowerFurniturePercentage >= 50)
+                    {
+                        likeness++;
+                    }
+                    else if(FurnitureManager.instance.flowerFurniturePercentage <= 20)
+                    {
+                        likeness--;
+                    }
                     break;
                 case FurnitureTheme.Hearts:
+                    if (FurnitureManager.instance.heartFurniturePercentage >= 50)
+                    {
+                        likeness++;
+                    }
+                    else if (FurnitureManager.instance.heartFurniturePercentage <= 20)
+                    {
+                        likeness--;
+                    }
                     break;
                 case FurnitureTheme.Leaves:
+                    if (FurnitureManager.instance.leavesFurniturePercentage >= 50)
+                    {
+                        likeness++;
+                    }
+                    else if (FurnitureManager.instance.leavesFurniturePercentage <= 20)
+                    {
+                        likeness--;
+                    }
                     break;
                 case FurnitureTheme.Fishes:
+                    if (FurnitureManager.instance.fishFurniturePercentage >= 50)
+                    {
+                        likeness++;
+                    }
+                    else if (FurnitureManager.instance.fishFurniturePercentage <= 20)
+                    {
+                        likeness--;
+                    }
                     break;
-            }
+            }            
         }
-        //si le gusta mas de un tema como lo hago???
 
+        if (likeness > 0)
+        {
+            return CatState.Happy;
+        }
+        else if (likeness == 0)
+        {
+            return CatState.Annoyed;
+        }
+        else
+        {
+            return CatState.Angry;
+        }
 
-
-    }*/
+    }
 }
