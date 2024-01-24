@@ -21,7 +21,7 @@ public class FoodSpawner : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         foodGO.SetActive(true);
 
-        SoundManager.instance.ReproduceSound(audioClip);
+        //SoundManager.instance.ReproduceSound(audioClip);
     }
 
     public void DisableSpawnedFood()
