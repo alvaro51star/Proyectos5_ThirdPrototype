@@ -128,9 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSeconds: 60
   catMovement: {fileID: 5478308201009531806}
+  clientData: {fileID: 5135055554825347036}
   leaveTransform: {fileID: 1511053961862781000, guid: 54eaab1ab6b2ae449aca7855ac34dcae,
     type: 3}
   catState: 0
+  isFed: 0
 --- !u!1001 &7744469531702272858
 PrefabInstance:
   m_ObjectHideFlags: 0

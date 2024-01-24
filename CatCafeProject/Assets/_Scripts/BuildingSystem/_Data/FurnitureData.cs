@@ -7,8 +7,8 @@ public class FurnitureData: MonoBehaviour
     [SerializeField] private string furnitureName;
     [SerializeField] private int furnitureId;
     [SerializeField] private int furniturePrize;
-    [SerializeField] public FurnitureType furnitureType{private set; get;}
-    [SerializeField] public FurnitureTheme furnitureTheme {private set; get;}
+    [SerializeField] public FurnitureType furnitureType;
+    [SerializeField] public FurnitureTheme furnitureTheme;
     [SerializeField] private int listIndex;
 
     public delegate void FurnitureAction(FurnitureData furnitureData, Vector3 position);
