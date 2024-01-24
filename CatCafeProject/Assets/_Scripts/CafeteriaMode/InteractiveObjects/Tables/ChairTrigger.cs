@@ -6,17 +6,31 @@ using UnityEngine.AI;
 public class ChairTrigger : MonoBehaviour
 {
     [SerializeField] private TableData tableData;
-
+   
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<CatMovement>() && (other.GetComponent<CatMovement>().tableAssigned = tableData))
+        if (other.GetComponent<ClientStates>())
         {
-            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
-            agent.isStopped = true;
-            if (agent.remainingDistance == 0f)
+            other.GetComponent<ClientStates>().enabled = true;
+
+            if (other.GetComponent<CatMovement>().tableAssigned = tableData)
             {
-                other.transform.rotation = this.transform.rotation;
+                NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+
+                if (other.GetComponent<ClientStates>().catState != CatState.Leaving)
+                {
+                    agent.isStopped = true;
+
+                    if (agent.isStopped)
+                    {
+                        other.transform.rotation = transform.rotation;
+                    }
+                }
+                else
+                {
+                    agent.isStopped = false;
+                }
             }
-        }
+        }       
     }
 }
