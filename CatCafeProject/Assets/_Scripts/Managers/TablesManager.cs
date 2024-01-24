@@ -27,7 +27,7 @@ public class TablesManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CatMovement>() != null)
+        if (other.GetComponent<CatMovement>() != null && other.GetComponent<ClientStates>().catState != CatState.Leaving)
         {
             catMovement = other.GetComponent<CatMovement>();
             catData = other.GetComponent<ClientData>().catType;

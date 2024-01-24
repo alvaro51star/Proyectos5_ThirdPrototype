@@ -8,6 +8,8 @@ public class InteractiveCupboard : InteractiveObject
 {
     [SerializeField] private FoodTypes foodType;
     [SerializeField] private FoodSpawner foodSpawner;
+    [SerializeField] private AudioClip audioClipTakeFood;
+    [SerializeField] private AudioSource audioSource;
     private FoodController playerFoodController;
 
     protected override void OnTriggerEnter(Collider other)
@@ -26,6 +28,6 @@ public class InteractiveCupboard : InteractiveObject
         foodSpawner.DisableSpawnedFood();
         playerFoodController.EnableFoodGO(true);
 
-        //SoundManager.instance.ReproduceSound(AudioClipsNames.TakeFood);
+        SoundManager.instance.ReproduceSound(audioClipTakeFood, audioSource);
     }
 }

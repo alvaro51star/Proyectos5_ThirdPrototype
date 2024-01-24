@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 3625982810224195207, guid: f2f35b2409312c94e89d23bd92b87dcc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5764164320736528447, guid: f2f35b2409312c94e89d23bd92b87dcc,
         type: 3}
@@ -409,6 +409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gato_Base_m
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7090645ce59c46e44b21d41aa0a05e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1013,7 +1018,7 @@ PrefabInstance:
     - target: {fileID: 1511053961862781000, guid: 54eaab1ab6b2ae449aca7855ac34dcae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1511053961862781000, guid: 54eaab1ab6b2ae449aca7855ac34dcae,
         type: 3}
@@ -1059,6 +1064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClientDestroyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996596070701768266, guid: 54eaab1ab6b2ae449aca7855ac34dcae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1244,6 +1254,11 @@ MonoBehaviour:
   - {fileID: 2004643641}
   tableList: []
   totalFurnitures: 0
+  flowerFurnitureTotal: 0
+  heartFurnitureTotal: 0
+  leavesFurnitureTotal: 0
+  fishFurnitureTotal: 0
+  noThemeFurnitureTotal: 0
   flowerFurniturePercentage: 0
   heartFurniturePercentage: 0
   leavesFurniturePercentage: 0
@@ -1486,10 +1501,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1492003782}
     m_Modifications:
+    - target: {fileID: 1367113449796945549, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367230222114096997, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367238636680822885, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367951252012446621, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1623707788658912208, guid: d4fda9121a78eb54b9e1bf994df88c1a,
         type: 3}
       propertyPath: m_Name
       value: Milk_FoodVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623707788658912208, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1623707788658912208, guid: d4fda9121a78eb54b9e1bf994df88c1a,
         type: 3}
@@ -1546,6 +1586,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8977057179664320601, guid: d4fda9121a78eb54b9e1bf994df88c1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1557,6 +1602,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 393532862}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &394779678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394779679}
+  - component: {fileID: 394779680}
+  m_Layer: 7
+  m_Name: ColliderPuerta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &394779679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394779678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.49, y: 0, z: 19.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2132182530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &394779680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394779678}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.736622, y: 4.5578656, z: 1}
+  m_Center: {x: 0.6872568, y: 1.7789333, z: 0}
 --- !u!1 &434813532 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7827153882068012407, guid: f8c862ca1174b3547bc227b28d6dbf98,
@@ -2296,10 +2394,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1492003782}
     m_Modifications:
+    - target: {fileID: 148671246540949131, guid: f6f089bb16b718d4991176eeb20bf930,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419760545152587732, guid: f6f089bb16b718d4991176eeb20bf930,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5001553360050517085, guid: f6f089bb16b718d4991176eeb20bf930,
         type: 3}
       propertyPath: m_Name
       value: Cake_FoodVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001553360050517085, guid: f6f089bb16b718d4991176eeb20bf930,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5001553360050517085, guid: f6f089bb16b718d4991176eeb20bf930,
         type: 3}
@@ -2744,7 +2857,7 @@ PrefabInstance:
     - target: {fileID: 4197420967502360719, guid: bd3c113686fa33d44bf38c807c889ef6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.37
+      value: 16.46
       objectReference: {fileID: 0}
     - target: {fileID: 4197420967502360719, guid: bd3c113686fa33d44bf38c807c889ef6,
         type: 3}
@@ -3063,7 +3176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &856501827
 Transform:
   m_ObjectHideFlags: 0
@@ -4231,12 +4344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundList:
   - {fileID: 8300000, guid: f6dda6346bab7a047a2a7cf92ea7241a, type: 3}
-  - {fileID: 8300000, guid: 3f06ef5ffba005f45b3b3414a28f4605, type: 3}
-  - {fileID: 8300000, guid: dc1b1232b3b834647af2874da0c808b0, type: 3}
-  - {fileID: 8300000, guid: bd5c7bbef33d4d748a58b671843facf4, type: 3}
-  - {fileID: 8300000, guid: 6b326ba348dcfd648b4e9b5bcfd36dce, type: 3}
-  - {fileID: 8300000, guid: aaa9353bd52d1eb46a962a69e40479aa, type: 3}
-  - {fileID: 8300000, guid: ce6b0b7c1a7a3d84a9671d0a56ae6e11, type: 3}
   managerAudioSource: {fileID: 1411129401}
 --- !u!1001 &1417723118
 PrefabInstance:
@@ -4554,7 +4661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1492003782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Food
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5141,6 +5248,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3156664349468543404, guid: 11da63b8eb3a6de4c80d90b420bc6ffe,
+        type: 3}
+      propertyPath: notOrderedFoodClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 060471f525c99744b9dbf255a99fe4bc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5393,10 +5505,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1492003782}
     m_Modifications:
+    - target: {fileID: 912109254930338483, guid: 16141434cbd2ead46a7262f3963517ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2257784972926595904, guid: 16141434cbd2ead46a7262f3963517ba,
         type: 3}
       propertyPath: m_Name
       value: Donut_FoodVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257784972926595904, guid: 16141434cbd2ead46a7262f3963517ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2257784972926595904, guid: 16141434cbd2ead46a7262f3963517ba,
         type: 3}
@@ -5452,6 +5574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451351221722058953, guid: 16141434cbd2ead46a7262f3963517ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5799,7 +5926,7 @@ GameObject:
   - component: {fileID: 1909805622}
   - component: {fileID: 1909805623}
   - component: {fileID: 1909805624}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6525,8 +6652,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4145655211016817113, guid: a1ba964a1e128ff478b521cffe48b6d3,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145655211016817113, guid: a1ba964a1e128ff478b521cffe48b6d3,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865511256499493991, guid: a1ba964a1e128ff478b521cffe48b6d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022486035012266576, guid: a1ba964a1e128ff478b521cffe48b6d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6576,6 +6718,7 @@ Transform:
   - {fileID: 1858329075}
   - {fileID: 316270100}
   - {fileID: 254133817}
+  - {fileID: 394779679}
   m_Father: {fileID: 1351180111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143946596

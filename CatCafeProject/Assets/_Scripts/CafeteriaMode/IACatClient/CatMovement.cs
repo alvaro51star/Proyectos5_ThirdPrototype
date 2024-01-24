@@ -80,7 +80,6 @@ public class CatMovement : MonoBehaviour
         if (tableAssigned != null)
         {
             Debug.Log($"La mesa es: {tableAssigned}");
-            //tableAssigned.ResetTableData(true);//to get selectedChair and assign table as occupied
 
             return true;
         }

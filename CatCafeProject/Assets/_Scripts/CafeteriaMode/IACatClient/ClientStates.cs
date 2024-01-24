@@ -6,7 +6,8 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class ClientStates : MonoBehaviour
 {
-    [SerializeField] private float maxSeconds;
+    [SerializeField] private float maxSecondsPatience;
+    [SerializeField] private float secondsEating;
     private float secondsToAnnoyed;
     private float secondsToAngry;
     private float secondsToLeave;
@@ -14,6 +15,9 @@ public class ClientStates : MonoBehaviour
     [SerializeField] private CatMovement catMovement;
     [SerializeField] private ClientData clientData;
     [SerializeField] private Transform leaveTransform;
+
+    [SerializeField] private AudioClip audioClipAngryLeave;
+    [SerializeField] private AudioSource audioSource;
 
     public CatState catState;
     public bool isFed = false;
@@ -26,9 +30,9 @@ public class ClientStates : MonoBehaviour
 
     private void CalculateSeconds()
     {
-        secondsToAnnoyed = 0.3f * maxSeconds;
-        secondsToAngry = 0.4f * maxSeconds;
-        secondsToLeave = 0.3f * maxSeconds;
+        secondsToAnnoyed = 0.3f * maxSecondsPatience;
+        secondsToAngry = 0.4f * maxSecondsPatience;
+        secondsToLeave = 0.3f * maxSecondsPatience;
     }
 
     private void TimeStateChange(CatState catStateChange)
@@ -48,10 +52,10 @@ public class ClientStates : MonoBehaviour
                 break;
             case CatState.Leaving:
                 catMovement.MovementToDestination(leaveTransform);
+                SoundManager.instance.ReproduceSound(audioClipAngryLeave, audioSource);
                 break;
         }
 
-        //Debug.Log(catState);
     }
 
     public IEnumerator ChangeStateTimer(float seconds)
@@ -71,12 +75,13 @@ public class ClientStates : MonoBehaviour
 
     private IEnumerator Eating()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(secondsEating);
 
         FurnitureTheme furnitureTheme = catMovement.tableAssigned.furnitureTheme;
         CatState catDecorationState = CalculateDecorationState();
         int money = EconomyManager.instance.CalculateTotalMoney(clientData.catType, catState, catDecorationState, clientData.foodOrdered, furnitureTheme);
         EconomyManager.instance.ModifyCurrentMoney(money);
+
         Debug.Log("cliente se ha comido su pedido");
         TimeStateChange(CatState.Leaving);
     }

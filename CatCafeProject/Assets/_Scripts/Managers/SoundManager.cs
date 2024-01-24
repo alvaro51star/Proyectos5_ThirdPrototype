@@ -6,13 +6,7 @@ using UnityEngine.Audio;
 
 public enum AudioClipsNames
 {
-    ClickSound,
-    SpawnSound1,
-    SpawnSound2,
-    SpawnSound3,
-    SpawnSound4,
-    ThrowOutFood,
-    TakeFood
+    ClickSound
 }
 
 

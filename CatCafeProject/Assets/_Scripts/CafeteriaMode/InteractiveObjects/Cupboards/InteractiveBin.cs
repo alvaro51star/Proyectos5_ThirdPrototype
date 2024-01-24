@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InteractiveBin : InteractiveObject
 {
+    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioSource source;
+
     private FoodController playerFoodController;
     protected override void OnTriggerEnter(Collider other)
     {
@@ -19,6 +22,6 @@ public class InteractiveBin : InteractiveObject
         playerFoodController.EnableFoodGO(false);
         playerFoodController.foodType = FoodTypes.Nothing;
 
-        //SoundManager.instance.ReproduceSound(AudioClipsNames.ThrowOutFood);
+        SoundManager.instance.ReproduceSound(clip,source);
     }
 }

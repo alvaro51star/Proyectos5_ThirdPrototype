@@ -8,7 +8,8 @@ public class FoodSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject foodGO;
     [SerializeField] private float secondsToSpawn;
-    [SerializeField] private AudioClipsNames audioClip;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class FoodSpawner : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         foodGO.SetActive(true);
 
-        //SoundManager.instance.ReproduceSound(audioClip);
+        SoundManager.instance.ReproduceSound(audioClip, audioSource);
     }
 
     public void DisableSpawnedFood()

@@ -6,7 +6,10 @@ using UnityEngine;
 public class InteractiveTable : InteractiveObject
 {
     [HideInInspector] public FoodController tableFoodController;
-    [SerializeField] private TableData tableData;    
+    [SerializeField] private TableData tableData;
+    [SerializeField] private AudioSource tableAudioSource;
+    [SerializeField] private AudioClip orderedFoodClip;
+    [SerializeField] private AudioClip notOrderedFoodClip;
     private FoodTypes playerFoodType;
     private FoodController playerFoodController;
     private ClientStates clientStates;
@@ -47,12 +50,12 @@ public class InteractiveTable : InteractiveObject
 
             clientStates.isFed = true;//to stop state change
 
-            //SoundManager.instance.ReproduceSound();
+            SoundManager.instance.ReproduceSound(orderedFoodClip, tableAudioSource);
         }
         else
         {
             Debug.Log("Este no es el pedido");
-            //SoundManager.instance.ReproduceSound(AudioClipsNames.NO);            
+            SoundManager.instance.ReproduceSound(notOrderedFoodClip, tableAudioSource);            
         }
     }
 
