@@ -653,7 +653,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1393157041224242416}
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 7894920195745962091}
   gridRenderer: {fileID: 578954312290779028}
-  gridCellSize: {x: 0.5, y: 0.5, z: 0.5}
+  gridCellSize: {x: 1, y: 1, z: 1}
   defaultScale: {x: 10, y: 10}
   cellSizeParameter: _GridSize
   defaultScaleParameter: _DefaultScale
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 3275239723144262649}
   - component: {fileID: 3685875056680127373}
   m_Layer: 5
-  m_Name: MenuCanvas
+  m_Name: BuildCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2475,8 +2475,8 @@ Transform:
   m_GameObject: {fileID: 2815684062093133873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.015, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.02, y: 0.015, z: 9.04}
+  m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5328153675976383635}
@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e870d4d71bd48247b643bc02a850ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 6666396767906719006}
+  input: {fileID: 0}
   gridManager: {fileID: 7689598620714439443}
   structuresData: {fileID: 11400000, guid: d2e9ab468f2704542a324c19b051a433, type: 2}
   placementPrevew: {fileID: 2754817058031357317}
@@ -3501,7 +3501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3696895838945522639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7d42b9463a3a264aaa29546368a8a23, type: 3}
   m_Name: 
@@ -6141,14 +6141,13 @@ GameObject:
   - component: {fileID: 620650741617272224}
   - component: {fileID: 1910158824720442137}
   - component: {fileID: 5408217944827651701}
-  - component: {fileID: 1597513523360725282}
   m_Layer: 5
   m_Name: MoneyIndicatorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &620650741617272224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6267,19 +6266,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1597513523360725282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6263785382253398324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f37d23476a762148bdf1c215daff7f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyText: {fileID: 5408217944827651701}
 --- !u!1 &6339119704872362658
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,7 +7574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -402.2683, y: 5.0045}
+  m_AnchoredPosition: {x: -402.2683, y: 217.9}
   m_SizeDelta: {x: 76.806, y: 230.2916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7072224452396604564
