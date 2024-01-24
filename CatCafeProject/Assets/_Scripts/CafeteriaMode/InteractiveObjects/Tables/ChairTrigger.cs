@@ -29,6 +29,7 @@ public class ChairTrigger : MonoBehaviour
                 else
                 {
                     agent.isStopped = false;
+                    tableData.isOccupied = false;
                 }
             }
         }       

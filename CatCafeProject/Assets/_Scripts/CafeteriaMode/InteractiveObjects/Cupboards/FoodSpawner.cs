@@ -18,7 +18,7 @@ public class FoodSpawner : MonoBehaviour
     //timer en corutina para evitar update, TENER CUIDADO EN PAUSA
     private IEnumerator SpawnTimer (float seconds)
     {        
-        yield return new WaitForSecondsRealtime(seconds);
+        yield return new WaitForSeconds(seconds);
         foodGO.SetActive(true);
 
         SoundManager.instance.ReproduceSound(audioClip);

@@ -8,7 +8,7 @@ public class TableData : MonoBehaviour
 {
     //public event Action OnAvailableTable;
     public TablesManager tablesManager;
-    public bool isOcupied = false;
+    public bool isOccupied = false;
     [HideInInspector] public Transform selectedChair;
     [HideInInspector] public Transform selectedFoodTransform;
     public FoodTypes orderedFood;
@@ -25,14 +25,8 @@ public class TableData : MonoBehaviour
     public void ResetTableData(bool tableIsOccupied)
     {
         orderedFood = FoodTypes.Nothing;//de momento aqui, casi mejor cuando gato "termina" de comer
-        isOcupied = tableIsOccupied;
-
-        /*if(isOcupied)
-            isOcupied= false;
-        if(!isOcupied)
-        {
-            //OnAvailableTable?.Invoke();
-        }*/
+        isOccupied = tableIsOccupied;
+        
         RandomChair();
     }
 

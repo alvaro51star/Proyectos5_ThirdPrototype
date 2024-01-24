@@ -59,9 +59,5 @@ public class InteractiveTable : InteractiveObject
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        if(other.GetComponent<ClientData>())
-        {
-            tableData.ResetTableData(false);
-        }
     }
 }

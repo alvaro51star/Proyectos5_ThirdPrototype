@@ -49,12 +49,11 @@ public class ClientStates : MonoBehaviour
                 break;
         }
 
-        Debug.Log(catState);
+        //Debug.Log(catState);
     }
 
     public IEnumerator ChangeStateTimer(float seconds)
-    {
-        Debug.Log(seconds);
+    {        
         yield return new WaitForSeconds(seconds);
 
         if(!isFed)

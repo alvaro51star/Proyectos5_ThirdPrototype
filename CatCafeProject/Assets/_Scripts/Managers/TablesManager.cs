@@ -63,59 +63,64 @@ public class TablesManager : MonoBehaviour
 
     public TableData CheckAvailableTables()//en futuro llamado por evento en TableData
     {
-        List<TableData> availableTableDataList = new List<TableData>();
+        List<TableData> availableTablesList = new();
 
-        for (int i = 0; i < tableDataList.Count; i++)
+        foreach(var item in tableDataList)//check not occupied tables
+        {
+            if(!item.isOccupied)
+            {
+                Debug.Log("for de si estan ocupadas");
+                availableTablesList.Add(item);
+            }
+        }
+
+        if(availableTablesList[0] == null)
+        {
+            return null;
+        }
+
+        for (int i = 0; i < availableTablesList.Count; i++)//check if client can pass to available table
         {
             Transform destination = tableDataList[i].selectedChair;
             bool canPass = catMovement.CalculateNewPath(destination);
-            if (canPass)
-            {
-                if (!tableDataList[i].isOcupied)
-                {
-                    availableTableDataList.Add(tableDataList[i]);
-                }
-            }
-            else
-            {
+            if (!canPass)
+            {             
                 CalculateUselessTables(tableDataList[i]);
+                availableTablesList.RemoveAt(i);
             }
         }
 
-        for (int i = 0; i < catData.likes.Count; i++)//preferencia hacia mesas de la tematica que le guste
+        for(int i = 0; i < catData.likes.Count; i ++)//return available table of cat's theme
         {
-            for (int j = 0; j < availableTableDataList.Count; j++)
+            for(int j = 0; j < availableTablesList.Count; j++)
             {
-                if (catData.likes[i] == availableTableDataList[j].furnitureTheme)
+                if(catData.likes[i] == availableTablesList[j].furnitureTheme)
                 {
-                    return availableTableDataList[j];
+                    availableTablesList[j].ResetTableData(true);
+
+                    Debug.Log("doble for");
+
+                    return availableTablesList[j];
                 }
             }
         }
 
-        List<float> distanceList = new List<float>(availableTableDataList.Count);
-        float distance = Vector3.Distance(this.gameObject.transform.position, availableTableDataList[0].selectedChair.position);
+        List<float> distanceList = new List<float>(availableTablesList.Count);
+        float distance = Vector3.Distance(this.gameObject.transform.position, availableTablesList[0].selectedChair.position);
         float smallestDistance = distance;
         int index = 0;
-        for (int i = 0; i < availableTableDataList.Count; i++) //preferencia hacia la mesa mas cercana
+        for (int i = 0; i < availableTablesList.Count; i++) //return closest available table
         {
-            distance = Vector3.Distance(this.gameObject.transform.position, availableTableDataList[i].selectedChair.position);
+            distance = Vector3.Distance(this.gameObject.transform.position, availableTablesList[i].selectedChair.position);
             if (distance < smallestDistance)
             {
                 index = i;
                 smallestDistance = distance;
             }
         }
-        return availableTableDataList[index];
 
-        // if (availableTableDataList.Count > 0)
-        // {
-        //     return availableTableDataList[0];
-        // }
-        // else
-        // {
-        //     return null;
-        // }
+        availableTablesList[index].ResetTableData(true);
+        return availableTablesList[index];        
     }
 
 }

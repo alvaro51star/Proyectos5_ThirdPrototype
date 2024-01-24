@@ -78,7 +78,7 @@ public class ClientManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        ShowDictionary();
+        //ShowDictionary();
 
         yield return null;
     }
@@ -91,7 +91,7 @@ public class ClientManager : MonoBehaviour
         }
         queueSlots[queueList[0]] = false;
         clients.RemoveAt(0);
-        Debug.Log(clients[0]);
+        //Debug.Log(clients[0]);
 
         clients[0].GetComponent<CatMovement>().MovementToDestination(queueList[0]);
         queueSlots[queueList[1]] = false;
@@ -137,8 +137,8 @@ public class ClientManager : MonoBehaviour
         //++i;
 
 
-        Debug.LogWarning(clients.Count);
-        ShowDictionary();
+        //Debug.LogWarning(clients.Count);
+        //ShowDictionary();
     }
 
     private GameObject LookForFirstClientInactive()

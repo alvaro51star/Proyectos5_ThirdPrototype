@@ -55,14 +55,13 @@ public class CatMovement : MonoBehaviour
 
     public IEnumerator WaitForMovementToAssignedTable()
     {
+        Debug.Log(name + "waitForMovmentToAssignedTable");
         if(AssignTable())
-        {
+        {            
             yield return new WaitForSeconds(2f);
 
             Transform destination = tableAssigned.selectedChair;
             MovementToDestination(destination);
-
-            Debug.Log("Mesa asignada" + this.name);
             
             OnTableAssigned?.Invoke();
 
@@ -72,17 +71,16 @@ public class CatMovement : MonoBehaviour
             StartCoroutine(WaitForMovementToAssignedTable());
             Debug.Log("esperando una mesa libre");
         }
-        Debug.Log("assign table = " + AssignTable());
     }    
 
     private bool AssignTable()
     {
-        //tableAssigned = tablesManager.CheckAvailableTables();
+        tableAssigned = tablesManager.CheckAvailableTables();
 
-        if ((tableAssigned = tablesManager.CheckAvailableTables()) != null)
+        if (tableAssigned != null)
         {
             Debug.Log($"La mesa es: {tableAssigned}");
-            tableAssigned.ResetTableData(true);//to get selectedChair and assign table as occupied
+            //tableAssigned.ResetTableData(true);//to get selectedChair and assign table as occupied
 
             return true;
         }
