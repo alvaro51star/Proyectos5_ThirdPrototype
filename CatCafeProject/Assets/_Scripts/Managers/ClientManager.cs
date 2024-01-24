@@ -13,6 +13,7 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private List<GameObject> clients;
 
     [SerializeField] private float timeBetweenCats = 1f;
+    [SerializeField] private int nextClient = 0;
 
     private void OnEnable()
     {
@@ -34,6 +35,13 @@ public class ClientManager : MonoBehaviour
         StartCoroutine(TestCats());
     }
 
+    private void ShowQueue()
+    {
+        foreach (var item in clients)
+        {
+            Debug.Log(item);
+        }
+    }
 
     private void ShowDictionary()
     {
@@ -51,12 +59,6 @@ public class ClientManager : MonoBehaviour
             currentCat.SetActive(false);
             clients.Add(currentCat);
         }
-    }
-
-    private void TestFirstCat()
-    {
-        clients[0].SetActive(true);
-        clients[0].GetComponent<CatMovement>().MovementToDestination(queueSlots.ElementAt(0).Key);
     }
 
     private IEnumerator TestCats()
@@ -84,12 +86,22 @@ public class ClientManager : MonoBehaviour
     private void QueueUpdate()
     {
         queueSlots[queueList[0]] = false;
+        clients.RemoveAt(0);
+        Debug.Log(clients[0]);
 
-        for (int i = 1; i < queueSlots.Count; i++)
+        clients[0].GetComponent<CatMovement>().MovementToDestination(queueList[0]);
+        queueSlots[queueList[1]] = false;
+        queueSlots[queueList[0]] = true;
+
+        int i;
+        for (i = 1; i < queueSlots.Count; i++)
         {
-            if(i >= clients.Count)
+            if (i > clients.Count || clients[i]?.activeSelf == false)
+            {
+                queueSlots[queueList[i]] = false;
                 break;
-            clients[i].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]);
+            }
+            clients[i - 1].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]); //prueba
             queueSlots[queueList[i]] = false;
             queueSlots[queueList[i - 1]] = true;
         }
@@ -100,10 +112,21 @@ public class ClientManager : MonoBehaviour
             if (nextCat != null)
             {
                 nextCat.SetActive(true);
-                nextCat.GetComponent<CatMovement>().MovementToDestination(queueList[^1]);
-                queueSlots[queueList[^1]] = true;
+                nextCat.GetComponent<CatMovement>().MovementToDestination(queueList[^1]); //queueList[^1]
+                queueSlots[queueList[^1]] = true; //queueList[^1]
             }
         }
+
+        //++i;
+
+        if (clients[i].activeSelf)
+        {
+            clients[i].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]);
+            queueSlots[queueList[i]] = false;
+            queueSlots[queueList[i - 1]] = true;
+        }
+
+        ShowDictionary();
     }
 
     private GameObject LookForFirstClientInactive()
@@ -115,6 +138,19 @@ public class ClientManager : MonoBehaviour
                 return clients[i];
             }
         }
+        return null;
+    }
+
+    private Transform LookForFirstPositionFree()
+    {
+        foreach (var item in queueSlots)
+        {
+            if (item.Value == false)
+            {
+                return item.Key;
+            }
+        }
+
         return null;
     }
 
