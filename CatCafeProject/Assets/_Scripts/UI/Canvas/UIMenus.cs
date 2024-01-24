@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIMenus : MonoBehaviour
 {
     private GameObject m_player;
+    private GameObject m_uiInput;
     private UIManager m_UIManager;
 
     private int m_initialScene = 0;
@@ -18,6 +19,7 @@ public class UIMenus : MonoBehaviour
     {
         m_UIManager = GetComponent<UIManager>();
         m_player = m_UIManager.player;
+        m_uiInput = m_UIManager.uiInput;
         
 
         if (m_player)
@@ -54,7 +56,7 @@ public class UIMenus : MonoBehaviour
 
     public void GoToInitialMenu()
     {
-       // m_UIInput.SetActive(false);
+        m_uiInput.SetActive(false);
         m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
     }
