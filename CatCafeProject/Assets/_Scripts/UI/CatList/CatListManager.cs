@@ -4,11 +4,23 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class CatListManager : MonoBehaviour
 {
     [SerializeField] private Dictionary<CatDataSO, int> catsPerType = new();
     [SerializeField] private List<GameObject> catListItem;
+
+    [SerializeField] private bool isClosed = true;
+
+    [SerializeField] private float openedXPosition, closedXPosition;
+    [SerializeField] private float tweenDuration;
+    [SerializeField] private RectTransform panelRect;
+
+    private void Start()
+    {
+        panelRect = GetComponent<RectTransform>();
+    }
 
     private void OnEnable()
     {
@@ -64,4 +76,20 @@ public class CatListManager : MonoBehaviour
             Debug.Log($"{item.Key} = {item.Value}");
         }
     }
+
+    public void OpenCloseMenu()
+    {
+        if (isClosed)
+        {
+            panelRect.DOAnchorPosX(openedXPosition, tweenDuration).SetEase(Ease.InOutExpo);
+            isClosed = false;
+        }
+        else
+        {
+            panelRect.DOAnchorPosX(closedXPosition, tweenDuration).SetEase(Ease.InOutExpo);
+            isClosed = true;
+        }
+    }
+
+
 }

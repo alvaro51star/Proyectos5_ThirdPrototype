@@ -11,6 +11,8 @@ public class CatMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     public TableData tableAssigned;
 
+    public static event Action OnTableAssigned;
+
     private void OnEnable()
     {
         agent.enabled = true;
@@ -49,17 +51,19 @@ public class CatMovement : MonoBehaviour
     }
 
     public IEnumerator WaitForClientMovement()
-     {
-        tableAssigned = tablesManager.CheckAvailableTables();                 
+    {
 
         yield return new WaitForSeconds(2f);
+        tableAssigned = tablesManager.CheckAvailableTables();                 
 
         if (tableAssigned)
         {
+            Debug.Log($"La mesa es: {tableAssigned}");
             tableAssigned.ResetTableData(true);//to get selectedChair
             Transform destination = tableAssigned.selectedChair;
 
             MovementToDestination(destination);
+            OnTableAssigned?.Invoke();
         }
 
         else
