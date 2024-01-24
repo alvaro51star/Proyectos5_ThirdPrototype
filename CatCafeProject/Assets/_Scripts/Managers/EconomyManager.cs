@@ -113,7 +113,7 @@ public class EconomyManager : MonoBehaviour
     {
         if (orders.TryGetValue(foodType, out int value))  //add order to the menu
         {
-            orders.Add(foodType, value + 1);
+            orders[foodType] = value + 1;
         }
 
         if (catData.difficulty == CatDifficulty.Rich)
