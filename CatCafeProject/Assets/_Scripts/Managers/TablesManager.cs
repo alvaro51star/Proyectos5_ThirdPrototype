@@ -27,7 +27,7 @@ public class TablesManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CatMovement>() != null)
+        if (other.GetComponent<CatMovement>() != null && (!other.GetComponent<ClientStates>().enabled))
         {
             catMovement = other.GetComponent<CatMovement>();
             catData = other.GetComponent<ClientData>().catType;
@@ -64,6 +64,7 @@ public class TablesManager : MonoBehaviour
     public TableData CheckAvailableTables()//en futuro llamado por evento en TableData
     {
         List<TableData> availableTableDataList = new List<TableData>();
+        List<TableData> occupiedTableDataList = new List<TableData>();
 
         for (int i = 0; i < tableDataList.Count; i++)
         {
@@ -74,6 +75,16 @@ public class TablesManager : MonoBehaviour
                 if (!tableDataList[i].isOcupied)
                 {
                     availableTableDataList.Add(tableDataList[i]);
+                }
+
+                else
+                {
+                    occupiedTableDataList.Add(tableDataList[i]);
+
+                    if(occupiedTableDataList.Count >= tableDataList.Count)
+                    {
+                     return null;
+                    }
                 }
             }
             else
@@ -108,14 +119,6 @@ public class TablesManager : MonoBehaviour
         }
         return availableTableDataList[index];
 
-        // if (availableTableDataList.Count > 0)
-        // {
-        //     return availableTableDataList[0];
-        // }
-        // else
-        // {
-        //     return null;
-        // }
     }
 
 }
