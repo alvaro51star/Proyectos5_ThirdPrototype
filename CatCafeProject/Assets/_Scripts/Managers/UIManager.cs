@@ -6,8 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public GameObject player;
 
-    [SerializeField]
-    private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonSound;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private GameObject[] MenusAndPanels;
 
@@ -58,5 +58,10 @@ public class UIManager : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0;
         }
+    }
+
+    public void ButtonSound()
+    {
+        SoundManager.instance.ReproduceSound(buttonSound, audioSource);
     }
 }
