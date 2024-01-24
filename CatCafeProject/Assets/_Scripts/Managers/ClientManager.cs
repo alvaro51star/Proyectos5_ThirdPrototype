@@ -85,6 +85,10 @@ public class ClientManager : MonoBehaviour
 
     private void QueueUpdate()
     {
+        if (clients.Count <= 1)
+        {
+            return;
+        }
         queueSlots[queueList[0]] = false;
         clients.RemoveAt(0);
         Debug.Log(clients[0]);
@@ -96,12 +100,25 @@ public class ClientManager : MonoBehaviour
         int i;
         for (i = 1; i < queueSlots.Count; i++)
         {
-            if (i > clients.Count || clients[i]?.activeSelf == false)
+            // if (i > clients.Count || clients[i]?.activeSelf == false)
+            // {
+            //     queueSlots[queueList[i]] = false;
+            //     break;
+            // }
+            if (i <= clients.Count)
             {
+                clients[i - 1].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]); //prueba
                 queueSlots[queueList[i]] = false;
-                break;
+                queueSlots[queueList[i - 1]] = true;
             }
-            clients[i - 1].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]); //prueba
+        }
+        if (i >= clients.Count)
+        {
+
+        }
+        else if (clients[i] != null && clients[i].activeSelf)
+        {
+            clients[i].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]);
             queueSlots[queueList[i]] = false;
             queueSlots[queueList[i - 1]] = true;
         }
@@ -119,13 +136,8 @@ public class ClientManager : MonoBehaviour
 
         //++i;
 
-        if (clients[i].activeSelf)
-        {
-            clients[i].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]);
-            queueSlots[queueList[i]] = false;
-            queueSlots[queueList[i - 1]] = true;
-        }
 
+        Debug.LogWarning(clients.Count);
         ShowDictionary();
     }
 
