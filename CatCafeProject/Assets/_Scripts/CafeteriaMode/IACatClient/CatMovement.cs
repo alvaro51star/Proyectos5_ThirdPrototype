@@ -17,14 +17,17 @@ public class CatMovement : MonoBehaviour
     {
         agent.enabled = true;
     }
-    private void Start()
-    {
-        //MovementToDestination(initialDestination);
-    }
 
     public void MovementToDestination(Transform destination)
     {
-        agent.SetDestination(destination.position);
+        if(CalculateNewPath(destination))
+        {
+            agent.SetDestination(destination.position);            
+        }
+        else
+        {
+            Debug.Log("no puede pasar a esa mesa");
+        }
     }
 
     public bool CalculateNewPath(Transform destination) //and check if full path is available
@@ -59,7 +62,8 @@ public class CatMovement : MonoBehaviour
             Transform destination = tableAssigned.selectedChair;
             MovementToDestination(destination);
 
-            Debug.Log("Mesa asignada");
+            Debug.Log("Mesa asignada" + this.name);
+            
             OnTableAssigned?.Invoke();
 
         }
@@ -68,18 +72,17 @@ public class CatMovement : MonoBehaviour
             StartCoroutine(WaitForMovementToAssignedTable());
             Debug.Log("esperando una mesa libre");
         }
-
+        Debug.Log("assign table = " + AssignTable());
     }    
 
     private bool AssignTable()
     {
-        tableAssigned = tablesManager.CheckAvailableTables();
+        //tableAssigned = tablesManager.CheckAvailableTables();
 
-        if (tableAssigned)
+        if ((tableAssigned = tablesManager.CheckAvailableTables()) != null)
         {
             Debug.Log($"La mesa es: {tableAssigned}");
-            tableAssigned.ResetTableData(true);//to get selectedChair
-
+            tableAssigned.ResetTableData(true);//to get selectedChair and assign table as occupied
 
             return true;
         }
