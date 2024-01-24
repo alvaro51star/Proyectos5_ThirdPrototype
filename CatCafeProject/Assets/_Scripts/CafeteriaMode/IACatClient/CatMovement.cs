@@ -50,25 +50,45 @@ public class CatMovement : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitForClientMovement()
+    public IEnumerator WaitForMovementToAssignedTable()
     {
+        if(AssignTable())
+        {
+            yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(2f);
-        tableAssigned = tablesManager.CheckAvailableTables();                 
+            Transform destination = tableAssigned.selectedChair;
+            MovementToDestination(destination);
+
+            Debug.Log("Mesa asignada");
+            OnTableAssigned?.Invoke();
+
+        }
+        else
+        {
+            StartCoroutine(WaitForMovementToAssignedTable());
+            Debug.Log("esperando una mesa libre");
+        }
+
+    }    
+
+    private bool AssignTable()
+    {
+        tableAssigned = tablesManager.CheckAvailableTables();
 
         if (tableAssigned)
         {
             Debug.Log($"La mesa es: {tableAssigned}");
             tableAssigned.ResetTableData(true);//to get selectedChair
-            Transform destination = tableAssigned.selectedChair;
 
-            MovementToDestination(destination);
-            OnTableAssigned?.Invoke();
+
+            return true;
         }
 
         else
         {
             Debug.Log("no hay mesas libres");
+
+            return false;
         }
-    }    
+    }
 }

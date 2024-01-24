@@ -34,7 +34,7 @@ public class TablesManager : MonoBehaviour
             catMovement.tablesManager = this;
 
             //if cat es primero en cola
-            StartCoroutine(catMovement.WaitForClientMovement());
+            StartCoroutine(catMovement.WaitForMovementToAssignedTable());
         }
     }
 
@@ -105,7 +105,6 @@ public class TablesManager : MonoBehaviour
                 index = i;
                 smallestDistance = distance;
             }
-            //distanceList[i] = distance
         }
         return availableTableDataList[index];
 
