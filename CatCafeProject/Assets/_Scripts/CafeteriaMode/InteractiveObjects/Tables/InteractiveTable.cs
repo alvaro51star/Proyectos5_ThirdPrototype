@@ -25,6 +25,7 @@ public class InteractiveTable : InteractiveObject
         {
             tableData.orderedFood = other.GetComponent<ClientData>().foodOrdered;
             Debug.Log(tableData.orderedFood);
+            //meter aqui que salga bocata
         }
 
         if(other.GetComponent<ClientStates>())

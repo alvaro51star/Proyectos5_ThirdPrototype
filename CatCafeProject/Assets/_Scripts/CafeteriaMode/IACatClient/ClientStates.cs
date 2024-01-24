@@ -19,6 +19,9 @@ public class ClientStates : MonoBehaviour
     [SerializeField] private AudioClip audioClipAngryLeave;
     [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private GameObject imageGO_l;
+    [SerializeField] private GameObject imageGO_r;
+
     public CatState catState;
     public bool isFed = false;
 
@@ -45,9 +48,11 @@ public class ClientStates : MonoBehaviour
                 StartCoroutine(ChangeStateTimer(secondsToAnnoyed));
                 break;
             case CatState.Annoyed:
+                imageGO_l.SetActive(true);
                 StartCoroutine(ChangeStateTimer(secondsToAngry));
                 break;
             case CatState.Angry:
+                imageGO_r.SetActive(true);
                 StartCoroutine(ChangeStateTimer(secondsToLeave));
                 break;
             case CatState.Leaving:
