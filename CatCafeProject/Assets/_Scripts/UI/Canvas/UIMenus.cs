@@ -18,6 +18,7 @@ public class UIMenus : MonoBehaviour
     {
         m_UIManager = GetComponent<UIManager>();
         m_player = m_UIManager.player;
+        
 
         if (m_player)
         {
@@ -53,6 +54,7 @@ public class UIMenus : MonoBehaviour
 
     public void GoToInitialMenu()
     {
+       // m_UIInput.SetActive(false);
         m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
     }

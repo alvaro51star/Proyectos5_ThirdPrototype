@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public GameObject player;
 
     [SerializeField] private AudioClip buttonSound;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource AudioSourceUI;
 
     [SerializeField] private GameObject[] MenusAndPanels;
 
@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        AudioSourceUI = GetComponent<AudioSource>();
     }
 
     public void ActivateUIGameObjects(GameObject gOToActivate, bool b)
@@ -62,6 +62,6 @@ public class UIManager : MonoBehaviour
 
     public void ButtonSound()
     {
-        SoundManager.instance.ReproduceSound(buttonSound, audioSource);
+        SoundManager.instance.ReproduceSound(buttonSound, AudioSourceUI);
     }
 }
