@@ -79,36 +79,39 @@ public class TablesManager : MonoBehaviour
             return null;
         }
 
-        for (int i = 0; i < availableTablesList.Count; i++)//check if client can pass to available table
+        foreach(var item in availableTablesList)//check if client can pass to available table
         {
-            Transform destination = tableDataList[i].selectedChair;
+            Transform destination = item.selectedChair;
             bool canPass = catMovement.CalculateNewPath(destination);
             if (!canPass)
-            {             
-                CalculateUselessTables(tableDataList[i]);
-                availableTablesList.RemoveAt(i);
+            {
+                CalculateUselessTables(item);
+                availableTablesList.Remove(item);
             }
         }
 
-        for(int i = 0; i < catData.likes.Count; i ++)//return available table of cat's theme
-        {
-            for(int j = 0; j < availableTablesList.Count; j++)
+
+        foreach(var item in catData.likes)//return available table of cat's theme
+        {            
+            foreach(var tiem in availableTablesList)
             {
-                if(catData.likes[i] == availableTablesList[j].furnitureTheme)
+                if (item == tiem.furnitureTheme)
                 {
-                    availableTablesList[j].ResetTableData(true);
+                    tiem.ResetTableData(true);
 
                     Debug.Log("doble for");
 
-                    return availableTablesList[j];
+                    return tiem;
                 }
             }
         }
+        
 
         List<float> distanceList = new List<float>(availableTablesList.Count);
         float distance = Vector3.Distance(this.gameObject.transform.position, availableTablesList[0].selectedChair.position);
         float smallestDistance = distance;
         int index = 0;
+
         for (int i = 0; i < availableTablesList.Count; i++) //return closest available table
         {
             distance = Vector3.Distance(this.gameObject.transform.position, availableTablesList[i].selectedChair.position);
@@ -120,7 +123,7 @@ public class TablesManager : MonoBehaviour
         }
 
         availableTablesList[index].ResetTableData(true);
-        return availableTablesList[index];        
+        return availableTablesList[index];            
     }
 
 }
