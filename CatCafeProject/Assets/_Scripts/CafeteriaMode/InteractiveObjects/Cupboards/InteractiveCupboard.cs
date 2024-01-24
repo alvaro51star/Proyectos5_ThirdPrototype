@@ -26,6 +26,6 @@ public class InteractiveCupboard : InteractiveObject
         foodSpawner.DisableSpawnedFood();
         playerFoodController.EnableFoodGO(true);
 
-        SoundManager.instance.ReproduceSound(AudioClipsNames.TakeFood);
+        //SoundManager.instance.ReproduceSound(AudioClipsNames.TakeFood);
     }
 }

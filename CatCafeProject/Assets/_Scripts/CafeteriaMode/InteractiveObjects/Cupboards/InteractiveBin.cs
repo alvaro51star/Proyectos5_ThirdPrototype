@@ -19,6 +19,6 @@ public class InteractiveBin : InteractiveObject
         playerFoodController.EnableFoodGO(false);
         playerFoodController.foodType = FoodTypes.Nothing;
 
-        SoundManager.instance.ReproduceSound(AudioClipsNames.ThrowOutFood);
+        //SoundManager.instance.ReproduceSound(AudioClipsNames.ThrowOutFood);
     }
 }

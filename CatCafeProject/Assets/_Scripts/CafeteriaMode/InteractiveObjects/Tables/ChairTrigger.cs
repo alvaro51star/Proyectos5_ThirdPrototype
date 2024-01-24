@@ -13,7 +13,7 @@ public class ChairTrigger : MonoBehaviour
         {
             other.GetComponent<ClientStates>().enabled = true;
 
-            if (other.GetComponent<CatMovement>().tableAssigned = tableData)
+            if (other.GetComponent<CatMovement>().tableAssigned == tableData)
             {
                 NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
 
@@ -29,9 +29,16 @@ public class ChairTrigger : MonoBehaviour
                 else
                 {
                     agent.isStopped = false;
-                    tableData.isOccupied = false;
                 }
             }
         }       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.GetComponent<CatMovement>() && other.GetComponent<CatMovement>().tableAssigned == tableData)
+        {
+            tableData.ResetTableData(false);
+        }
     }
 }

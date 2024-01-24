@@ -24,9 +24,14 @@ public class TableData : MonoBehaviour
     }
     public void ResetTableData(bool tableIsOccupied)
     {
-        orderedFood = FoodTypes.Nothing;//de momento aqui, casi mejor cuando gato "termina" de comer
         isOccupied = tableIsOccupied;
-        
+
+        if (!tableIsOccupied)
+        {
+            orderedFood = FoodTypes.Nothing;
+            interactiveTable.tableFoodController.EnableFoodGO(false);
+        }
+
         RandomChair();
     }
 
