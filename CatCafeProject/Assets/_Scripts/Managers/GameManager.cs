@@ -185,4 +185,8 @@ public class GameManager : MonoBehaviour
     {
         currentDay++;
     }
+
+    private void CalculateCats(){
+        
+    }
 }
