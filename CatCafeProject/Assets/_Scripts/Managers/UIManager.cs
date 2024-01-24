@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject player;
+    public GameObject uiInput;
 
     [SerializeField] private AudioClip buttonSound;
     [SerializeField] private AudioSource AudioSourceUI;

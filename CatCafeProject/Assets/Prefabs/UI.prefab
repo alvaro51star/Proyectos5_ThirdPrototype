@@ -1265,6 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  uiInput: {fileID: 8094345870053095196}
   buttonSound: {fileID: 8300000, guid: 8ba8828f7e35dad489da7d69a347550d, type: 3}
   AudioSourceUI: {fileID: 0}
   MenusAndPanels:
@@ -1286,7 +1287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351a909a62864a84f98a16f1a0c49bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UIInput: {fileID: 0}
   isAMenuOrPanel: 0
   isPaused: 0
 --- !u!82 &6870487841944967612
