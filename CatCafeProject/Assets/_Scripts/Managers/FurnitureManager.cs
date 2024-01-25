@@ -65,13 +65,13 @@ public class FurnitureManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GetFurnitures();
-        GetTables();
-        CalculateFurnitureCountByTheme();
-        CalculateFurniturePercentages();
-    }
+    // private void Start()
+    // {
+    //     GetFurnitures();
+    //     GetTables();
+    //     CalculateFurnitureCountByTheme();
+    //     CalculateFurniturePercentages();
+    // }
 
     public void SetFurnitureData()
     {

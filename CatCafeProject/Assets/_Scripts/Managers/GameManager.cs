@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+
         ChangeGameMode(initialGameMode);
         SetCatsForTheDay();
     }
@@ -190,9 +190,6 @@ public class GameManager : MonoBehaviour
         currentDay++;
     }
 
-    private void CalculateCats(){
-        
-    }
 
     public void EndDay()
     {
@@ -201,5 +198,13 @@ public class GameManager : MonoBehaviour
 
         catsForTheDay.Clear();
         catDataList.Clear();
+
+        ChangeDay();
+        ChangeWeekNumber();
+    }
+
+    public void FinishBuildingPhase()
+    {
+        ChangeGameMode(GameModes.Cafeteria);
     }
 }
