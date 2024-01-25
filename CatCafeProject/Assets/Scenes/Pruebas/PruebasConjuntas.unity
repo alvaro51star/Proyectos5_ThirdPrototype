@@ -4443,21 +4443,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1393157041224242416, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393157041224242416, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393157041224242416, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1623028459528292598, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4483,21 +4468,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1620165202}
-    - target: {fileID: 2134783130773030882, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FinishBuildingPhase
-      objectReference: {fileID: 0}
-    - target: {fileID: 2134783130773030882, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2134783130773030882, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2925753395125865665, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4583,26 +4553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 7750293333630631014, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7868755742841870315, guid: 6fbf78654494b1f47b75155282e57fb8,
         type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 127007861}
-    - target: {fileID: 8034440826776881172, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8836615276958809856, guid: 6fbf78654494b1f47b75155282e57fb8,
-        type: 3}
-      propertyPath: m_Name
-      value: FinishDayButton
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
