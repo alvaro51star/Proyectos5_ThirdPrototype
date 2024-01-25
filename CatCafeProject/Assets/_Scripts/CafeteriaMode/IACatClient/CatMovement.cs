@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class CatMovement : MonoBehaviour
 {
-    //public Transform initialDestination;
     public TablesManager tablesManager;
     [SerializeField] private NavMeshAgent agent;
     public TableData tableAssigned;
@@ -46,7 +45,6 @@ public class CatMovement : MonoBehaviour
         if(CalculateNewPath(destination))
         {
             agent.SetDestination(destination.position);
-            // poner booleana esta mov
         }
         else
         {
@@ -79,7 +77,6 @@ public class CatMovement : MonoBehaviour
 
     public IEnumerator WaitForMovementToAssignedTable()
     {
-        Debug.Log(name + "waitForMovmentToAssignedTable");
         if(AssignTable())
         {            
             yield return new WaitForSeconds(2f);

@@ -41,9 +41,10 @@ public class TablesManager : MonoBehaviour
     {
         tableDataList.Remove(uselessTable);
 
-        if (tableDataList.Count <= 0)
+        if (tableDataList[0] == null)
         {
-            Debug.Log("El cliente no puede pasar a ninguna mesa");
+            GameManager.instance.UIManager.IsInGame(false);
+            GameManager.instance.UIManager.ActivateUIGameObjects(GameManager.instance.UIManager.blockMenu, true);
         }
     }
 

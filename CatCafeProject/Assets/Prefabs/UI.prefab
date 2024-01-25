@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3006403187681130005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1562,7 +1562,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2410975648095612234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7334468326241359292}
+        m_TargetAssemblyTypeName: UIMenus, Assembly-CSharp
+        m_MethodName: GameModeDecoration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3950265426858142595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4549968099386687931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2198,7 +2210,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8029795807156415474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7334468326241359292}
+        m_TargetAssemblyTypeName: UIMenus, Assembly-CSharp
+        m_MethodName: EndDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5960574637895308934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4669263910642190236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2559,7 +2583,7 @@ MonoBehaviour:
   player: {fileID: 0}
   uiInput: {fileID: 8094345870053095196}
   buttonSound: {fileID: 8300000, guid: 8ba8828f7e35dad489da7d69a347550d, type: 3}
-  AudioSourceUI: {fileID: 0}
+  AudioSourceUI: {fileID: 6870487841944967612}
   MenusAndPanels:
   - {fileID: 9030457718977419856}
   - {fileID: 6851465032056842843}
@@ -2598,7 +2622,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

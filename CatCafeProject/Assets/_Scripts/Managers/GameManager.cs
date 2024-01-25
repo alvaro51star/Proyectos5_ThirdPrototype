@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] UIManager UIManager;
     public static GameManager instance;
     [Header("Date Variables")]
     public int currentDay = 0;
@@ -34,6 +33,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float normalCatsPercentage = 0.4f;
     [SerializeField] private float hardCatsPercentage = 0f;
     [SerializeField] private float richCatsPercentage = 0f;
+
+    public UIManager UIManager;
+
 
     private void Awake()
     {

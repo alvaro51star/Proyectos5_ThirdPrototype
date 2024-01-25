@@ -102,7 +102,12 @@ public class UIMenus : MonoBehaviour
     public void GameModeDecoration()
     {
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
-        m_UIManager.DesactivateAllUIGameObjects();
-        //meter pantalla de carga
+        m_UIManager.DesactivateAllUIGameObjects();        
+    }
+
+    public void EndDay()
+    {
+        GameModeDecoration();
+        //meter pantalla carga
     }
 }
