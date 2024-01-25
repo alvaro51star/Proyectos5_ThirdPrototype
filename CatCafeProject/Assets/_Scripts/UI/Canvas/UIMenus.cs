@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIMenus : MonoBehaviour
 {
     private GameObject m_player;
     private GameObject m_uiInput;
     private UIManager m_UIManager;
+    public Slider m_slider;
 
     private int m_initialScene = 0;
     private int m_gameScene = 1;
@@ -109,5 +111,25 @@ public class UIMenus : MonoBehaviour
     {
         GameModeDecoration();
         //meter pantalla carga
+    }
+
+    public void LoadingPanel(int gameSceneNum)
+    {
+        StartCoroutine(LoadAsync(gameSceneNum));
+    }
+
+    IEnumerator LoadAsync(int gameSceneNum)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(gameSceneNum);
+
+        m_UIManager.ActivateUIGameObjects(m_UIManager.loadingPanel, true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            Debug.Log(progress);
+            m_slider.value = progress;
+            yield return null;
+        }
     }
 }

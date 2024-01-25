@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 3c15b6d0675a4a5418fd6091b89f8878
+guid: 725cadf166c88d347b6ca92503a846f7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Suelo_flower
+    second: {fileID: 2800000, guid: bc0150042f47db64abb2971318860c9f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -31,36 +36,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: eatAnimation
-      takeName: eatAnimation
-      internalID: -4240047460803346827
-      firstFrame: 100
-      lastFrame: 127
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 100
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
