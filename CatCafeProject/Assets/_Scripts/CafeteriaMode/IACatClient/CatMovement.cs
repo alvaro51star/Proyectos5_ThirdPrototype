@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class CatMovement : MonoBehaviour
 {
-    //public Transform initialDestination;
     public TablesManager tablesManager;
     [SerializeField] private NavMeshAgent agent;
     public TableData tableAssigned;
@@ -25,15 +24,8 @@ public class CatMovement : MonoBehaviour
     private void Update()
     {
         cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
-        if (m_sit == true)
-        {
-            Debug.Log("sentado");
-            cmpCatAnimator.SetBool("Sit", true);
-        }
-        else
-        {
-            cmpCatAnimator.SetBool("Sit", false);
-        }
+        SitAnimation();
+        EatingAnimation();
     }
 
     private void OnEnable()
@@ -46,7 +38,6 @@ public class CatMovement : MonoBehaviour
         if(CalculateNewPath(destination))
         {
             agent.SetDestination(destination.position);
-            // poner booleana esta mov
         }
         else
         {
@@ -79,7 +70,6 @@ public class CatMovement : MonoBehaviour
 
     public IEnumerator WaitForMovementToAssignedTable()
     {
-        Debug.Log(name + "waitForMovmentToAssignedTable");
         if(AssignTable())
         {            
             yield return new WaitForSeconds(2f);
@@ -113,6 +103,36 @@ public class CatMovement : MonoBehaviour
             Debug.Log("no hay mesas libres");
 
             return false;
+        }
+    }
+
+    private void SitAnimation()
+    {
+        if (m_sit == true)
+        {
+            Debug.Log("sentado");
+            cmpCatAnimator.SetBool("Sit", true);
+            cmpCatAnimator.SetBool("Eat", false);
+        }
+        else
+        {
+            cmpCatAnimator.SetBool("Sit", false);
+            cmpCatAnimator.SetBool("Eat", true);
+        }
+    }
+
+    private void EatingAnimation()
+    {
+        if (m_eating == true)
+        {
+            Debug.Log("comiendo");
+            cmpCatAnimator.SetBool("Eat", true);
+            cmpCatAnimator.SetBool("Sit", false);
+        }
+        else
+        {
+            cmpCatAnimator.SetBool("Eat", false);
+            cmpCatAnimator.SetBool("Sit", true);
         }
     }
 }
