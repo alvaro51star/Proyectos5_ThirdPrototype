@@ -14,6 +14,7 @@ public class CatMovement : MonoBehaviour
     public static event Action OnTableAssigned;
 
     private Animator cmpCatAnimator;
+    public bool m_sit;
 
     private void Start()
     {
@@ -23,6 +24,15 @@ public class CatMovement : MonoBehaviour
     private void Update()
     {
         cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
+        if (m_sit == true)
+        {
+            Debug.Log("sentado");
+            cmpCatAnimator.SetBool("Sit", true);
+        }
+        else
+        {
+            cmpCatAnimator.SetBool("Sit", false);
+        }
     }
 
     private void OnEnable()
