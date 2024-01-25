@@ -12,15 +12,21 @@ public class PlayerMovement : MonoBehaviour
     private float directionX, directionZ;
     private CharacterController characterController;
 
+    private Animator cmpPlayerAnimator;
+    public float rotationVe;
+    public Transform body;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        cmpPlayerAnimator = GetComponent<Animator>();
     }
     void Update()
     {
         GetInputDirection();
 
         Movement();
+        Rotate();
     }
 
 
@@ -30,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.SimpleMove(directionInput.normalized * speed);
         }
-        //else anim de idle
+        cmpPlayerAnimator.SetFloat("SpeedX", directionX);
+        cmpPlayerAnimator.SetFloat("SpeedZ", directionZ);
     }
 
     private Vector3 GetInputDirection()//cambiar esto segun eventos?
@@ -40,5 +47,15 @@ public class PlayerMovement : MonoBehaviour
         directionInput = new Vector3(directionX, 0, directionZ);
 
         return directionInput;
-    }    
+    }
+
+    private void Rotate()
+    {
+        Vector3 movDirection = new Vector3(directionX, 0, directionZ);
+        if (movDirection != Vector3.zero)
+        {
+            Quaternion wishedRotation = Quaternion.LookRotation(movDirection, Vector3.up);
+            body.rotation = Quaternion.RotateTowards(body.rotation, wishedRotation, rotationVe * Time.deltaTime);
+        }
+    }
 }

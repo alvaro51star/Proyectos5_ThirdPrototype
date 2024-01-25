@@ -24,14 +24,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: catWalk_2
+      takeName: catWalk_2
+      internalID: -366626197403248979
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -82,7 +111,157 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: gato_bindPose(Clone)
+      parentName: 
+      position: {x: -2.0626209, y: -2.220446e-18, z: 2.6645352e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: geo_Neo
+      parentName: gato_bindPose(Clone)
+      position: {x: 103.76323, y: 2.762197e-15, z: 1.1539488e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 51.287, y: 51.287, z: 51.287}
+    - name: rig_Neo
+      parentName: gato_bindPose(Clone)
+      position: {x: 2.0626209, y: 2.220446e-18, z: -2.6645352e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Pelvis
+      parentName: rig_Neo
+      position: {x: -0, y: 0.41938004, z: 9.922911e-34}
+      rotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Spine_1
+      parentName: neo_Pelvis
+      position: {x: -0.19976221, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Spine_2
+      parentName: neo_Spine_1
+      position: {x: -0.2359328, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Spine_3
+      parentName: neo_Spine_2
+      position: {x: -0.28415602, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Neck
+      parentName: neo_Spine_3
+      position: {x: -0.10440782, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Head
+      parentName: neo_Neck
+      position: {x: -0.17625055, y: 0, z: 1.401258e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Ear_1_l
+      parentName: neo_Head
+      position: {x: -0.2623427, y: 9.922911e-34, z: -0.3044476}
+      rotation: {x: 0, y: -0.34766704, z: -0, w: 0.9376181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Ear_2_l
+      parentName: neo_Ear_1_l
+      position: {x: -0.16626087, y: 0, z: 1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Ear_1_r
+      parentName: neo_Head
+      position: {x: -0.26234466, y: 4.43396e-40, z: 0.30444783}
+      rotation: {x: 0.34766704, y: -2.1288466e-17, z: 0.9376181, w: 5.741255e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Ear_2_r
+      parentName: neo_Ear_1_r
+      position: {x: 0.16626117, y: 2.406854e-17, z: -0.00000025441165}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Upperarm_l
+      parentName: neo_Spine_3
+      position: {x: -0.011807827, y: 9.922911e-34, z: -0.18380399}
+      rotation: {x: -0, y: 0.72378796, z: 0.0000000018626451, w: -0.69002247}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Lowerarm_l
+      parentName: neo_Upperarm_l
+      position: {x: -0.31741917, y: 0, z: 1.4210854e-16}
+      rotation: {x: 0.000000004062378, y: -0.014028667, z: 0.0000000038367616, w: 0.99990165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Hand_l
+      parentName: neo_Lowerarm_l
+      position: {x: -0.32294688, y: 0, z: -1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Upperarm_r
+      parentName: neo_Spine_3
+      position: {x: -0.011808209, y: 4.43396e-40, z: 0.18380387}
+      rotation: {x: 0.72378916, y: -0, z: 0.6900213, w: 0}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Lowerarm_r
+      parentName: neo_Upperarm_r
+      position: {x: 0.31741828, y: 4.9597594e-17, z: -0.0000010722574}
+      rotation: {x: -0, y: -0.01402336, z: -0, w: 0.99990165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Hand_r
+      parentName: neo_Lowerarm_r
+      position: {x: 0.32294893, y: 4.0492546e-17, z: 0.0000022723202}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Thigh_l
+      parentName: neo_Pelvis
+      position: {x: 0.06630861, y: 9.922911e-34, z: -0.17454863}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Calf_l
+      parentName: neo_Thigh_l
+      position: {x: 0.15151134, y: -1.8554788e-17, z: 3.5527136e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Foot_l
+      parentName: neo_Calf_l
+      position: {x: 0.1798572, y: 0, z: 1.0658141e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Thigh_r
+      parentName: neo_Pelvis
+      position: {x: 0.06630851, y: 4.43396e-40, z: 0.17454864}
+      rotation: {x: -0, y: 0, z: 1, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Calf_r
+      parentName: neo_Thigh_r
+      position: {x: -0.15151154, y: 1.8554765e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Foot_r
+      parentName: neo_Calf_r
+      position: {x: -0.17985709, y: -3.9443044e-33, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Tail_1
+      parentName: neo_Pelvis
+      position: {x: -0.015611353, y: 0.32227823, z: 0}
+      rotation: {x: 0, y: 0, z: -0.73312116, w: 0.68009806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Tail_2
+      parentName: neo_Tail_1
+      position: {x: -0.18918455, y: 0, z: -4.886884e-17}
+      rotation: {x: 0, y: 0, z: 0.032665193, w: 0.99946636}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Tail_3
+      parentName: neo_Tail_2
+      position: {x: -0.26261142, y: 2.1316282e-16, z: -5.834207e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Tail_4
+      parentName: neo_Tail_3
+      position: {x: -0.20037964, y: -0.007010652, z: 1.7008623e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neo_Tail_5
+      parentName: neo_Tail_4
+      position: {x: -0.20650169, y: -0.029905578, z: 1.1227956e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -99,7 +278,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

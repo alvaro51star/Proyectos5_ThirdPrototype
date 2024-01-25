@@ -22,7 +22,8 @@ public class CatMovement : MonoBehaviour
     {
         if(CalculateNewPath(destination))
         {
-            agent.SetDestination(destination.position);            
+            agent.SetDestination(destination.position);
+            // poner booleana esta mov
         }
         else
         {
