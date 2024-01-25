@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class CatListManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class CatListManager : MonoBehaviour
     [SerializeField] private float openedXPosition, closedXPosition;
     [SerializeField] private float tweenDuration;
     [SerializeField] private RectTransform panelRect;
+
+    [SerializeField] private GameObject flecha;
 
     private void Start()
     {
@@ -81,11 +84,13 @@ public class CatListManager : MonoBehaviour
     {
         if (isClosed)
         {
+            flecha.transform.DOLocalRotate(new Vector3(0, 0, 180), tweenDuration).SetEase(Ease.InOutExpo);
             panelRect.DOAnchorPosX(openedXPosition, tweenDuration).SetEase(Ease.InOutExpo);
             isClosed = false;
         }
         else
         {
+            flecha.transform.DOLocalRotate(Vector3.zero, tweenDuration).SetEase(Ease.InOutExpo);
             panelRect.DOAnchorPosX(closedXPosition, tweenDuration).SetEase(Ease.InOutExpo);
             isClosed = true;
         }
