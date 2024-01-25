@@ -43,7 +43,7 @@ public class ItemDataBaseSO : ScriptableObject
 public class ItemData
 {
     public string name;
-    public Image image;
+    public Sprite image;
     //most important prameter since we save it in our data and if we wanted to recreate the place objects
     //all we would have to do is find an item with a give ID, read its data and place it back on the map
     public int ID;

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ChairTrigger : MonoBehaviour
 {
     [SerializeField] private TableData tableData;
-   
+
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<ClientStates>())
@@ -24,11 +24,13 @@ public class ChairTrigger : MonoBehaviour
                     if (agent.isStopped)
                     {
                         other.transform.rotation = transform.rotation;
+                        other.GetComponent<CatMovement>().m_sit = true;
                     }
                 }
                 else
                 {
                     agent.isStopped = false;
+                    other.GetComponent<CatMovement>().m_sit = false;
                 }
             }
         }       

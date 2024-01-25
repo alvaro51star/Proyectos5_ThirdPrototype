@@ -15,11 +15,13 @@ public class InteractiveTable : InteractiveObject
     private FoodController playerFoodController;
     private ClientStates clientStates;
     private ClientData clientData;
+    private CatMovement catMovement;
 
     protected override void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CatMovement>() && other.GetComponent<CatMovement>().tableAssigned == tableData)
         {
+            catMovement = other.GetComponent<CatMovement>();
             if (other.GetComponent<FoodController>())
             {
                 playerFoodController = other.GetComponent<FoodController>();
@@ -63,7 +65,8 @@ public class InteractiveTable : InteractiveObject
 
             playerFoodController.foodType = FoodTypes.Nothing;
 
-            clientStates.isFed = true;//to stop state change            
+            clientStates.isFed = true;//to stop state change
+            catMovement.m_eating = true;
             clientData?.bocadillo.SetActive(false);
             SoundManager.instance.ReproduceSound(orderedFoodClip, tableAudioSource);
         }

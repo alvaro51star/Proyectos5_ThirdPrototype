@@ -57,6 +57,7 @@ public class ClientStates : MonoBehaviour
                 break;
             case CatState.Leaving:
                 clientData.bocadillo.SetActive(false);
+                catMovement.m_eating = false;
                 catMovement.MovementToDestination(leaveTransform);
                 break;
         }

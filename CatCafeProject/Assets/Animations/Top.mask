@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Top
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: geo_Neo
+    m_Weight: 0
+  - m_Path: rig_Neo
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck/neo_Head
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck/neo_Head/neo_Ear_1_l
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck/neo_Head/neo_Ear_1_l/neo_Ear_2_l
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck/neo_Head/neo_Ear_1_r
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Neck/neo_Head/neo_Ear_1_r/neo_Ear_2_r
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_l
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_l/neo_Lowerarm_l
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_l/neo_Lowerarm_l/neo_Hand_l
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_r
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_r/neo_Lowerarm_r
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Spine_1/neo_Spine_2/neo_Spine_3/neo_Upperarm_r/neo_Lowerarm_r/neo_Hand_r
+    m_Weight: 1
+  - m_Path: rig_Neo/neo_Pelvis/neo_Tail_1
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Tail_1/neo_Tail_2
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Tail_1/neo_Tail_2/neo_Tail_3
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Tail_1/neo_Tail_2/neo_Tail_3/neo_Tail_4
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Tail_1/neo_Tail_2/neo_Tail_3/neo_Tail_4/neo_Tail_5
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_l
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_l/neo_Calf_l
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_l/neo_Calf_l/neo_Foot_l
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_r
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_r/neo_Calf_r
+    m_Weight: 0
+  - m_Path: rig_Neo/neo_Pelvis/neo_Thigh_r/neo_Calf_r/neo_Foot_r
+    m_Weight: 0

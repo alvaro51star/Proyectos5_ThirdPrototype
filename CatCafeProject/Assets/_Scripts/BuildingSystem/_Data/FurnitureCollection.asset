@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b84be0e6d67eb84b837237865aeecbd, type: 3}
+  m_Name: FurnitureCollection
+  m_EditorClassIdentifier: 
+  structures:
+  - name: Heart Table
+    image: {fileID: 0}
+    ID: 0
+    size: {x: 4, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
+      type: 3}
+    previewObject: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
+      type: 3}
+    buyValue: 300
+    sellValue: 150
+    furnitureTheme: 2
+    furnitureType: 2
+  - name: Flower Table
+    image: {fileID: 0}
+    ID: 1
+    size: {x: 4, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 7325821801836433919, guid: cfd2a0e7d73580d4bb0588a70e8c8ad8,
+      type: 3}
+    previewObject: {fileID: 7325821801836433919, guid: cfd2a0e7d73580d4bb0588a70e8c8ad8,
+      type: 3}
+    buyValue: 300
+    sellValue: 150
+    furnitureTheme: 1
+    furnitureType: 2
+  - name: Leaf Table
+    image: {fileID: 0}
+    ID: 2
+    size: {x: 4, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 2092900044904871163, guid: d1643e89f2843fd4e842e5cf6258cc7b,
+      type: 3}
+    previewObject: {fileID: 2092900044904871163, guid: d1643e89f2843fd4e842e5cf6258cc7b,
+      type: 3}
+    buyValue: 300
+    sellValue: 150
+    furnitureTheme: 3
+    furnitureType: 2
+  - name: Fish Table
+    image: {fileID: 0}
+    ID: 3
+    size: {x: 4, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 3490031117124467255, guid: c164d1ad9db299947b10b2b982465fa3,
+      type: 3}
+    previewObject: {fileID: 3490031117124467255, guid: c164d1ad9db299947b10b2b982465fa3,
+      type: 3}
+    buyValue: 300
+    sellValue: 150
+    furnitureTheme: 4
+    furnitureType: 2
+  - name: Flower Couch
+    image: {fileID: 0}
+    ID: 4
+    size: {x: 2, y: 2}
+    objectPlacementType: 5
+    prefab: {fileID: 1426261678193951901, guid: bd93d9a95be2c2745adda657b3da7394,
+      type: 3}
+    previewObject: {fileID: 1426261678193951901, guid: bd93d9a95be2c2745adda657b3da7394,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 1
+    furnitureType: 8
+  - name: Leaf Couch
+    image: {fileID: 0}
+    ID: 5
+    size: {x: 2, y: 2}
+    objectPlacementType: 5
+    prefab: {fileID: 7955073977921736509, guid: 53021bce23aec0348bdc3001619b9336,
+      type: 3}
+    previewObject: {fileID: 7955073977921736509, guid: 53021bce23aec0348bdc3001619b9336,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 3
+    furnitureType: 8
+  - name: Heart CatTower
+    image: {fileID: 0}
+    ID: 6
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 8899933249614054507, guid: b5bbf6da397f0cb45a5bb726ef4f9eda,
+      type: 3}
+    previewObject: {fileID: 8899933249614054507, guid: b5bbf6da397f0cb45a5bb726ef4f9eda,
+      type: 3}
+    buyValue: 200
+    sellValue: 100
+    furnitureTheme: 2
+    furnitureType: 5
+  - name: Leaf CatTower
+    image: {fileID: 0}
+    ID: 7
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 2233884285067379333, guid: 8a9b7b37a378d4b49a392a641fad624c,
+      type: 3}
+    previewObject: {fileID: 2233884285067379333, guid: 8a9b7b37a378d4b49a392a641fad624c,
+      type: 3}
+    buyValue: 200
+    sellValue: 100
+    furnitureTheme: 3
+    furnitureType: 5
