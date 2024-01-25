@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ClientManager : MonoBehaviour
 {
+    public static ClientManager instance;
+
     [SerializeField] private Dictionary<Transform, bool> queueSlots = new();
     [SerializeField] private List<Transform> queueList;
 
@@ -14,6 +16,19 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] private float timeBetweenCats = 1f;
     [SerializeField] private int nextClient = 0;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void OnEnable()
     {
@@ -31,8 +46,8 @@ public class ClientManager : MonoBehaviour
         {
             queueSlots.Add(queueList[i], false);
         }
-        SpawnCats();
-        StartCoroutine(TestCats());
+        //SpawnCats();
+        //StartCoroutine(TestCats());
     }
 
     private void ShowQueue()
@@ -51,7 +66,7 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    private void SpawnCats()
+    public void SpawnCats()
     {
         for (int i = 0; i < GameManager.instance.catsForTheDay.Count; i++)
         {
@@ -61,7 +76,7 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    private IEnumerator TestCats()
+    public IEnumerator TestCats()
     {
         for (int i = 0; i < queueSlots.Count; i++)
         {

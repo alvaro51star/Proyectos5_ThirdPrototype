@@ -20,10 +20,15 @@ public class TablesManager : MonoBehaviour
 
     private void OnEnable()
     {
+        SetTables();
+    }
+
+    public void SetTables()
+    {
         tableList = FurnitureManager.instance.tableList;
         for (int i = 0; i < tableList.Count; i++)
         {
-            tableDataList.Add(tableList[i].GetComponent<TableData>());
+            tableDataList.Add(tableList[i].GetComponentInChildren<TableData>());
         }
     }
 

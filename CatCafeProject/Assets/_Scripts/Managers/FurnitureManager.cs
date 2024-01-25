@@ -83,7 +83,7 @@ public class FurnitureManager : MonoBehaviour
 
     private void GetFurnitures()
     {
-        //furnitures = new List<GameObject>(FindAnyObjectByType<StructurePlacer>().placedObjects);
+        furnitures = new List<GameObject>(FindAnyObjectByType<StructurePlacer>().placedObjects);
         totalFurnitures = furnitures.Count;
     }
 

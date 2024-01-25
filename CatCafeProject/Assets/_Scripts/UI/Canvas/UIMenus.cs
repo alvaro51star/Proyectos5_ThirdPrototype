@@ -114,10 +114,10 @@ public class UIMenus : MonoBehaviour
 
         //pantalla de carga
 
+        GameManager.instance.SetCatsForTheDay();
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
         GameManager.instance.ChangeDay();
         GameManager.instance.ChangeWeekNumber();
-        GameManager.instance.SetCatsForTheDay();
     }
 
     public void LoadingPanel(int gameSceneNum)

@@ -29,6 +29,7 @@ public class ClientStates : MonoBehaviour
     {
         CalculateSeconds();
         TimeStateChange(CatState.Happy);
+        leaveTransform = FindAnyObjectByType<ClientDestroyer>().transform;
     }
 
     private void CalculateSeconds()

@@ -202,15 +202,18 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
+        catsForTheDay.Clear();
+        catDataList.Clear();
         UIManager.IsInGame(false);
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 
-        catsForTheDay.Clear();
-        catDataList.Clear();
     }
 
     public void FinishBuildingPhase()
     {
+        
         ChangeGameMode(GameModes.Cafeteria);
+        ClientManager.instance.SpawnCats();
+        StartCoroutine(ClientManager.instance.TestCats());
     }
 }
