@@ -71,12 +71,8 @@ public class GameManager : MonoBehaviour
             case GameModes.Decoration:
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
-<<<<<<< Updated upstream
-                //FurnitureManager.instance.ResetFurnitureManagerData();
                 SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
-=======
                 FurnitureManager.instance.ResetFurnitureManagerData();
->>>>>>> Stashed changes
                 break;
             case GameModes.Cafeteria:
                 FurnitureManager.instance.SetFurnitureData();
