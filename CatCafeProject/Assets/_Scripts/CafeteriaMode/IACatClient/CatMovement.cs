@@ -117,7 +117,7 @@ public class CatMovement : MonoBehaviour
         else
         {
             cmpCatAnimator.SetBool("Sit", false);
-            cmpCatAnimator.SetBool("Eat", true);
+            cmpCatAnimator.SetBool("Eat", false);
         }
     }
 
@@ -132,7 +132,7 @@ public class CatMovement : MonoBehaviour
         else
         {
             cmpCatAnimator.SetBool("Eat", false);
-            cmpCatAnimator.SetBool("Sit", true);
+            cmpCatAnimator.SetBool("Sit", false);
         }
     }
 }

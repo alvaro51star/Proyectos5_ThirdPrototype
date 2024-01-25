@@ -4733,7 +4733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d0b821e1ca66e49b9499fdd975ac66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
   currentDay: 0
   week: 0
   CafeteriaMode: {fileID: 753916489}
@@ -4755,6 +4754,7 @@ MonoBehaviour:
   normalCatsPercentage: 0.4
   hardCatsPercentage: 0
   richCatsPercentage: 0
+  UIManager: {fileID: 0}
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
