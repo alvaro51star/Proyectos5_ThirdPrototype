@@ -1484,6 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa9764776604254b9e029d6bc675619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UImanager: {fileID: 1401197321}
   secondsClientWaits: 2
   tableList:
   - {fileID: 727703622}
@@ -1551,10 +1552,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1215608685}
     m_Modifications:
-    - target: {fileID: 3586911389077182050, guid: 478631c10a2264b41bb464ac3c7e33a4,
+    - target: {fileID: 1550796959868491422, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586911389077182050, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5947890367039129624, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
@@ -1610,6 +1616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030457718977419856, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
