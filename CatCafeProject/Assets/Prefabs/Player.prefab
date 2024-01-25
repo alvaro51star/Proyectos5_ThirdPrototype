@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2887972473764041396}
   - component: {fileID: 1187437160105678694}
   - component: {fileID: 4626037406129052738}
+  - component: {fileID: 6492044540835907496}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -87,6 +88,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   speed: 10
+  rotationVe: 600
+  body: {fileID: 1157592475869748274}
 --- !u!136 &936456378007747516
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,6 +175,27 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!95 &6492044540835907496
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074217627241062807}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7cd7955332501a845942185694b6fc08, type: 3}
+  m_Controller: {fileID: 9100000, guid: f1ccfe2621733b045a337267ce4c6b1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2975349285367602605
 PrefabInstance:
   m_ObjectHideFlags: 0

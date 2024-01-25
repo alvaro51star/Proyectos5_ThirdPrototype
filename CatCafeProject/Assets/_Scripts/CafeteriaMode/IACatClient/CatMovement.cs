@@ -13,6 +13,18 @@ public class CatMovement : MonoBehaviour
 
     public static event Action OnTableAssigned;
 
+    private Animator cmpCatAnimator;
+
+    private void Start()
+    {
+        cmpCatAnimator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
     private void OnEnable()
     {
         agent.enabled = true;
