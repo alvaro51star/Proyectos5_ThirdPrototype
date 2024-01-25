@@ -69,12 +69,16 @@ public class GameManager : MonoBehaviour
         switch (gameMode)
         {
             case GameModes.Decoration:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
                 SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 FurnitureManager.instance.ResetFurnitureManagerData();
                 break;
             case GameModes.Cafeteria:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
@@ -202,7 +206,7 @@ public class GameManager : MonoBehaviour
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 
         catsForTheDay.Clear();
-        catDataList.Clear();      
+        catDataList.Clear();
     }
 
     public void FinishBuildingPhase()

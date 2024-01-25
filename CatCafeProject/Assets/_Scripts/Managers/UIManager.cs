@@ -46,8 +46,7 @@ public class UIManager : MonoBehaviour
                 player.SetActive(true);
             }
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            
             Time.timeScale = 1;
 
             DesactivateAllUIGameObjects();
