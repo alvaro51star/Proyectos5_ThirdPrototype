@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
         maxCatsPerDay += Random.Range(4, 7);
     }
 
-    private void ChangeWeekNumber()
+    public void ChangeWeekNumber()
     {
         week = (currentDay / 7) + 1;
     }
@@ -197,16 +197,7 @@ public class GameManager : MonoBehaviour
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 
         catsForTheDay.Clear();
-        catDataList.Clear();
-
-        ChangeDay();
-        ChangeWeekNumber();
-
-        //pantalla de carga
-
-        ChangeGameMode(GameModes.Decoration);
-        SetCatsForTheDay();
-
+        catDataList.Clear();      
     }
 
     public void FinishBuildingPhase()

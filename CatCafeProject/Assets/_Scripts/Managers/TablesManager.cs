@@ -17,14 +17,13 @@ public class TablesManager : MonoBehaviour
     public List<TableData> tableDataList;
     private List<TableData> unavailableTableDataList = new();
 
-    private void Start()
+
+    private void OnEnable()
     {
-        if (GameManager.instance.initialGameMode == GameModes.Cafeteria)//esto ahora para debug
+        tableList = FurnitureManager.instance.tableList;
+        for (int i = 0; i < tableList.Count; i++)
         {
-            for (int i = 0; i < tableList.Count; i++)
-            {
-                tableDataList.Add(tableList[i].GetComponent<TableData>());
-            }
+            tableDataList.Add(tableList[i].GetComponent<TableData>());
         }
     }
 
