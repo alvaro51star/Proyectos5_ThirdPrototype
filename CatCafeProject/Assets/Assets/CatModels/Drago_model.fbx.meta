@@ -3,7 +3,42 @@ guid: 9b07f2c5bb4f89341a92a8994b8cd978
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pupils
+    second: {fileID: 2100000, guid: b6f4813e55b217b48b34e9c42324a73f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drago_eyes
+    second: {fileID: 2100000, guid: 7eec8628c921bf7418df01ad86947274, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drago_grayParts
+    second: {fileID: 2100000, guid: e62c048ac837d054590d69d12bf44ce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drago_nose
+    second: {fileID: 2100000, guid: ed657e1c73f4ed54c97a7745a7882716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drago_whiteParts
+    second: {fileID: 2100000, guid: 00c62d43274e3c640bb55b8fa62d83bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__Neo_Body_sh
+    second: {fileID: 2100000, guid: 084cd86972fb9494783b1162caf33575, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__Neo_Int_Orejas_sh
+    second: {fileID: 2100000, guid: 5cf2a74b08d362743959d3169e54f012, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
