@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] UIManager UIManager;
     public static GameManager instance;
     [Header("Date Variables")]
     public int currentDay = 0;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public static event Action<GameModes> OnGameModeChange;
     public static event Action<List<CatDataSO>, List<CatDataSO>> OnCatListCreated;
+
     [Space]
     [Header("Cats Variables")]
     [SerializeField] private int maxCatsPerDay = 6;
@@ -188,5 +190,14 @@ public class GameManager : MonoBehaviour
 
     private void CalculateCats(){
         
+    }
+
+    public void EndDay()
+    {
+        UIManager.IsInGame(false);
+        UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
+
+        catsForTheDay.Clear();
+        catDataList.Clear();
     }
 }
