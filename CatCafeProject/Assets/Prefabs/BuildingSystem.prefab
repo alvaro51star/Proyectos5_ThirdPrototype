@@ -2475,9 +2475,9 @@ Transform:
   m_GameObject: {fileID: 2815684062093133873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.02, y: 0.015, z: 9.04}
-  m_LocalScale: {x: 0.9, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 2, y: 0.015, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5328153675976383635}
   - {fileID: 2939158526847079913}
@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   gridManager: {fileID: 7689598620714439443}
-  structuresData: {fileID: 11400000, guid: d2e9ab468f2704542a324c19b051a433, type: 2}
+  structuresData: {fileID: 11400000, guid: 7ca46b42cf2e1454f905d3f3ceb54f81, type: 2}
   placementPrevew: {fileID: 2754817058031357317}
   floorPrefab: {fileID: 919132149155446097, guid: 6cc0efcc526f81d45bee5fca1840722f,
     type: 3}
@@ -8131,10 +8131,10 @@ MonoBehaviour:
         m_CallState: 2
   themeImages:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 872052333ddea484d9dae5e879d8b092, type: 3}
+  - {fileID: 21300000, guid: d21e8b21240b88949b42228f01af0df2, type: 3}
+  - {fileID: 21300000, guid: 4a4b7899bef172840a6af7983bc49f4b, type: 3}
+  - {fileID: 21300000, guid: 55573ec42f337bb4686f569ea8ae07f2, type: 3}
 --- !u!1 &8037302939228707020
 GameObject:
   m_ObjectHideFlags: 0
@@ -9554,10 +9554,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5498995706932432438}
     m_Modifications:
+    - target: {fileID: 4679809695715670744, guid: 8d25703e1cedf7a469d5ea82e0c1e787,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf61adcc64e803846974f66e26644b69,
+        type: 3}
     - target: {fileID: 5443224966503512585, guid: 8d25703e1cedf7a469d5ea82e0c1e787,
         type: 3}
       propertyPath: m_Name
       value: FurnitureButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443224966503512585, guid: 8d25703e1cedf7a469d5ea82e0c1e787,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8187674874651357346, guid: 8d25703e1cedf7a469d5ea82e0c1e787,
         type: 3}

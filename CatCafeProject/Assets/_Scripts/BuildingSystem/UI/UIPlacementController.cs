@@ -13,7 +13,7 @@ public class UIPlacementController : MonoBehaviour
     public UnityEvent<int> OnObjectSelected;
     public UnityEvent OnUndoRequested, OnMoveRequest, OnResetMovementButton, OnCancelPlacement, OnMovementStateEntered;
 
-    public List<Image> themeImages;
+    public List<Sprite> themeImages;
 
     public void SelectObjectWithIndex(int index)
         => OnObjectSelected?.Invoke(index);

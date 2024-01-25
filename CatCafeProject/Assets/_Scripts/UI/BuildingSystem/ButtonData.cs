@@ -13,7 +13,9 @@ public class ButtonData : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private int id = -1;
     [SerializeField] private UIPlacementController placementController;
-    [SerializeField] private Image image;
+    [SerializeField] private Sprite image;
+    [SerializeField] private Sprite themeSprite;
+
     [SerializeField] private Image themeImage;
 
 
@@ -40,12 +42,14 @@ public class ButtonData : MonoBehaviour
     {
         id = item.ID;
         furniturePrize.text = item.buyValue.ToString();
+        furnitureName.text = item.name;
         this.placementController = placementController;
         if (item.image != null)
         {
             image = item.image;
         }
 
-        themeImage = placementController.themeImages[(int)item.furnitureTheme];
+        themeSprite = placementController.themeImages[(int)item.furnitureTheme];
+        themeImage.sprite = themeSprite;
     }
 }
