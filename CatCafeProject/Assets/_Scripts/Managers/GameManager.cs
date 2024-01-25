@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         SetCatsForTheDay();
     }
 
-    public void ChangeGameMode(GameModes gameMode)
+    public void ChangeGameMode(GameModes gameMode) //!QUitar los comentarios para que funcione bien(?)
     {
         switch (gameMode)
         {
@@ -201,6 +201,12 @@ public class GameManager : MonoBehaviour
 
         ChangeDay();
         ChangeWeekNumber();
+
+        //pantalla de carga
+
+        ChangeGameMode(GameModes.Decoration);
+        SetCatsForTheDay();
+
     }
 
     public void FinishBuildingPhase()
