@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 657039581152351353}
   - component: {fileID: 4951986589121008842}
   - component: {fileID: 3838582010418119330}
-  - component: {fileID: 1282664446831368723}
   - component: {fileID: 7206637855209811848}
   - component: {fileID: 7338086386703495760}
   m_Layer: 0
@@ -143,22 +142,6 @@ MonoBehaviour:
   donutGO: {fileID: 576327218094454008}
   cupcakeGO: {fileID: 3005708859551835662}
   cakeGO: {fileID: 5035692119169814721}
---- !u!208 &1282664446831368723
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681414609414717219}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.75, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!114 &7206637855209811848
 MonoBehaviour:
   m_ObjectHideFlags: 0
