@@ -10,7 +10,6 @@ public class ClientDestroyer : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            Debug.Log("client destroyed");
         }
     }
 }

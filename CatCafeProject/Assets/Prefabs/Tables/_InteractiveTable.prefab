@@ -167,6 +167,7 @@ MonoBehaviour:
   tableAudioSource: {fileID: 7338086386703495760}
   orderedFoodClip: {fileID: 8300000, guid: bb4e9a6b37a435a4bb5ab518d84e0e2e, type: 3}
   notOrderedFoodClip: {fileID: 8300000, guid: 060471f525c99744b9dbf255a99fe4bc, type: 3}
+  popBocadilloClip: {fileID: 8300000, guid: 82c935cbf49a9b9498e02d4a0c68a6a0, type: 3}
 --- !u!114 &657039581152351353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,12 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953779bdb5035134ab536e3574c57315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tablesManager: {fileID: 0}
+  furnitureTheme: 0
   isOccupied: 0
   selectedChair: {fileID: 0}
   selectedFoodTransform: {fileID: 0}
-  orderedFood: 4
-  furnitureTheme: 0
   interactiveTable: {fileID: 2522344557598437090}
   chairs:
   - {fileID: 4659560424513526169}
@@ -207,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  foodType: 4
   milkGO: {fileID: 322418601595216066}
   donutGO: {fileID: 2017309752162070178}
   cupcakeGO: {fileID: 717295721092193482}
@@ -224,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  foodType: 4
   milkGO: {fileID: 3010441984463047312}
   donutGO: {fileID: 576327218094454008}
   cupcakeGO: {fileID: 3005708859551835662}

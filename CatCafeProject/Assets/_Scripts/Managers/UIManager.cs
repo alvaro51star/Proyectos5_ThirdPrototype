@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public GameObject initialMenu;
     public GameObject pauseMenu;
     public GameObject creditsPanel;
+    public GameObject nextDayMenu;
+    public GameObject blockMenu;
+    public GameObject changeModeMenu;
 
     private void Start()
     {

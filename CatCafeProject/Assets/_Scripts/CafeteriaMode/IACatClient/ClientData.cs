@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ClientData : MonoBehaviour
 {
+    public GameObject bocadillo;
+    public FoodController bocadilloFoodController;
     public CatDataSO catType;
     public FoodTypes foodOrdered;
 
@@ -25,5 +27,7 @@ public class ClientData : MonoBehaviour
                 _ => FoodTypes.Nothing,
             };
         }
+
+        bocadilloFoodController.foodType = foodOrdered;
     }
 }

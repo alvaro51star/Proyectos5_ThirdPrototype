@@ -6,13 +6,12 @@ using Random = UnityEngine.Random;
 
 public class TableData : MonoBehaviour
 {
-    //public event Action OnAvailableTable;
-    public TablesManager tablesManager;
+    public FurnitureTheme furnitureTheme;
+
     public bool isOccupied = false;
     [HideInInspector] public Transform selectedChair;
     [HideInInspector] public Transform selectedFoodTransform;
-    public FoodTypes orderedFood;
-    public FurnitureTheme furnitureTheme;
+
     [SerializeField] private InteractiveTable interactiveTable;
     [SerializeField] private Transform[] chairs;
     [SerializeField] private Transform[] foodTransforms;
@@ -28,8 +27,8 @@ public class TableData : MonoBehaviour
 
         if (!tableIsOccupied)
         {
-            orderedFood = FoodTypes.Nothing;
             interactiveTable.tableFoodController.EnableFoodGO(false);
+            interactiveTable.tableFoodController.foodType = FoodTypes.Nothing;
         }
 
         RandomChair();

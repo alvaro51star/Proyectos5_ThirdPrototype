@@ -13,6 +13,18 @@ public class CatMovement : MonoBehaviour
 
     public static event Action OnTableAssigned;
 
+    private Animator cmpCatAnimator;
+
+    private void Start()
+    {
+        cmpCatAnimator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
     private void OnEnable()
     {
         agent.enabled = true;
@@ -22,7 +34,8 @@ public class CatMovement : MonoBehaviour
     {
         if(CalculateNewPath(destination))
         {
-            agent.SetDestination(destination.position);            
+            agent.SetDestination(destination.position);
+            // poner booleana esta mov
         }
         else
         {
@@ -79,7 +92,7 @@ public class CatMovement : MonoBehaviour
 
         if (tableAssigned != null)
         {
-            Debug.Log($"La mesa es: {tableAssigned}");
+            //Debug.Log($"La mesa es: {tableAssigned}");
 
             return true;
         }
