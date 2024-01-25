@@ -15,6 +15,7 @@ public class CatMovement : MonoBehaviour
 
     private Animator cmpCatAnimator;
     public bool m_sit;
+    public bool m_eating;
 
     private void Start()
     {
