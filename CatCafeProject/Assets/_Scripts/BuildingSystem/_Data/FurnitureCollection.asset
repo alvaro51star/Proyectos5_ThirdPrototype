@@ -13,22 +13,9 @@ MonoBehaviour:
   m_Name: FurnitureCollection
   m_EditorClassIdentifier: 
   structures:
-  - name: Heart Table
-    image: {fileID: 0}
-    ID: 0
-    size: {x: 4, y: 4}
-    objectPlacementType: 5
-    prefab: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
-      type: 3}
-    previewObject: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
-      type: 3}
-    buyValue: 300
-    sellValue: 150
-    furnitureTheme: 2
-    furnitureType: 2
   - name: Flower Table
     image: {fileID: 0}
-    ID: 1
+    ID: 0
     size: {x: 4, y: 4}
     objectPlacementType: 5
     prefab: {fileID: 7325821801836433919, guid: cfd2a0e7d73580d4bb0588a70e8c8ad8,
@@ -38,6 +25,19 @@ MonoBehaviour:
     buyValue: 300
     sellValue: 150
     furnitureTheme: 1
+    furnitureType: 2
+  - name: Heart Table
+    image: {fileID: 0}
+    ID: 1
+    size: {x: 4, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
+      type: 3}
+    previewObject: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
+      type: 3}
+    buyValue: 300
+    sellValue: 150
+    furnitureTheme: 2
     furnitureType: 2
   - name: Leaf Table
     image: {fileID: 0}
@@ -117,3 +117,94 @@ MonoBehaviour:
     sellValue: 100
     furnitureTheme: 3
     furnitureType: 5
+  - name: Flower Lamp
+    image: {fileID: 0}
+    ID: 8
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 1249043774912581928, guid: 03bf2f386983c6143ad87c1d155961db,
+      type: 3}
+    previewObject: {fileID: 1249043774912581928, guid: 03bf2f386983c6143ad87c1d155961db,
+      type: 3}
+    buyValue: 50
+    sellValue: 25
+    furnitureTheme: 1
+    furnitureType: 9
+  - name: Heart Lamp
+    image: {fileID: 0}
+    ID: 9
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 2757776334732983817, guid: d6742ffbc0e2db24f87789fd7e5dca18,
+      type: 3}
+    previewObject: {fileID: 2757776334732983817, guid: d6742ffbc0e2db24f87789fd7e5dca18,
+      type: 3}
+    buyValue: 50
+    sellValue: 25
+    furnitureTheme: 2
+    furnitureType: 9
+  - name: Leaf Lamp
+    image: {fileID: 0}
+    ID: 10
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 1555004005275422823, guid: a2ccfa19cf6d1f04f885ee3a3eae7209,
+      type: 3}
+    previewObject: {fileID: 1555004005275422823, guid: a2ccfa19cf6d1f04f885ee3a3eae7209,
+      type: 3}
+    buyValue: 50
+    sellValue: 25
+    furnitureTheme: 3
+    furnitureType: 9
+  - name: Flower Turnatable
+    image: {fileID: 0}
+    ID: 11
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 5495601027605231718, guid: 8ec9b52853f163245950cda694048d23,
+      type: 3}
+    previewObject: {fileID: 5495601027605231718, guid: 8ec9b52853f163245950cda694048d23,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 1
+    furnitureType: 6
+  - name: Heart Turnatable
+    image: {fileID: 0}
+    ID: 12
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 1957128487473066253, guid: 82497436d3882ab4b8d88ac7426e2de0,
+      type: 3}
+    previewObject: {fileID: 1957128487473066253, guid: 82497436d3882ab4b8d88ac7426e2de0,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 2
+    furnitureType: 6
+  - name: Leaf Turnatable
+    image: {fileID: 0}
+    ID: 13
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 7406837442275134117, guid: 285802a8541a32849ba52c6ab65f1573,
+      type: 3}
+    previewObject: {fileID: 7406837442275134117, guid: 285802a8541a32849ba52c6ab65f1573,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 3
+    furnitureType: 6
+  - name: Fish Turnatable
+    image: {fileID: 0}
+    ID: 14
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 5195886425951514860, guid: 25a5659b614722e4fa6fad377e7815d2,
+      type: 3}
+    previewObject: {fileID: 5195886425951514860, guid: 25a5659b614722e4fa6fad377e7815d2,
+      type: 3}
+    buyValue: 100
+    sellValue: 50
+    furnitureTheme: 4
+    furnitureType: 6
