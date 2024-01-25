@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float richCatsPercentage = 0f;
 
     public UIManager UIManager;
+    [SerializeField] private AudioClip decorationAudioClip;
+    [SerializeField] private AudioClip cafeteriaAudioClip;
+    [SerializeField] private AudioSource audioSource;
 
 
     private void Awake()
@@ -69,11 +72,13 @@ public class GameManager : MonoBehaviour
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
                 //FurnitureManager.instance.ResetFurnitureManagerData();
+                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 break;
             case GameModes.Cafeteria:
                 //FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
+                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 break;
 
         }
