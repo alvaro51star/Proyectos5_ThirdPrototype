@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEditor.Progress;
 
 public class TablesManager : MonoBehaviour
 {
+    [SerializeField] private UIManager UImanager;
     [SerializeField] private float secondsClientWaits;
     private CatMovement catMovement;
     private CatDataSO catData;
     public List<GameObject> tableList; //de momento usar esta, realmente usar las de FurnitureManager
     public List<TableData> tableDataList;
+    private List<TableData> unavailableTableDataList = new();
 
     private void Start()
     {
@@ -24,6 +28,13 @@ public class TablesManager : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        tableDataList.Clear();
+        tableDataList.Clear();
+        unavailableTableDataList.Clear();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CatMovement>() != null && other.GetComponent<ClientStates>().catState != CatState.Leaving)
@@ -32,23 +43,47 @@ public class TablesManager : MonoBehaviour
             catData = other.GetComponent<ClientData>().catType;
             catMovement.tablesManager = this;
 
-            StartCoroutine(catMovement.WaitForMovementToAssignedTable());
+            if(CheckCanPassAllTables())
+            {
+                StartCoroutine(catMovement.WaitForMovementToAssignedTable());
+            }
         }
     }
 
+    private bool CheckCanPassAllTables()
+    {
+        foreach(var table in tableDataList)
+        {
+            Transform destination = table.selectedChair;
+            bool canPass = catMovement.CalculateNewPath(destination);
+            if (!canPass)
+            {
+                //CalculateUselessTables(table);
+
+                unavailableTableDataList.Add(table);
+
+                if (unavailableTableDataList.Count == tableDataList.Count)
+                {
+                    Debug.Log("no se puede pasar a las mesas");
+                    //GameManager.instance.UIManager.IsInGame(false);
+                    //GameManager.instance.UIManager.ActivateUIGameObjects(GameManager.instance.UIManager.blockMenu, true);
+                    UImanager.IsInGame(false);
+                    UImanager.ActivateUIGameObjects(UImanager.blockMenu, true);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     private void CalculateUselessTables(TableData uselessTable) //calculate number of tables that the client cant reach (no path available)
     {
-        tableDataList.Remove(uselessTable);
+        //tableDataList.Remove(uselessTable);
 
-        if (tableDataList[0] == null)
-        {
-            GameManager.instance.UIManager.IsInGame(false);
-            GameManager.instance.UIManager.ActivateUIGameObjects(GameManager.instance.UIManager.blockMenu, true);
-        }
+        
     }
 
-    public TableData CheckAvailableTables()//en futuro llamado por evento en TableData
+    public TableData CheckAvailableTables()
     {
         List<TableData> availableTablesList = new();
 
@@ -60,12 +95,13 @@ public class TablesManager : MonoBehaviour
             }
         }
 
-        if(availableTablesList[0] == null)
+        bool isNullOrEmpty = availableTablesList?.Any() != true;
+        if (isNullOrEmpty)
         {
             return null;
         }
 
-        foreach(var item in availableTablesList)//check if client can pass to available table
+        /*foreach(var item in availableTablesList)//check if client can pass to available table
         {
             Transform destination = item.selectedChair;
             bool canPass = catMovement.CalculateNewPath(destination);
@@ -74,7 +110,7 @@ public class TablesManager : MonoBehaviour
                 CalculateUselessTables(item);
                 availableTablesList.Remove(item);
             }
-        }
+        }*/
 
 
         foreach(var item in catData.likes)//return available table of cat's theme
