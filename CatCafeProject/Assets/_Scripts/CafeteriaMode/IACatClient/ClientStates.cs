@@ -56,8 +56,8 @@ public class ClientStates : MonoBehaviour
                 StartCoroutine(ChangeStateTimer(secondsToLeave));
                 break;
             case CatState.Leaving:
+                clientData.bocadillo.SetActive(false);
                 catMovement.MovementToDestination(leaveTransform);
-                SoundManager.instance.ReproduceSound(audioClipAngryLeave, audioSource);
                 break;
         }
 
@@ -69,6 +69,10 @@ public class ClientStates : MonoBehaviour
 
         if(!isFed)
         {
+            if(catState + 1 == CatState.Leaving)
+            {
+                SoundManager.instance.ReproduceSound(audioClipAngryLeave, audioSource);
+            }
             TimeStateChange(catState + 1);
         }
         else

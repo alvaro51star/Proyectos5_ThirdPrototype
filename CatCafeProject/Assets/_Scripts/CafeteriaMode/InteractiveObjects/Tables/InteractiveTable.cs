@@ -10,44 +10,57 @@ public class InteractiveTable : InteractiveObject
     [SerializeField] private AudioSource tableAudioSource;
     [SerializeField] private AudioClip orderedFoodClip;
     [SerializeField] private AudioClip notOrderedFoodClip;
+    [SerializeField] private AudioClip popBocadilloClip;
     private FoodTypes playerFoodType;
     private FoodController playerFoodController;
     private ClientStates clientStates;
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<FoodController>())
+        if (other.GetComponent<CatMovement>() && other.GetComponent<CatMovement>().tableAssigned == tableData)
+        {
+            if (other.GetComponent<FoodController>())
+            {
+                playerFoodController = other.GetComponent<FoodController>();
+            }
+
+            if (other.GetComponent<ClientData>())
+            {
+                ClientData clientData = other.GetComponent<ClientData>();
+
+                tableFoodController.foodType = clientData.foodOrdered;
+
+                clientData.bocadilloFoodController.EnableFoodGO(true);
+                clientData.bocadillo.SetActive(true);
+                SoundManager.instance.ReproduceSound(popBocadilloClip, tableAudioSource);
+            }
+
+            if (other.GetComponent<ClientStates>())
+            {
+                clientStates = other.GetComponent<ClientStates>();
+            }
+        }
+
+        if(other.GetComponent<FoodController>())
         {
             playerFoodController = other.GetComponent<FoodController>();
         }
 
-        if (other.GetComponent<ClientData>())
+        if ((tableFoodController) && (tableFoodController.foodType != FoodTypes.Nothing))
         {
-            tableData.orderedFood = other.GetComponent<ClientData>().foodOrdered;
-            Debug.Log(tableData.orderedFood);
-            //meter aqui que salga bocata
+            base.OnTriggerEnter(other);
         }
-
-        if(other.GetComponent<ClientStates>())
-        {
-            clientStates = other.GetComponent<ClientStates>();
-        }
-
-        base.OnTriggerEnter(other);
     }
     protected override void Interaction()//take ordered food
-    {
+    {        
         playerFoodType = playerFoodController.foodType;
 
-        if(playerFoodType == tableData.orderedFood)
+        if(playerFoodType == tableFoodController.foodType)
         {
-            tableFoodController.foodType = tableData.orderedFood;
-
             playerFoodController.EnableFoodGO(false);
             tableFoodController.EnableFoodGO(true);
 
             playerFoodController.foodType = FoodTypes.Nothing;
-            tableData.orderedFood = FoodTypes.Nothing;
 
             clientStates.isFed = true;//to stop state change
 
@@ -55,7 +68,6 @@ public class InteractiveTable : InteractiveObject
         }
         else
         {
-            Debug.Log("Este no es el pedido");
             SoundManager.instance.ReproduceSound(notOrderedFoodClip, tableAudioSource);            
         }
     }

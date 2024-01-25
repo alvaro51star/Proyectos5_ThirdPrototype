@@ -20,7 +20,6 @@ public class TablesManager : MonoBehaviour
             for (int i = 0; i < tableList.Count; i++)
             {
                 tableDataList.Add(tableList[i].GetComponent<TableData>());
-                tableDataList[i].tablesManager = this;
             }
         }
     }
@@ -33,23 +32,10 @@ public class TablesManager : MonoBehaviour
             catData = other.GetComponent<ClientData>().catType;
             catMovement.tablesManager = this;
 
-            //if cat es primero en cola
             StartCoroutine(catMovement.WaitForMovementToAssignedTable());
         }
     }
 
-    // private IEnumerator OnTriggerStay(Collider other)
-    // {
-    //     yield return new WaitForSeconds(2f);
-    //     if(other.GetComponent<CatMovement>() != null)
-    //     {
-    //         catMovement = other.GetComponent<CatMovement>();
-    //         catData = other.GetComponent<ClientData>().catType;
-    //         catMovement.tablesManager = this;
-    //         //if cat es primero en cola
-    //         StartCoroutine(catMovement.WaitForClientMovement());
-    //     }
-    // }
 
     private void CalculateUselessTables(TableData uselessTable) //calculate number of tables that the client cant reach (no path available)
     {
@@ -69,7 +55,6 @@ public class TablesManager : MonoBehaviour
         {
             if(!item.isOccupied)
             {
-                Debug.Log("for de si estan ocupadas");
                 availableTablesList.Add(item);
             }
         }
@@ -98,9 +83,6 @@ public class TablesManager : MonoBehaviour
                 if (item == tiem.furnitureTheme)
                 {
                     tiem.ResetTableData(true);
-
-                    Debug.Log("doble for");
-
                     return tiem;
                 }
             }

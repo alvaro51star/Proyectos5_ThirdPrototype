@@ -92,7 +92,7 @@ public class CatMovement : MonoBehaviour
 
         if (tableAssigned != null)
         {
-            Debug.Log($"La mesa es: {tableAssigned}");
+            //Debug.Log($"La mesa es: {tableAssigned}");
 
             return true;
         }

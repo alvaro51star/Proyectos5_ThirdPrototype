@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodController : MonoBehaviour
 {
-    [HideInInspector] public FoodTypes foodType;
+    public FoodTypes foodType;
     [SerializeField] private GameObject milkGO;
     [SerializeField] private GameObject donutGO;
     [SerializeField] private GameObject cupcakeGO;
