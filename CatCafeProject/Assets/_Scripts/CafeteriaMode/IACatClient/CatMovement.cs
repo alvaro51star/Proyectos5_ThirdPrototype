@@ -66,20 +66,14 @@ public class CatMovement : MonoBehaviour
 
     public IEnumerator WaitForMovementToAssignedTable()
     {
-        if(AssignTable())
-        {            
-            yield return new WaitForSeconds(2f);
-
-            Transform destination = tableAssigned.selectedChair;
-            MovementToDestination(destination);
-            
-            OnTableAssigned?.Invoke();
-
-        }
-        else
+        while(!AssignTable())
         {
-            StartCoroutine(WaitForMovementToAssignedTable());
+            yield return new WaitForSeconds(2f);
         }
+        Transform destination = tableAssigned.selectedChair;
+        MovementToDestination(destination);
+
+        OnTableAssigned?.Invoke();       
     }    
 
     private bool AssignTable()

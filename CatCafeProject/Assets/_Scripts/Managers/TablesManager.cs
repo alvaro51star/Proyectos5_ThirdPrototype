@@ -17,14 +17,13 @@ public class TablesManager : MonoBehaviour
     public List<TableData> tableDataList;
     private List<TableData> unavailableTableDataList = new();
 
-    private void Start()
+
+    private void OnEnable()
     {
-        if (GameManager.instance.initialGameMode == GameModes.Cafeteria)//esto ahora para debug
+        tableList = FurnitureManager.instance.tableList;
+        for (int i = 0; i < tableList.Count; i++)
         {
-            for (int i = 0; i < tableList.Count; i++)
-            {
-                tableDataList.Add(tableList[i].GetComponent<TableData>());
-            }
+            tableDataList.Add(tableList[i].GetComponent<TableData>());
         }
     }
 
@@ -58,15 +57,10 @@ public class TablesManager : MonoBehaviour
             bool canPass = catMovement.CalculateNewPath(destination);
             if (!canPass)
             {
-                //CalculateUselessTables(table);
-
                 unavailableTableDataList.Add(table);
 
                 if (unavailableTableDataList.Count == tableDataList.Count)
                 {
-                    Debug.Log("no se puede pasar a las mesas");
-                    //GameManager.instance.UIManager.IsInGame(false);
-                    //GameManager.instance.UIManager.ActivateUIGameObjects(GameManager.instance.UIManager.blockMenu, true);
                     UImanager.IsInGame(false);
                     UImanager.ActivateUIGameObjects(UImanager.blockMenu, true);
                     return false;
@@ -76,12 +70,6 @@ public class TablesManager : MonoBehaviour
         return true;
     }
 
-    private void CalculateUselessTables(TableData uselessTable) //calculate number of tables that the client cant reach (no path available)
-    {
-        //tableDataList.Remove(uselessTable);
-
-        
-    }
 
     public TableData CheckAvailableTables()
     {
@@ -95,8 +83,7 @@ public class TablesManager : MonoBehaviour
             }
         }
 
-        bool isNullOrEmpty = availableTablesList?.Any() != true;
-        if (isNullOrEmpty)
+        if (availableTablesList.Count == 0)
         {
             return null;
         }

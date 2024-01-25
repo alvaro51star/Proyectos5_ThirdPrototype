@@ -108,9 +108,14 @@ public class UIMenus : MonoBehaviour
     }
 
     public void EndDay()
-    {
-        GameModeDecoration();
-        //meter pantalla carga
+    {       
+        GameManager.instance.ChangeDay();
+        GameManager.instance.ChangeWeekNumber();
+
+        //pantalla de carga
+
+        GameManager.instance.ChangeGameMode(GameModes.Decoration);
+        GameManager.instance.SetCatsForTheDay();
     }
 
     public void LoadingPanel(int gameSceneNum)
