@@ -38,11 +38,7 @@ public class CatMovement : MonoBehaviour
         if(CalculateNewPath(destination))
         {
             agent.SetDestination(destination.position);
-        }
-        else
-        {
-            Debug.Log("no puede pasar a esa mesa");
-        }
+        }        
     }
 
     public bool CalculateNewPath(Transform destination) //and check if full path is available
@@ -83,7 +79,6 @@ public class CatMovement : MonoBehaviour
         else
         {
             StartCoroutine(WaitForMovementToAssignedTable());
-            Debug.Log("esperando una mesa libre");
         }
     }    
 
