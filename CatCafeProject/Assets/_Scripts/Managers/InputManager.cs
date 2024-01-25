@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
 
     public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo;
 
+    public static event Action OnCancel;
+
     public static event Action OnInteracting;
 
     public event Action<int> OnRotate;
@@ -46,7 +48,10 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
             OnCancle?.Invoke();
+            OnCancel?.Invoke();
+        }
         if (Input.GetKeyDown(KeyCode.R))
             OnUndo?.Invoke();
 

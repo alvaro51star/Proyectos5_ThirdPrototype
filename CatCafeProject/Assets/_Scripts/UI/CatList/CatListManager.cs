@@ -2,10 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class CatListManager : MonoBehaviour
 {

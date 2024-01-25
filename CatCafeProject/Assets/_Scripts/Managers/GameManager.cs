@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
     public GameModes initialGameMode;
+    public bool isPaused = false;
 
     public static event Action<GameModes> OnGameModeChange;
     public static event Action<List<CatDataSO>, List<CatDataSO>> OnCatListCreated;
@@ -56,6 +57,16 @@ public class GameManager : MonoBehaviour
         ChangeWeekNumber();
     }
 
+
+    private void OnEnable()
+    {
+        InputManager.OnCancel += TogglePause;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.OnCancel -= TogglePause;
+    }
 
     void Start()
     {
@@ -211,9 +222,25 @@ public class GameManager : MonoBehaviour
 
     public void FinishBuildingPhase()
     {
-        
+
         ChangeGameMode(GameModes.Cafeteria);
         ClientManager.instance.SpawnCats();
         StartCoroutine(ClientManager.instance.TestCats());
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+
+        UIManager.instance.SetPauseMenu(isPaused);
     }
 }

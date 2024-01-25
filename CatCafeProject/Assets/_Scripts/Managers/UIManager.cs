@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
     public GameObject player;
     public GameObject uiInput;
 
@@ -19,6 +21,19 @@ public class UIManager : MonoBehaviour
     public GameObject changeModeMenu;
     public GameObject loadingPanel;
     public GameObject creditsPanel;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -46,7 +61,7 @@ public class UIManager : MonoBehaviour
                 player.SetActive(true);
             }
 
-            
+
             Time.timeScale = 1;
 
             DesactivateAllUIGameObjects();
@@ -62,6 +77,11 @@ public class UIManager : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0;
         }
+    }
+
+    public void SetPauseMenu(bool isPaused)
+    {
+        pauseMenu.SetActive(isPaused);
     }
 
     public void ButtonSound()
