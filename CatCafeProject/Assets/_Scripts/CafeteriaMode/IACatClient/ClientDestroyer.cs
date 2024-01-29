@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ClientDestroyer : MonoBehaviour
-{    
-    private int clientsDestroyed;
+{
+    private int clientsDestroyed = 0;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<ClientStates>().catState == CatState.Leaving)
+        if (other.GetComponent<ClientStates>().catState == CatState.Leaving)
         {
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
             clientsDestroyed++;
-            if(clientsDestroyed == GameManager.instance.catsForTheDay.Count)
+            if (clientsDestroyed == GameManager.instance.catsForTheDay.Count)
             {
-                GameManager.instance.EndDay();
+                //GameManager.instance.EndDay();
+                EconomyManager.instance.PrintReceipt();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
+    }
+
+    public void ResetClientDestroyed()
+    {
+        clientsDestroyed = 0;
     }
 }

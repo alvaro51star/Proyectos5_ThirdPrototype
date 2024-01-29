@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private NavMeshSurface navMeshSurface;
     public GameModes initialGameMode;
     public bool isPaused = false;
+    [SerializeField] private ClientDestroyer clientDestroyer;
 
     public static event Action<GameModes> OnGameModeChange;
     public static event Action<List<CatDataSO>, List<CatDataSO>> OnCatListCreated;
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
 
         ChangeGameMode(initialGameMode);
-        SetCatsForTheDay();
+        //SetCatsForTheDay();
     }
 
     public void ChangeGameMode(GameModes gameMode) //!QUitar los comentarios para que funcione bien(?)
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
+                SetCatsForTheDay();
                 SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 FurnitureManager.instance.ResetFurnitureManagerData();
                 break;
@@ -106,13 +108,13 @@ public class GameManager : MonoBehaviour
         {
             navMeshSurface.BuildNavMesh();
             CafeteriaMode?.SetActive(true);
+            clientDestroyer.ResetClientDestroyed();
         }
     }
 
     public void SetCatsForTheDay()
     {
         catsForTheDay.Clear();
-
         int catsNumber;
 
         int easyCatNumber;
@@ -214,7 +216,7 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         catsForTheDay.Clear();
-        catDataList.Clear();
+        //catDataList.Clear();
         UIManager.IsInGame(false);
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 

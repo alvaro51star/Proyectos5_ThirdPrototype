@@ -181,4 +181,17 @@ public class ClientManager : MonoBehaviour
         return null;
     }
 
+    public void QueueReset()
+    {
+        for (int i = 0; i < queueSlots.Count; i++)
+        {
+            queueSlots[queueList[i]] = false;
+        }
+    }
+
+    public void ClientReset()
+    {
+        clients.Clear();
+    }
+
 }

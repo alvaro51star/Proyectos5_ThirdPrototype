@@ -48,7 +48,8 @@ public class EconomyManager : MonoBehaviour
     [Space]
     [Header("Receipt UI Variables")]
     [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts = new();
-    [SerializeField] private ReceiptManagement receipt;
+    //[SerializeField] private GameObject receiptObject;
+    [SerializeField] private ReceiptManagement receiptManagement;
 
     [Space]
     [Header("Sound Variables")]
@@ -69,7 +70,7 @@ public class EconomyManager : MonoBehaviour
             instance = this;
         }
 
-        receipt = FindAnyObjectByType<ReceiptManagement>(FindObjectsInactive.Include);
+        receiptManagement = FindAnyObjectByType<ReceiptManagement>(FindObjectsInactive.Include);
     }
 
     private void Start()
@@ -84,12 +85,12 @@ public class EconomyManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentMoney", currentMoney);
         }
 
-        if (receipt != null)
+        if (receiptManagement != null)
         {
-            foodReceiptTexts.Add(FoodTypes.Milk, receipt._milkText);
-            foodReceiptTexts.Add(FoodTypes.Donut, receipt._croissantText);
-            foodReceiptTexts.Add(FoodTypes.Cupcake, receipt._cupcakeText);
-            foodReceiptTexts.Add(FoodTypes.Cake, receipt._cakeText);
+            foodReceiptTexts.Add(FoodTypes.Milk, receiptManagement._milkText);
+            foodReceiptTexts.Add(FoodTypes.Donut, receiptManagement._croissantText);
+            foodReceiptTexts.Add(FoodTypes.Cupcake, receiptManagement._cupcakeText);
+            foodReceiptTexts.Add(FoodTypes.Cake, receiptManagement._cakeText);
         }
     }
 
@@ -224,17 +225,17 @@ public class EconomyManager : MonoBehaviour
             totalTips += tip;
         }
         totalMoneyEarnedForTheDay = totalFoodMoney + totalTips;
-        TestOrders(); //!Solo sirve para probar la lista, una vez se compruebe, lo borraré
+        //TestOrders(); //!Solo sirve para probar la lista, una vez se compruebe, lo borraré
         StartCoroutine(ShowReceipt(totalMoneyEarnedForTheDay, totalTips));
         //Debug.Log(totalTips);
     }
 
     private IEnumerator ShowReceipt(int totalMoneyEarnedForTheDay, int totalTips)
     {
-        receipt._dayText.GetComponent<TextMeshProUGUI>().text = $"Day: {GameManager.instance.currentDay}";
-        receipt._weekText.GetComponent<TextMeshProUGUI>().text = $"Week: {GameManager.instance.week}";
+        receiptManagement._dayText.GetComponent<TextMeshProUGUI>().text = $"Day: {GameManager.instance.currentDay}";
+        receiptManagement._weekText.GetComponent<TextMeshProUGUI>().text = $"Week: {GameManager.instance.week}";
 
-        receipt.gameObject.SetActive(true);
+        receiptManagement.gameObject.SetActive(true);
 
         if (foodReceiptTexts.Count == orders.Count)
         {
@@ -251,12 +252,12 @@ public class EconomyManager : MonoBehaviour
         }
 
         //receipt._tipsText.GetComponentInChildren<TextMeshProUGUI>().text = $"{totalTips} $";
-        receipt._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
-        receipt._tipsText.transform.GetChild(0).gameObject.SetActive(true);
+        receiptManagement._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
+        receiptManagement._tipsText.transform.GetChild(0).gameObject.SetActive(true);
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
         yield return new WaitForSeconds(0.5f);
-        receipt._totalMoneyText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalMoneyEarnedForTheDay} $";
-        receipt._totalMoneyText.transform.GetChild(0).gameObject.SetActive(true);
+        receiptManagement._totalMoneyText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalMoneyEarnedForTheDay} $";
+        receiptManagement._totalMoneyText.transform.GetChild(0).gameObject.SetActive(true);
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
         yield return new WaitForSeconds(0.5f);
 
@@ -275,11 +276,31 @@ public class EconomyManager : MonoBehaviour
             {FoodTypes.Cake,UnityEngine.Random.Range(0, 3)}
         };
     }
-}
 
-[Serializable]
-public struct FoodTypeValueTupla
-{
-    public FoodTypes foodType;
-    public int prize;
+    public void ResetTipList()
+    {
+        totalTipsList.Clear();
+    }
+
+    public void ResetOrders()
+    {
+        orders = new Dictionary<FoodTypes, int> {
+            {FoodTypes.Milk,0},
+            {FoodTypes.Donut,0},
+            {FoodTypes.Cupcake,0},
+            {FoodTypes.Cake,0}
+        };
+    }
+
+    public void ResetDataForNextDay(){
+        ResetTipList();
+        ResetOrders();
+    }
+
+    [Serializable]
+    public struct FoodTypeValueTupla
+    {
+        public FoodTypes foodType;
+        public int prize;
+    }
 }

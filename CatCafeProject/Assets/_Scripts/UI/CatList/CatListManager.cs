@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System.Linq;
 
 public class CatListManager : MonoBehaviour
 {
@@ -52,10 +53,21 @@ public class CatListManager : MonoBehaviour
 
     private void SetDictionaryItem(List<CatDataSO> catList, List<CatDataSO> catDataList)
     {
-        for (int i = 0; i < catDataList.Count; i++)
+        if (catsPerType.Any())
         {
-            catsPerType.Add(catDataList[i], 0);
+            for (int i = 0; i < catsPerType.Count; i++)
+            {
+                catsPerType[catDataList[i]] = 0;
+            }
         }
+        else
+        {
+            for (int i = 0; i < catDataList.Count; i++)
+            {
+                catsPerType.Add(catDataList[i], 0);
+            }
+        }
+
 
         for (int i = 0; i < catList.Count; i++)
         {
