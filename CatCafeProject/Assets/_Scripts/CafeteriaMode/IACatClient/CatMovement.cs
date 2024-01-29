@@ -24,8 +24,8 @@ public class CatMovement : MonoBehaviour
     private void Update()
     {
         cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
-        
-        if(m_sit)
+
+        if (m_sit)
             SitAnimation();
 
         if(m_eating)

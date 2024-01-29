@@ -31,7 +31,6 @@ public class ChairTrigger : MonoBehaviour
                 {
                     agent.isStopped = false;
                     other.GetComponent<CatMovement>().m_sit = false;
-                    other.GetComponent<CatMovement>().m_eating = false;
                 }
             }
         }       
@@ -42,6 +41,7 @@ public class ChairTrigger : MonoBehaviour
         if(other.GetComponent<CatMovement>() && other.GetComponent<CatMovement>().tableAssigned == tableData)
         {
             tableData.ResetTableData(false);
+            other.GetComponent<CatMovement>().m_eating = false;
         }
     }
 }
