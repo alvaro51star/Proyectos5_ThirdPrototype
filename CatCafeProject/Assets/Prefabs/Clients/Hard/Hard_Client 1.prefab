@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 508165369106889185, guid: 367db26a9c9d5324087b216f8f53599d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5135055554825347036, guid: 367db26a9c9d5324087b216f8f53599d,
         type: 3}
@@ -24,6 +24,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: de0dba2e9c0a10749bba49f27137075f,
         type: 2}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 99848609434862009, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -3491966503589304233, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 7183137889035992269, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 6162698431622310630, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: -7285342107584199061, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
+    - target: {fileID: 6873707097235860099, guid: 367db26a9c9d5324087b216f8f53599d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: -520394778342656719, guid: 0cdf5ac044835cd4784564d9914dd8e7,
+        type: 3}
     - target: {fileID: 8836385151969380185, guid: 367db26a9c9d5324087b216f8f53599d,
         type: 3}
       propertyPath: m_LocalPosition.x
