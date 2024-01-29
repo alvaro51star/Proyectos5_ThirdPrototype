@@ -31,6 +31,7 @@ public class ChairTrigger : MonoBehaviour
                 {
                     agent.isStopped = false;
                     other.GetComponent<CatMovement>().m_sit = false;
+                    other.GetComponent<CatMovement>().m_eating = false;
                 }
             }
         }       

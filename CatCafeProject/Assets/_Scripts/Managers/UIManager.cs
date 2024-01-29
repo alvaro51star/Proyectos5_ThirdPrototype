@@ -60,10 +60,7 @@ public class UIManager : MonoBehaviour
             {
                 player.SetActive(true);
             }
-
-
             Time.timeScale = 1;
-
             DesactivateAllUIGameObjects();
         }
         else

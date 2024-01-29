@@ -97,8 +97,10 @@ public class UIMenus : MonoBehaviour
 
     public void Resume()
     {
-        m_UIManager.DesactivateAllUIGameObjects();
+        //m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.IsInGame(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void GameModeDecoration()

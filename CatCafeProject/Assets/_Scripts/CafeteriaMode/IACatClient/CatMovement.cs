@@ -24,8 +24,12 @@ public class CatMovement : MonoBehaviour
     private void Update()
     {
         cmpCatAnimator.SetFloat("Speed", agent.velocity.magnitude);
-        SitAnimation();
-        EatingAnimation();
+        
+        if(m_sit)
+            SitAnimation();
+
+        if(m_eating)
+            EatingAnimation();
     }
 
     private void OnEnable()
@@ -99,13 +103,7 @@ public class CatMovement : MonoBehaviour
     {
         if (m_sit == true)
         {
-            Debug.Log("sentado");
             cmpCatAnimator.SetBool("Sit", true);
-            cmpCatAnimator.SetBool("Eat", false);
-        }
-        else
-        {
-            cmpCatAnimator.SetBool("Sit", false);
             cmpCatAnimator.SetBool("Eat", false);
         }
     }
@@ -114,13 +112,7 @@ public class CatMovement : MonoBehaviour
     {
         if (m_eating == true)
         {
-            Debug.Log("comiendo");
             cmpCatAnimator.SetBool("Eat", true);
-            cmpCatAnimator.SetBool("Sit", false);
-        }
-        else
-        {
-            cmpCatAnimator.SetBool("Eat", false);
             cmpCatAnimator.SetBool("Sit", false);
         }
     }
