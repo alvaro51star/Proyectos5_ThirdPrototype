@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         //SetCatsForTheDay();
     }
 
-    public void ChangeGameMode(GameModes gameMode) //!QUitar los comentarios para que funcione bien(?)
+    public void ChangeGameMode(GameModes gameMode)
     {
         switch (gameMode)
         {
@@ -88,16 +88,21 @@ public class GameManager : MonoBehaviour
                 CafeteriaMode?.SetActive(false);
                 catListManager.ResetCatList();
                 SetCatsForTheDay();
-                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 FurnitureManager.instance.ResetFurnitureManagerData();
+                audioSource?.Stop();
+                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
+                audioSource?.Play();
                 break;
+
             case GameModes.Cafeteria:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
-                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
+                audioSource?.Stop();
+                SoundManager.instance.ReproduceSound(cafeteriaAudioClip, audioSource);
+                audioSource?.Play();
                 break;
 
         }
@@ -218,7 +223,6 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         catsForTheDay.Clear();
-        //catDataList.Clear();
         UIManager.IsInGame(false);
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 

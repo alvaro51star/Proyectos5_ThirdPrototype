@@ -2062,6 +2062,11 @@ PrefabInstance:
       propertyPath: InputManager
       value: 
       objectReference: {fileID: 767875549}
+    - target: {fileID: 2521051708404145995, guid: f98e71723de1bd548ac318ede350adf5,
+        type: 3}
+      propertyPath: secondsToSpawn
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8094273629252540820, guid: f98e71723de1bd548ac318ede350adf5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2734,6 +2739,11 @@ PrefabInstance:
       propertyPath: InputManager
       value: 
       objectReference: {fileID: 767875549}
+    - target: {fileID: 7559307305384932944, guid: bd3c113686fa33d44bf38c807c889ef6,
+        type: 3}
+      propertyPath: secondsToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8337391564476972260, guid: bd3c113686fa33d44bf38c807c889ef6,
         type: 3}
       propertyPath: m_IsActive
@@ -2833,6 +2843,11 @@ PrefabInstance:
       propertyPath: InputManager
       value: 
       objectReference: {fileID: 767875549}
+    - target: {fileID: 9101591722027661984, guid: 8cf9d6e03c67b3c4c9e7ec1403a49b60,
+        type: 3}
+      propertyPath: secondsToSpawn
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3329,6 +3344,11 @@ PrefabInstance:
       propertyPath: InputManager
       value: 
       objectReference: {fileID: 767875549}
+    - target: {fileID: 2869253069831749951, guid: 930956d97777c8e4f99deabd50c99860,
+        type: 3}
+      propertyPath: secondsToSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4114815959368087352, guid: 930956d97777c8e4f99deabd50c99860,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4064,9 +4084,9 @@ MonoBehaviour:
   hardCatsPercentage: 0
   richCatsPercentage: 0
   UIManager: {fileID: 1401197321}
-  decorationAudioClip: {fileID: 0}
-  cafeteriaAudioClip: {fileID: 0}
-  audioSource: {fileID: 0}
+  decorationAudioClip: {fileID: 8300000, guid: e6d457447a6d41a48a45095ef620d972, type: 3}
+  cafeteriaAudioClip: {fileID: 8300000, guid: 1524edbad51860d48b96fab33047a246, type: 3}
+  audioSource: {fileID: 1620165204}
 --- !u!4 &1620165203
 Transform:
   m_ObjectHideFlags: 0
@@ -4094,7 +4114,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4613,7 +4633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125.9, y: -29.5}
+  m_AnchoredPosition: {x: -125.8999, y: -29.5}
   m_SizeDelta: {x: 281.47058, y: 149.6684}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1984627823

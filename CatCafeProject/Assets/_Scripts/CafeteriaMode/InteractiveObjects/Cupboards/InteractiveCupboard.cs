@@ -8,13 +8,14 @@ public class InteractiveCupboard : InteractiveObject
 {
     [SerializeField] private FoodTypes foodType;
     [SerializeField] private FoodSpawner foodSpawner;
+    [SerializeField] private float secondsToSpawn;
     [SerializeField] private AudioClip audioClipTakeFood;
     [SerializeField] private AudioSource audioSource;
     private FoodController playerFoodController;
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<FoodController>() != null && other.GetComponent<FoodController>().foodType == FoodTypes.Nothing)
+        if(other.GetComponent<FoodController>() != null && other.GetComponent<FoodController>().foodType == FoodTypes.Nothing && foodSpawner.foodIsActive)
         {
             playerFoodController = other.GetComponent<FoodController>();
 
@@ -25,7 +26,7 @@ public class InteractiveCupboard : InteractiveObject
     protected override void Interaction()
     {
         playerFoodController.foodType = foodType;
-        foodSpawner.DisableSpawnedFood();
+        foodSpawner.DisableSpawnedFood(secondsToSpawn);
         playerFoodController.EnableFoodGO(true);
 
         SoundManager.instance.ReproduceSound(audioClipTakeFood, audioSource);

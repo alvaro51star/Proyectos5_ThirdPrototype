@@ -7,28 +7,29 @@ using UnityEngine;
 public class FoodSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject foodGO;
-    [SerializeField] private float secondsToSpawn;
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private AudioSource audioSource;
+    public bool foodIsActive;
 
     private void Start()
     {
         foodGO.SetActive(true);
+        foodIsActive = true;
     }
 
-    //timer en corutina para evitar update, TENER CUIDADO EN PAUSA
     private IEnumerator SpawnTimer (float seconds)
     {        
         yield return new WaitForSeconds(seconds);
         foodGO.SetActive(true);
+        foodIsActive = true;
 
         SoundManager.instance.ReproduceSound(audioClip, audioSource);
     }
 
-    public void DisableSpawnedFood()
+    public void DisableSpawnedFood(float seconds)
     {
         foodGO.SetActive(false);
-
-        StartCoroutine(SpawnTimer(secondsToSpawn));
+        foodIsActive=false;
+        StartCoroutine(SpawnTimer(seconds));
     }
 }

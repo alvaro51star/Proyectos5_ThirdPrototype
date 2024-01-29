@@ -28,4 +28,9 @@ public class FoodController : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDisable()
+    {
+        EnableFoodGO(false);
+    }
 }
