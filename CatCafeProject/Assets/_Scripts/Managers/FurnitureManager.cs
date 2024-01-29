@@ -91,7 +91,7 @@ public class FurnitureManager : MonoBehaviour
     {
         foreach (GameObject furniture in furnitures)
         {
-            if (furniture.GetComponent<FurnitureData>().furnitureType == FurnitureType.Table)
+            if (furniture != null && furniture.GetComponent<FurnitureData>().furnitureType == FurnitureType.Table)
             {
                 tableList.Add(furniture);
             }
