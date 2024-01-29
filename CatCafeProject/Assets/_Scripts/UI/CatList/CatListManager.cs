@@ -78,7 +78,7 @@ public class CatListManager : MonoBehaviour
             }
         }
 
-        ShowDictionary();
+        //ShowDictionary();
     }
 
 

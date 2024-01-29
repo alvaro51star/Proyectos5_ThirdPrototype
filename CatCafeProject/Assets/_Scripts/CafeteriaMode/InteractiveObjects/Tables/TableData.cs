@@ -14,8 +14,7 @@ public class TableData : MonoBehaviour
 
     [SerializeField] private InteractiveTable interactiveTable;
     [SerializeField] private Transform[] chairs;
-    [SerializeField] private Transform[] foodTransforms;
-    [SerializeField] private FoodController[] foodControllers;
+    [SerializeField] private GameObject[] foodControllerGO;
 
     private void Start()
     {
@@ -29,9 +28,15 @@ public class TableData : MonoBehaviour
         {
             interactiveTable.tableFoodController.EnableFoodGO(false);
             interactiveTable.tableFoodController.foodType = FoodTypes.Nothing;
+            //RandomChair();
         }
 
-        RandomChair();
+        else
+        {
+            RandomChair();
+        }
+
+        //RandomChair();
     }
 
     private void RandomChair()
@@ -39,7 +44,7 @@ public class TableData : MonoBehaviour
         int random = Random.Range(0, chairs.Length);
 
         selectedChair = chairs[random];
-        selectedFoodTransform = foodTransforms[random];
-        interactiveTable.tableFoodController = foodControllers[random];
+        selectedFoodTransform = foodControllerGO[random].transform;
+        interactiveTable.tableFoodController = foodControllerGO[random].GetComponent<FoodController>();
     }
 }

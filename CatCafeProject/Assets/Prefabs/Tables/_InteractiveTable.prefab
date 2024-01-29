@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8238728616707983496}
   - component: {fileID: 2522344557598437090}
   - component: {fileID: 657039581152351353}
-  - component: {fileID: 4951986589121008842}
-  - component: {fileID: 3838582010418119330}
   - component: {fileID: 7206637855209811848}
   - component: {fileID: 7338086386703495760}
   - component: {fileID: 2395235919750044366}
@@ -105,46 +103,9 @@ MonoBehaviour:
   chairs:
   - {fileID: 4659560424513526169}
   - {fileID: 6477298120255669221}
-  foodTransforms:
-  - {fileID: 172721759395430905}
-  - {fileID: 8907672853715443296}
-  foodControllers:
-  - {fileID: 4951986589121008842}
-  - {fileID: 3838582010418119330}
---- !u!114 &4951986589121008842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681414609414717219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodType: 4
-  milkGO: {fileID: 322418601595216066}
-  donutGO: {fileID: 2017309752162070178}
-  cupcakeGO: {fileID: 717295721092193482}
-  cakeGO: {fileID: 4706744817502042105}
---- !u!114 &3838582010418119330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681414609414717219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodType: 4
-  milkGO: {fileID: 3010441984463047312}
-  donutGO: {fileID: 576327218094454008}
-  cupcakeGO: {fileID: 3005708859551835662}
-  cakeGO: {fileID: 5035692119169814721}
+  foodControllerGO:
+  - {fileID: 2765812716330841374}
+  - {fileID: 3759407688431201271}
 --- !u!114 &7206637855209811848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172721759395430905}
+  - component: {fileID: 7307426645754949759}
   m_Layer: 0
   m_Name: Food1
   m_TagString: Untagged
@@ -396,6 +358,23 @@ Transform:
   - {fileID: 2676419575489072001}
   m_Father: {fileID: 3271646759349568612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7307426645754949759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765812716330841374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 4
+  milkGO: {fileID: 322418601595216066}
+  donutGO: {fileID: 2017309752162070178}
+  cupcakeGO: {fileID: 717295721092193482}
+  cakeGO: {fileID: 4706744817502042105}
 --- !u!1 &3759407688431201271
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8907672853715443296}
+  - component: {fileID: 160904135469481349}
   m_Layer: 0
   m_Name: Food2
   m_TagString: Untagged
@@ -431,6 +411,23 @@ Transform:
   - {fileID: 620026040495219155}
   m_Father: {fileID: 3271646759349568612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160904135469481349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759407688431201271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5633122124c1e044eb940b253fc4b4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 4
+  milkGO: {fileID: 3010441984463047312}
+  donutGO: {fileID: 576327218094454008}
+  cupcakeGO: {fileID: 3005708859551835662}
+  cakeGO: {fileID: 5035692119169814721}
 --- !u!1 &8387006698645251208
 GameObject:
   m_ObjectHideFlags: 0

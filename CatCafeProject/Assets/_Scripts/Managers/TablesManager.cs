@@ -92,18 +92,6 @@ public class TablesManager : MonoBehaviour
             return null;
         }
 
-        /*foreach(var item in availableTablesList)//check if client can pass to available table
-        {
-            Transform destination = item.selectedChair;
-            bool canPass = catMovement.CalculateNewPath(destination);
-            if (!canPass)
-            {
-                CalculateUselessTables(item);
-                availableTablesList.Remove(item);
-            }
-        }*/
-
-
         foreach(var item in catData.likes)//return available table of cat's theme
         {            
             foreach(var tiem in availableTablesList)

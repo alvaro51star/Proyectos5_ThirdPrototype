@@ -46,15 +46,15 @@ public class ClientStates : MonoBehaviour
         switch(catState)
         {
             case CatState.Happy:
-                StartCoroutine(ChangeStateTimer(secondsToAnnoyed));
+                ChangeState(secondsToAnnoyed);
                 break;
             case CatState.Annoyed:
                 imageGO_l.SetActive(true);
-                StartCoroutine(ChangeStateTimer(secondsToAngry));
+                ChangeState(secondsToAngry);
                 break;
             case CatState.Angry:
                 imageGO_r.SetActive(true);
-                StartCoroutine(ChangeStateTimer(secondsToLeave));
+                ChangeState(secondsToLeave);
                 break;
             case CatState.Leaving:
                 clientData.bocadillo.SetActive(false);
@@ -65,22 +65,29 @@ public class ClientStates : MonoBehaviour
 
     }
 
-    public IEnumerator ChangeStateTimer(float seconds)
-    {        
-        yield return new WaitForSeconds(seconds);
-
-        if(!isFed)
-        {
-            if(catState + 1 == CatState.Leaving)
-            {
-                SoundManager.instance.ReproduceSound(audioClipAngryLeave, audioSource);
-            }
-            TimeStateChange(catState + 1);
-        }
-        else
+    public void ChangeState(float seconds)
+    {
+        if (isFed)
         {
             StartCoroutine(Eating());
         }
+
+        else
+        {
+            StartCoroutine(ChangeStateTimer(seconds));
+        }
+
+    }
+    private IEnumerator ChangeStateTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        if (catState + 1 == CatState.Leaving)
+        {
+            SoundManager.instance.ReproduceSound(audioClipAngryLeave, audioSource);
+        }
+
+        TimeStateChange(catState + 1);
     }
 
 
@@ -93,7 +100,6 @@ public class ClientStates : MonoBehaviour
         int money = EconomyManager.instance.CalculateTotalMoney(clientData.catType, catState, catDecorationState, clientData.foodOrdered, furnitureTheme);
         EconomyManager.instance.ModifyCurrentMoney(money);
 
-        Debug.Log("cliente se ha comido su pedido");
         TimeStateChange(CatState.Leaving);
     }
 

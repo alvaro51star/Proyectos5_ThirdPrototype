@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodGO: {fileID: 8782221483824066532}
-  secondsToSpawn: 5
   audioClip: {fileID: 0}
   audioSource: {fileID: 2605141823235249425}
+  foodIsActive: 0
 --- !u!65 &4575182401358323420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 1, z: 2}
+  m_Size: {x: 4, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7114815970679727440
 MonoBehaviour:
@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodType: 4
   foodSpawner: {fileID: 9203643554105776797}
+  secondsToSpawn: 0
   audioClipTakeFood: {fileID: 8300000, guid: aaa9353bd52d1eb46a962a69e40479aa, type: 3}
   audioSource: {fileID: 2605141823235249425}
 --- !u!82 &2605141823235249425

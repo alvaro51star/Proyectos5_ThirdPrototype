@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
             richCatNumber = 0;
         }
 
-        Debug.Log($"Cats this day = {catsNumber} , Easy Cats = {easyCatNumber} , Normal Cats = {normalCatNumber} , Hard Cats = {hardCatNumber} , Rich Cats = {richCatNumber}");
+        //Debug.Log($"Cats this day = {catsNumber} , Easy Cats = {easyCatNumber} , Normal Cats = {normalCatNumber} , Hard Cats = {hardCatNumber} , Rich Cats = {richCatNumber}");
 
         for (int i = 0; i < easyCatNumber; i++)
         {
