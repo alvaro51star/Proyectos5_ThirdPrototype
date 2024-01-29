@@ -117,7 +117,8 @@ public class UIMenus : MonoBehaviour
         //pantalla de carga
         ClientManager.instance.QueueReset();
         ClientManager.instance.ClientReset();
-        GameManager.instance.SetCatsForTheDay();
+        EconomyManager.instance.ResetDataForNextDay();
+        //GameManager.instance.SetCatsForTheDay(); //!Puede que haya que quitarlo
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
     }
 

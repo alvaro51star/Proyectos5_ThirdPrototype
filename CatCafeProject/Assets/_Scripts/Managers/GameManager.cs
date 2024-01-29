@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxCatsPerDay = 6;
     public List<CatDataSO> catDataList;
     public List<CatDataSO> catsForTheDay;
+    [SerializeField] private CatListManager catListManager;
 
     [SerializeField] private float easyCatsPercentage = 0.6f;
     [SerializeField] private float normalCatsPercentage = 0.4f;
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 DecorationMode?.SetActive(true);
                 CafeteriaMode?.SetActive(false);
+                catListManager.ResetCatList();
                 SetCatsForTheDay();
                 SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 FurnitureManager.instance.ResetFurnitureManagerData();

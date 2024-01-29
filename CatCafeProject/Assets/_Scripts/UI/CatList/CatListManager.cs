@@ -36,6 +36,7 @@ public class CatListManager : MonoBehaviour
 
     private void SetList(List<CatDataSO> catList, List<CatDataSO> catDataList)
     {
+        catsPerType.Clear();
         SetDictionaryItem(catList, catDataList);
 
         if (catsPerType.Count == catListItem.Count)
@@ -106,5 +107,11 @@ public class CatListManager : MonoBehaviour
         }
     }
 
-
+    public void ResetCatList()
+    {
+        foreach (var item in catListItem)
+        {
+            item.SetActive(false);
+        }
+    }
 }

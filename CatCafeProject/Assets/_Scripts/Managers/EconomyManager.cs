@@ -292,15 +292,28 @@ public class EconomyManager : MonoBehaviour
         };
     }
 
-    public void ResetDataForNextDay(){
-        ResetTipList();
-        ResetOrders();
+    public void ResetReceipt()
+    {
+        foreach (var item in foodReceiptTexts)
+        {
+            item.Value.SetActive(false);
+        }
+        receiptManagement._tipsText.transform.GetChild(0).gameObject.SetActive(false);
+        receiptManagement._totalMoneyText.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    [Serializable]
-    public struct FoodTypeValueTupla
+    public void ResetDataForNextDay()
     {
-        public FoodTypes foodType;
-        public int prize;
+        ResetTipList();
+        ResetOrders();
+        ResetReceipt();
     }
 }
+
+[Serializable]
+public struct FoodTypeValueTupla
+{
+    public FoodTypes foodType;
+    public int prize;
+}
+
