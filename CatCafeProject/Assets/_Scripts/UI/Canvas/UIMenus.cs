@@ -47,7 +47,7 @@ public class UIMenus : MonoBehaviour
 
     public void QuitGame()
     {
-        // Application.Quit();
+        Application.Quit();
         Debug.Log("Quit Game");
     }
 
@@ -58,9 +58,10 @@ public class UIMenus : MonoBehaviour
 
     public void GoToInitialMenu()
     {
-        m_uiInput.SetActive(false);
-        m_UIManager.DesactivateAllUIGameObjects();
-        m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
+        // m_uiInput.SetActive(false);
+        // m_UIManager.DesactivateAllUIGameObjects();
+        // m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
+        LoadingPanel(0);
     }
 
     public void GoToCreditsPanel()

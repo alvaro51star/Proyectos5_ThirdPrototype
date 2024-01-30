@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("Modes Variables")]
+    [SerializeField] private GameObject player;
+    [SerializeField] private Transform initialPlayerPosition;
     [SerializeField] private GameObject CafeteriaMode;
     [SerializeField] private GameObject DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         switch (gameMode)
         {
             case GameModes.Decoration:
+                ResetPlayerPosition();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 DecorationMode?.SetActive(true);
@@ -90,7 +93,8 @@ public class GameManager : MonoBehaviour
                 SetCatsForTheDay();
                 FurnitureManager.instance.ResetFurnitureManagerData();
                 audioSource?.Stop();
-                SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
+                //SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
+                audioSource.clip = decorationAudioClip;
                 audioSource?.Play();
                 break;
 
@@ -101,7 +105,8 @@ public class GameManager : MonoBehaviour
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 audioSource?.Stop();
-                SoundManager.instance.ReproduceSound(cafeteriaAudioClip, audioSource);
+                //SoundManager.instance.ReproduceSound(cafeteriaAudioClip, audioSource);
+                audioSource.clip = cafeteriaAudioClip;
                 audioSource?.Play();
                 break;
 
@@ -250,5 +255,10 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.instance.SetPauseMenu(isPaused);
+    }
+
+    public void ResetPlayerPosition()
+    {
+        player.transform.position = initialPlayerPosition.position;
     }
 }

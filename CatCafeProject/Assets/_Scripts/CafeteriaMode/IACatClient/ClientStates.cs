@@ -69,6 +69,7 @@ public class ClientStates : MonoBehaviour
     {
         if (isFed)
         {
+            StopAllCoroutines();
             StartCoroutine(Eating());
         }
 
