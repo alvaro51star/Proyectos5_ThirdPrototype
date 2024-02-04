@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject DecorationMode;
     [SerializeField] private NavMeshSurface navMeshSurface;
     public GameModes initialGameMode;
+    public GameModes currentGameMode;
     public bool isPaused = false;
     [SerializeField] private ClientDestroyer clientDestroyer;
 
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         switch (gameMode)
         {
             case GameModes.Decoration:
+                currentGameMode = GameModes.Decoration;
                 ResetPlayerPosition();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameModes.Cafeteria:
+                currentGameMode = GameModes.Cafeteria;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 FurnitureManager.instance.SetFurnitureData();

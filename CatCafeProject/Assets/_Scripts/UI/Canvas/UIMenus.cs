@@ -22,7 +22,7 @@ public class UIMenus : MonoBehaviour
         m_UIManager = GetComponent<UIManager>();
         m_player = m_UIManager.player;
         m_uiInput = m_UIManager.uiInput;
-        
+
 
         if (m_player)
         {
@@ -98,20 +98,28 @@ public class UIMenus : MonoBehaviour
 
     public void Resume()
     {
-        //m_UIManager.DesactivateAllUIGameObjects();
         m_UIManager.IsInGame(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (GameManager.instance.currentGameMode == GameModes.Cafeteria)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
     }
 
     public void GameModeDecoration()
     {
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
-        m_UIManager.DesactivateAllUIGameObjects();        
+        m_UIManager.DesactivateAllUIGameObjects();
     }
 
     public void EndDay()
-    {       
+    {
         GameManager.instance.ChangeDay();
         GameManager.instance.ChangeWeekNumber();
 
