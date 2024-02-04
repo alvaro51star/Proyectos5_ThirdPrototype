@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("Cats Variables")]
-    [SerializeField] private int maxCatsPerDay = 6;
+    public int maxCatsPerDay = 6;
     public List<CatDataSO> catDataList;
     public List<CatDataSO> catsForTheDay;
     [SerializeField] private CatListManager catListManager;
