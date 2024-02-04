@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     public GameObject loadingPanel;
     public GameObject creditsPanel;
 
+    [SerializeField] private GameObject noFurnitureText;
+    private bool textVisible = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -84,5 +87,20 @@ public class UIManager : MonoBehaviour
     public void ButtonSound()
     {
         SoundManager.instance.ReproduceSound(buttonSound, AudioSourceUI);
+    }
+
+    public IEnumerator ShowNoFurnitureText()
+    {
+        
+        if (!textVisible)
+        {
+            noFurnitureText.SetActive(true);
+            textVisible = true;
+            yield return new WaitForSeconds(1f);
+            noFurnitureText.SetActive(false);
+            textVisible = false;
+        }
+
+        yield return null;
     }
 }

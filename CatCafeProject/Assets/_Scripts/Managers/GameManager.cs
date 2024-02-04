@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                 currentGameMode = GameModes.Cafeteria;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                FurnitureManager.instance.SetFurnitureData();
+                //FurnitureManager.instance.SetFurnitureData();
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 audioSource?.Stop();
@@ -235,9 +235,17 @@ public class GameManager : MonoBehaviour
 
     public void FinishBuildingPhase()
     {
-        ChangeGameMode(GameModes.Cafeteria);
-        ClientManager.instance.SpawnCats();
-        StartCoroutine(ClientManager.instance.TestCats());
+        FurnitureManager.instance.SetFurnitureData();
+        if (FurnitureManager.instance.tableNumber > 0)
+        {
+            ChangeGameMode(GameModes.Cafeteria);
+            ClientManager.instance.SpawnCats();
+            StartCoroutine(ClientManager.instance.TestCats());
+        }
+        else
+        {
+            StartCoroutine(UIManager.instance.ShowNoFurnitureText());
+        }
     }
 
     public void TogglePause()

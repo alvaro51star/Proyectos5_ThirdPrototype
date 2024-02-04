@@ -9,6 +9,7 @@ public class FurnitureManager : MonoBehaviour
 
     public List<GameObject> furnitures;
     public List<GameObject> tableList;
+    public int tableNumber;
     [SerializeField] private int totalFurnitures;
 
     [Space]
@@ -78,6 +79,7 @@ public class FurnitureManager : MonoBehaviour
                 tableList.Add(furniture);
             }
         }
+        tableNumber = tableList.Count;
     }
 
     private void CalculateFurnitureCountByTheme()
