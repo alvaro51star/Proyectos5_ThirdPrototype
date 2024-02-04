@@ -133,11 +133,14 @@ public class GameManager : MonoBehaviour
         int normalCatNumber;
         int hardCatNumber;
         int richCatNumber;
+        if (currentDay > 1)
+        {
+            ChangeCatNumberPerDay();
+        }
 
         if (IsSeventhDay())
         {
 
-            ChangeCatNumberPerWeek();
             ChangeCatPercentagePerWeek();
 
             catsNumber = Random.Range(maxCatsPerDay - 2, maxCatsPerDay + 1);
@@ -154,8 +157,6 @@ public class GameManager : MonoBehaviour
             hardCatNumber = 0;
             richCatNumber = 0;
         }
-
-        //Debug.Log($"Cats this day = {catsNumber} , Easy Cats = {easyCatNumber} , Normal Cats = {normalCatNumber} , Hard Cats = {hardCatNumber} , Rich Cats = {richCatNumber}");
 
         for (int i = 0; i < easyCatNumber; i++)
         {
@@ -212,6 +213,11 @@ public class GameManager : MonoBehaviour
     private void ChangeCatNumberPerWeek()
     {
         maxCatsPerDay += Random.Range(4, 7);
+    }
+
+    private void ChangeCatNumberPerDay()
+    {
+        maxCatsPerDay += Random.Range(0, 3);
     }
 
     public void ChangeWeekNumber()
