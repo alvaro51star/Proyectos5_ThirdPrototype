@@ -99,6 +99,7 @@ public class UIMenus : MonoBehaviour
     public void Resume()
     {
         m_UIManager.IsInGame(true);
+        GameManager.instance.isPaused = false;
         if (GameManager.instance.currentGameMode == GameModes.Cafeteria)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -109,7 +110,6 @@ public class UIMenus : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-
     }
 
     public void GameModeDecoration()
