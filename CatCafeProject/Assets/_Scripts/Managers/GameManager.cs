@@ -75,9 +75,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
         ChangeGameMode(initialGameMode);
-        //SetCatsForTheDay();
     }
 
     public void ChangeGameMode(GameModes gameMode)
@@ -95,7 +93,6 @@ public class GameManager : MonoBehaviour
                 SetCatsForTheDay();
                 FurnitureManager.instance.ResetFurnitureManagerData();
                 audioSource?.Stop();
-                //SoundManager.instance.ReproduceSound(decorationAudioClip, audioSource);
                 audioSource.clip = decorationAudioClip;
                 audioSource?.Play();
                 break;
@@ -108,7 +105,6 @@ public class GameManager : MonoBehaviour
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 audioSource?.Stop();
-                //SoundManager.instance.ReproduceSound(cafeteriaAudioClip, audioSource);
                 audioSource.clip = cafeteriaAudioClip;
                 audioSource?.Play();
                 break;
@@ -213,11 +209,6 @@ public class GameManager : MonoBehaviour
         Math.Clamp(normalCatsPercentage, 0f, 1f);
     }
 
-    private void ChangeCatNumberPerWeek()
-    {
-        maxCatsPerDay += Random.Range(4, 7);
-    }
-
     private void ChangeCatNumberPerDay()
     {
         maxCatsPerDay += Random.Range(0, 3);
@@ -244,7 +235,6 @@ public class GameManager : MonoBehaviour
 
     public void FinishBuildingPhase()
     {
-
         ChangeGameMode(GameModes.Cafeteria);
         ClientManager.instance.SpawnCats();
         StartCoroutine(ClientManager.instance.TestCats());

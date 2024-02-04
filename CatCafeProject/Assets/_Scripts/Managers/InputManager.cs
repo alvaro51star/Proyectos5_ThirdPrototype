@@ -71,16 +71,5 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
             OnInteracting?.Invoke();
-
-
-        //!test
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GameManager.instance.ChangeGameMode(GameModes.Decoration);
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            GameManager.instance.ChangeGameMode(GameModes.Cafeteria);
-        }
     }
 }

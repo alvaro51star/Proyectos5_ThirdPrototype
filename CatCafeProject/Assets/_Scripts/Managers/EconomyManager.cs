@@ -48,15 +48,12 @@ public class EconomyManager : MonoBehaviour
     [Space]
     [Header("Receipt UI Variables")]
     [SerializeField] private Dictionary<FoodTypes, GameObject> foodReceiptTexts = new();
-    //[SerializeField] private GameObject receiptObject;
     [SerializeField] private ReceiptManagement receiptManagement;
 
     [Space]
     [Header("Sound Variables")]
     [SerializeField] private AudioClip moneySound;
     [SerializeField] private AudioSource audioSource;
-
-    //TODO hacer una lista de los precios del dia para incluirlos en el recibo
 
     private void Awake()
     {
@@ -92,11 +89,6 @@ public class EconomyManager : MonoBehaviour
             foodReceiptTexts.Add(FoodTypes.Cupcake, receiptManagement._cupcakeText);
             foodReceiptTexts.Add(FoodTypes.Cake, receiptManagement._cakeText);
         }
-    }
-
-    private void Update()
-    {
-        //Debug.Log("Current money: " + currentMoney);
     }
 
     public void ModifyCurrentMoney(int value)
@@ -217,19 +209,16 @@ public class EconomyManager : MonoBehaviour
                 int foodValue = GetFoodValue(keyValue.Key);
                 totalFoodMoney += foodValue * keyValue.Value;
             }
-            //Debug.Log(keyValue.Key + " : " + foodValue + " x " + keyValue.Value + " = " + foodValue * keyValue.Value);
-            //Debug.Log($"{keyValue.Key}: {foodValue} x {keyValue.Value} = {foodValue * keyValue.Value}");
         }
         foreach (int tip in totalTipsList)
         {
             totalTips += tip;
         }
         totalMoneyEarnedForTheDay = totalFoodMoney + totalTips;
-        //TestOrders(); //!Solo sirve para probar la lista, una vez se compruebe, lo borraré
         StartCoroutine(ShowReceipt(totalMoneyEarnedForTheDay, totalTips));
-        //Debug.Log(totalTips);
     }
 
+    //Hace que el recibo vaya poniendose poco a poco
     private IEnumerator ShowReceipt(int totalMoneyEarnedForTheDay, int totalTips)
     {
         receiptManagement._dayText.GetComponent<TextMeshProUGUI>().text = $"Day: {GameManager.instance.currentDay}";
@@ -251,7 +240,6 @@ public class EconomyManager : MonoBehaviour
             }
         }
 
-        //receipt._tipsText.GetComponentInChildren<TextMeshProUGUI>().text = $"{totalTips} $";
         receiptManagement._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
         receiptManagement._tipsText.transform.GetChild(0).gameObject.SetActive(true);
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
@@ -261,20 +249,7 @@ public class EconomyManager : MonoBehaviour
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
         yield return new WaitForSeconds(0.5f);
 
-        //TODO Despues faltaria activar un botoncito de siguiente dia
-
         yield return null;
-    }
-
-
-    private void TestOrders()
-    {
-        orders = new Dictionary<FoodTypes, int> {
-            {FoodTypes.Milk,UnityEngine.Random.Range(0, 3)},
-            {FoodTypes.Donut,UnityEngine.Random.Range(0, 3)},
-            {FoodTypes.Cupcake,UnityEngine.Random.Range(0, 3)},
-            {FoodTypes.Cake,UnityEngine.Random.Range(0, 3)}
-        };
     }
 
     public void ResetTipList()

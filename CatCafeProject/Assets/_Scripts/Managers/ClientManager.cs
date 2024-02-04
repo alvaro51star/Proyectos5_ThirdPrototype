@@ -46,8 +46,6 @@ public class ClientManager : MonoBehaviour
         {
             queueSlots.Add(queueList[i], false);
         }
-        //SpawnCats();
-        //StartCoroutine(TestCats());
     }
 
     private void ShowQueue()
@@ -93,8 +91,6 @@ public class ClientManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        //ShowDictionary();
-
         yield return null;
     }
 
@@ -106,7 +102,6 @@ public class ClientManager : MonoBehaviour
         }
         queueSlots[queueList[0]] = false;
         clients.RemoveAt(0);
-        //Debug.Log(clients[0]);
 
         clients[0].GetComponent<CatMovement>().MovementToDestination(queueList[0]);
         queueSlots[queueList[1]] = false;
@@ -115,14 +110,9 @@ public class ClientManager : MonoBehaviour
         int i;
         for (i = 1; i < queueSlots.Count; i++)
         {
-            // if (i > clients.Count || clients[i]?.activeSelf == false)
-            // {
-            //     queueSlots[queueList[i]] = false;
-            //     break;
-            // }
             if (i <= clients.Count)
             {
-                clients[i - 1].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]); //prueba
+                clients[i - 1].GetComponent<CatMovement>().MovementToDestination(queueList[i - 1]);
                 queueSlots[queueList[i]] = false;
                 queueSlots[queueList[i - 1]] = true;
             }
@@ -144,16 +134,10 @@ public class ClientManager : MonoBehaviour
             if (nextCat != null)
             {
                 nextCat.SetActive(true);
-                nextCat.GetComponent<CatMovement>().MovementToDestination(queueList[^1]); //queueList[^1]
-                queueSlots[queueList[^1]] = true; //queueList[^1]
+                nextCat.GetComponent<CatMovement>().MovementToDestination(queueList[^1]);
+                queueSlots[queueList[^1]] = true;
             }
         }
-
-        //++i;
-
-
-        //Debug.LogWarning(clients.Count);
-        //ShowDictionary();
     }
 
     private GameObject LookForFirstClientInactive()

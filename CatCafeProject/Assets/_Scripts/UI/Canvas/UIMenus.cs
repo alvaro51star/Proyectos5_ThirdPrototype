@@ -58,9 +58,6 @@ public class UIMenus : MonoBehaviour
 
     public void GoToInitialMenu()
     {
-        // m_uiInput.SetActive(false);
-        // m_UIManager.DesactivateAllUIGameObjects();
-        // m_UIManager.ActivateUIGameObjects(m_UIManager.initialMenu, true);
         LoadingPanel(0);
     }
 
@@ -127,13 +124,11 @@ public class UIMenus : MonoBehaviour
         ClientManager.instance.QueueReset();
         ClientManager.instance.ClientReset();
         EconomyManager.instance.ResetDataForNextDay();
-        //GameManager.instance.SetCatsForTheDay(); //!Puede que haya que quitarlo
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
     }
 
     public void LoadingPanel(int gameSceneNum)
     {
-        //SceneManager.LoadScene(gameSceneNum);
         StartCoroutine(LoadAsync(gameSceneNum));
     }
 

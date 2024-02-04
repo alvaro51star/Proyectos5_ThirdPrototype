@@ -43,16 +43,6 @@ public class FurnitureManager : MonoBehaviour
         }
     }
 
-    // private void OnEnable()
-    // {
-    //     GameManager.OnGameModeChange += SetUpManagerForGamemode;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     GameManager.OnGameModeChange -= SetUpManagerForGamemode;
-    // }
-
     private void SetUpManagerForGamemode(GameModes gameMode)
     {
         if (gameMode == GameModes.Cafeteria)
@@ -64,14 +54,6 @@ public class FurnitureManager : MonoBehaviour
             ResetFurnitureManagerData();
         }
     }
-
-    // private void Start()
-    // {
-    //     GetFurnitures();
-    //     GetTables();
-    //     CalculateFurnitureCountByTheme();
-    //     CalculateFurniturePercentages();
-    // }
 
     public void SetFurnitureData()
     {
