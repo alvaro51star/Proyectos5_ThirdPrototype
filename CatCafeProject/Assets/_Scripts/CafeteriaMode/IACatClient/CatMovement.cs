@@ -93,8 +93,6 @@ public class CatMovement : MonoBehaviour
 
         else
         {
-            Debug.Log("no hay mesas libres");
-
             return false;
         }
     }

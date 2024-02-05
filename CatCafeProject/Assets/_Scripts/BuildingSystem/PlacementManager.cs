@@ -140,7 +140,6 @@ public class PlacementManager : MonoBehaviour
         );
             if (selectionResult.placementValidity && itemData.buyValue <= EconomyManager.instance.GetCurrentMoney()) //!Prueba
             {
-                Debug.Log("Entro el el placement"); //!DebugLog
                 if (itemData.objectPlacementType == PlacementType.Floor || itemData.objectPlacementType == PlacementType.Wall)
                 {
                     OnPlaceConstructionObject?.Invoke();
