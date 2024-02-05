@@ -87,6 +87,10 @@ public class FurnitureManager : MonoBehaviour
     {
         foreach (GameObject item in furnitures)
         {
+            if (item == null)
+            {
+                continue;
+            }
             if (item.TryGetComponent<FurnitureData>(out FurnitureData data))
             {
                 switch (data.furnitureTheme)
