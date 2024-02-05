@@ -83,7 +83,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 508165369106889185}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.6
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -279,7 +279,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0

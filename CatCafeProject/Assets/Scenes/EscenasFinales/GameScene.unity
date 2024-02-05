@@ -1359,10 +1359,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1215608685}
     m_Modifications:
+    - target: {fileID: 556739787572255029, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c6b9399f2b32f848a11f4eadf3b6444,
+        type: 3}
     - target: {fileID: 693522186314283286, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 877149484362535818, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29
+      objectReference: {fileID: 0}
+    - target: {fileID: 877149484362535818, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230437125859154249, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1550796959868491422, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
@@ -1408,6 +1429,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943731984136083974, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -309
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943731984136083974, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 5947890367039129624, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
@@ -1484,6 +1515,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7167443553818953803, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 125bc6ea2fb690b4bb764b482e702fda,
+        type: 3}
     - target: {fileID: 7304582533557848189, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
       propertyPath: m_LocalPosition.z

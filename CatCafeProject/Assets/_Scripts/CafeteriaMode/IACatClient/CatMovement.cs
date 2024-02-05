@@ -72,7 +72,7 @@ public class CatMovement : MonoBehaviour
     {
         while(!AssignTable())
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
         }
         Transform destination = tableAssigned.selectedChair;
         MovementToDestination(destination);
@@ -86,8 +86,6 @@ public class CatMovement : MonoBehaviour
 
         if (tableAssigned != null)
         {
-            //Debug.Log($"La mesa es: {tableAssigned}");
-
             return true;
         }
 
