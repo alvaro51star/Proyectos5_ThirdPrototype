@@ -67,7 +67,7 @@ public class InteractiveTable : InteractiveObject
 
             clientStates.isFed = true;//to stop state change
             if (clientStates.isFed)
-                clientStates.ChangeState(0);
+                clientStates?.ChangeState(0);
             catMovement.m_eating = true;
             clientData?.bocadillo.SetActive(false);
             SoundManager.instance.ReproduceSound(orderedFoodClip, tableAudioSource);
