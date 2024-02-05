@@ -226,6 +226,11 @@ PrefabInstance:
       propertyPath: foodType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7114815970679727440, guid: 756d4daf172455040a653a882819369d,
+        type: 3}
+      propertyPath: secondsToSpawn
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9203643554105776797, guid: 756d4daf172455040a653a882819369d,
         type: 3}
       propertyPath: audioClip
