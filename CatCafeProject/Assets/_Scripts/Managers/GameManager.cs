@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     [Space]
     [Header("Feedback Variables")]
     private float tempTime;
-    private float m_maxTimeLevel;
     [SerializeField] public float maxTimeLevel;
     [HideInInspector] public float currentTime;
 
@@ -88,8 +87,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeGameMode(initialGameMode);
-        m_maxTimeLevel = maxTimeLevel;
-        currentTime = m_maxTimeLevel;
+        //m_maxTimeLevel = maxTimeLevel;
+        currentTime = maxTimeLevel;
         tempTime = currentTime;
     }
 
@@ -147,7 +146,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = false;
                 //FurnitureManager.instance.SetFurnitureData();
                 isDone = false;
-                m_maxTimeLevel = maxTimeLevel;
+                currentTime = maxTimeLevel;
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
                 UIManager.instance.timerSlider.SetActive(true);
