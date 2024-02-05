@@ -324,6 +324,41 @@ public class PlacementManager : MonoBehaviour
         OnToggleUndo?.Invoke(true);
     }
 
+    public void RemoveStructureAt(SelectionResult selectionResult, PlacementGridData placementData, ItemData itemData, bool isUndoing)
+    {
+        for (int i = 0; i < selectionResult.selectedGridPositions.Count; i++)
+        {
+            if (selectionResult.isEdgeStructure)
+            {
+                int index = placementData.GetIndexForEdgeObject(selectionResult.selectedGridPositions[i], Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y));
+                if (index > -1)
+                {
+                    placementData.RemoveEdgeObject(selectionResult.selectedGridPositions[i], selectionResult.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y));
+                    structurePlacer.RemoveObjectAt(index, itemData);
+                }
+            }
+            else
+            {
+                int index = placementData.GetIndexForCellObject(selectionResult.selectedGridPositions[i]);
+                if (index > -1)
+                {
+                    placementData.RemoveCellObject(selectionResult.selectedGridPositions[i]);
+                    if (isUndoing)
+                    {
+                        structurePlacer.RemoveObjectAt(index, itemData.buyValue);
+                    }
+                    else
+                    {
+                        structurePlacer.RemoveObjectAt(index, itemData);
+                    }
+                }
+            }
+
+        }
+        buildingState.RefreshSelection();
+        OnToggleUndo?.Invoke(true);
+    }
+
     /// <summary>
     /// Selects the first position that we will use as selection.
     /// Ex for BoxSelection it will be its starting point

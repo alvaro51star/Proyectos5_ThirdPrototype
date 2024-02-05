@@ -69,8 +69,19 @@ public class StructurePlacer : MonoBehaviour
         newObject.transform.DOScaleY(0, destroyDelay).OnComplete(() => Destroy(newObject));
         //Destroy(newObject);
         placedObjects[index] = null;
-        placedObjects.RemoveAt(index);
+        //placedObjects.RemoveAt(index);
         EconomyManager.instance.ModifyCurrentMoney(itemData.sellValue);
+    }
+
+    public void RemoveObjectAt(int index, int moneyToAdd)
+    {
+        GameObject newObject = placedObjects[index];
+        newObject.transform.DOKill();
+        newObject.transform.DOScaleY(0, destroyDelay).OnComplete(() => Destroy(newObject));
+        //Destroy(newObject);
+        placedObjects[index] = null;
+        //placedObjects.RemoveAt(index);
+        EconomyManager.instance.ModifyCurrentMoney(moneyToAdd);
     }
 
     private void OnDisable()
