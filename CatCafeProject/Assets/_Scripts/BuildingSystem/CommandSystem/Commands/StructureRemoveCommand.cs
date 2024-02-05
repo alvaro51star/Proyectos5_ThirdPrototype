@@ -39,7 +39,7 @@ public class StructureRemoveCommand : ICommand
         if(selectionResultToRestore.selectedGridPositions == null)
             GenerateUndoData();
 
-        placementManager.RemoveStructureAt(selectionResult, placementData);
+        placementManager.RemoveStructureAt(selectionResult, placementData, itemData);
 
     }
 

@@ -39,7 +39,7 @@ public class StructurePlacementCommand : ICommand
 
     public void Undo()
     {
-        placementManager.RemoveStructureAt(selectionResult, placementData);
+        placementManager.RemoveStructureAt(selectionResult, placementData, itemData);
         EconomyManager.instance.ModifyCurrentMoney(this.itemData.buyValue);
     }
 }

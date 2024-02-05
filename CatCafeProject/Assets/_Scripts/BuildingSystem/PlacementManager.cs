@@ -177,7 +177,7 @@ public class PlacementManager : MonoBehaviour
         if (OnRemoveObject != null)
         {
             OnRemoveObject.Invoke();
-            EconomyManager.instance.ModifyCurrentMoney(itemData.sellValue); //?Modifica el valor de nuestro dinero
+            //EconomyManager.instance.ModifyCurrentMoney(itemData.sellValue); //?Modifica el valor de nuestro dinero
         }
     }
 
@@ -296,7 +296,7 @@ public class PlacementManager : MonoBehaviour
     /// </summary>
     /// <param name="selectionResult"></param>
     /// <param name="placementData"></param>
-    public void RemoveStructureAt(SelectionResult selectionResult, PlacementGridData placementData)
+    public void RemoveStructureAt(SelectionResult selectionResult, PlacementGridData placementData, ItemData itemData)
     {
         for (int i = 0; i < selectionResult.selectedGridPositions.Count; i++)
         {
@@ -306,7 +306,7 @@ public class PlacementManager : MonoBehaviour
                 if (index > -1)
                 {
                     placementData.RemoveEdgeObject(selectionResult.selectedGridPositions[i], selectionResult.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y));
-                    structurePlacer.RemoveObjectAt(index);
+                    structurePlacer.RemoveObjectAt(index, itemData);
                 }
             }
             else
@@ -315,7 +315,7 @@ public class PlacementManager : MonoBehaviour
                 if (index > -1)
                 {
                     placementData.RemoveCellObject(selectionResult.selectedGridPositions[i]);
-                    structurePlacer.RemoveObjectAt(index);
+                    structurePlacer.RemoveObjectAt(index, itemData);
                 }
             }
 

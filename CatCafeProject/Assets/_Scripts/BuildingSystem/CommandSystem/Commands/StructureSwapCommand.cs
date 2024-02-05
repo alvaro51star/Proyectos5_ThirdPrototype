@@ -66,7 +66,7 @@ public class StructureSwapCommand : ICommand
 
         //Removes walls (using the previousPlacementData) and places the InWall objects in the placementData
         //We keep this data separate to ensure that we can't again place an inwall object on top of another inwall object
-        placementManager.RemoveStructureAt(previousStructuresResult, this.previousPlacementData);
+        placementManager.RemoveStructureAt(previousStructuresResult, this.previousPlacementData, itemData);
         placementManager.PlaceStructureAt(selectionResult, placementData, this.itemData);
 
     }
@@ -74,7 +74,7 @@ public class StructureSwapCommand : ICommand
     public void Undo()
     {
         //Reverse operation of placing wall and removing the inwall object
-        placementManager.RemoveStructureAt(selectionResult, placementData);
+        placementManager.RemoveStructureAt(selectionResult, placementData, itemData);
         placementManager.PlaceStructureAt(previousStructuresResult, previousPlacementData, this.previousItemData);
     }
 }

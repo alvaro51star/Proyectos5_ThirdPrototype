@@ -62,7 +62,7 @@ public class StructurePlacer : MonoBehaviour
         return freeIndex;
     }
 
-    public void RemoveObjectAt(int index)
+    public void RemoveObjectAt(int index, ItemData itemData)
     {
         GameObject newObject = placedObjects[index];
         newObject.transform.DOKill();
@@ -70,6 +70,7 @@ public class StructurePlacer : MonoBehaviour
         //Destroy(newObject);
         placedObjects[index] = null;
         placedObjects.RemoveAt(index);
+        EconomyManager.instance.ModifyCurrentMoney(itemData.sellValue);
     }
 
     private void OnDisable()
