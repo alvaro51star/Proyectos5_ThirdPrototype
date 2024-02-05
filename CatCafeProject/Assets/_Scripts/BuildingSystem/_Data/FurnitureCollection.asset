@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: Flower Table
     image: {fileID: 0}
     ID: 0
-    size: {x: 4, y: 4}
+    size: {x: 5, y: 5}
     objectPlacementType: 5
     prefab: {fileID: 7325821801836433919, guid: cfd2a0e7d73580d4bb0588a70e8c8ad8,
       type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
   - name: Heart Table
     image: {fileID: 0}
     ID: 1
-    size: {x: 4, y: 4}
+    size: {x: 5, y: 5}
     objectPlacementType: 5
     prefab: {fileID: 6715161299251112112, guid: 88a91b6721f8e4444a91a356f76f2edd,
       type: 3}
@@ -42,7 +42,7 @@ MonoBehaviour:
   - name: Leaf Table
     image: {fileID: 0}
     ID: 2
-    size: {x: 4, y: 4}
+    size: {x: 5, y: 5}
     objectPlacementType: 5
     prefab: {fileID: 2092900044904871163, guid: d1643e89f2843fd4e842e5cf6258cc7b,
       type: 3}
@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: Fish Table
     image: {fileID: 0}
     ID: 3
-    size: {x: 4, y: 4}
+    size: {x: 5, y: 5}
     objectPlacementType: 5
     prefab: {fileID: 3490031117124467255, guid: c164d1ad9db299947b10b2b982465fa3,
       type: 3}
