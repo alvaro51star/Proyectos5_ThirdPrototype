@@ -28,7 +28,7 @@ public class TableData : MonoBehaviour
         {
             interactiveTable.tableFoodController.EnableFoodGO(false);
             interactiveTable.tableFoodController.foodType = FoodTypes.Nothing;
-            //RandomChair();
+            selectedChair.gameObject.SetActive(false);
         }
 
         else
@@ -36,7 +36,6 @@ public class TableData : MonoBehaviour
             RandomChair();
         }
 
-        //RandomChair();
     }
 
     private void RandomChair()
@@ -46,5 +45,6 @@ public class TableData : MonoBehaviour
         selectedChair = chairs[random];
         selectedFoodTransform = foodControllerGO[random].transform;
         interactiveTable.tableFoodController = foodControllerGO[random].GetComponent<FoodController>();
+        selectedChair.gameObject.SetActive(true);
     }
 }
