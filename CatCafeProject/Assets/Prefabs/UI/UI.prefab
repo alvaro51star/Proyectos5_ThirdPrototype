@@ -2966,6 +2966,7 @@ MonoBehaviour:
   changeModeMenu: {fileID: 3950265426858142595}
   loadingPanel: {fileID: 5357100148973966420}
   creditsPanel: {fileID: 3187678161483298338}
+  timerSlider: {fileID: 1230437125859154249}
   noFurnitureText: {fileID: 0}
 --- !u!114 &7334468326241359292
 MonoBehaviour:
@@ -5045,7 +5046,12 @@ PrefabInstance:
     - target: {fileID: 7641247838361726853, guid: 0aa11ccf1f07ae2448d6e2088c79bfaa,
         type: 3}
       propertyPath: m_Name
-      value: LifeBar
+      value: TimerBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641247838361726853, guid: 0aa11ccf1f07ae2448d6e2088c79bfaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8589504307099116870, guid: 0aa11ccf1f07ae2448d6e2088c79bfaa,
         type: 3}
@@ -5156,6 +5162,12 @@ PrefabInstance:
 --- !u!224 &877149484362535818 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8589504307099116870, guid: 0aa11ccf1f07ae2448d6e2088c79bfaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 8869925672459187916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1230437125859154249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7641247838361726853, guid: 0aa11ccf1f07ae2448d6e2088c79bfaa,
     type: 3}
   m_PrefabInstance: {fileID: 8869925672459187916}
   m_PrefabAsset: {fileID: 0}

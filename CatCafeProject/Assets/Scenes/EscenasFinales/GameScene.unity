@@ -1380,11 +1380,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -102
       objectReference: {fileID: 0}
-    - target: {fileID: 1230437125859154249, guid: 478631c10a2264b41bb464ac3c7e33a4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1550796959868491422, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
       propertyPath: m_IsActive
@@ -1541,7 +1536,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8170914542050723092, guid: 478631c10a2264b41bb464ac3c7e33a4, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7745194833184912135, guid: 478631c10a2264b41bb464ac3c7e33a4, type: 3}
     m_AddedGameObjects:
@@ -1553,8 +1549,43 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 502935293}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1230437125859154249, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 386472580}
   m_SourcePrefab: {fileID: 100100000, guid: 478631c10a2264b41bb464ac3c7e33a4, type: 3}
+--- !u!114 &386472578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7167443553818953803, guid: 478631c10a2264b41bb464ac3c7e33a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 386472577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &386472579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1230437125859154249, guid: 478631c10a2264b41bb464ac3c7e33a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 386472577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &386472580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386472579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9374dc3b99b3948b89128f5821a19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 386472578}
 --- !u!1 &394779678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4369,8 @@ MonoBehaviour:
   normalCatsPercentage: 0.4
   hardCatsPercentage: 0
   richCatsPercentage: 0
+  maxTimeLevel: 100
+  currentTime: 0
   UIManager: {fileID: 1401197321}
   decorationAudioClip: {fileID: 8300000, guid: e6d457447a6d41a48a45095ef620d972, type: 3}
   cafeteriaAudioClip: {fileID: 8300000, guid: 1524edbad51860d48b96fab33047a246, type: 3}

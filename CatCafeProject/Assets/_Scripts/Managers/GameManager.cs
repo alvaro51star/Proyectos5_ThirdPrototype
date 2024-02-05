@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     public static event Action<GameModes> OnGameModeChange;
     public static event Action<List<CatDataSO>, List<CatDataSO>> OnCatListCreated;
+    public delegate void OnVariableChangeDelegate(float newVal);
+    public static event OnVariableChangeDelegate OnTimeChange;
+
 
     [Space]
     [Header("Cats Variables")]
@@ -42,11 +45,18 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("Feedback Variables")]
+    private float tempTime;
+    private float m_maxTimeLevel;
+    [SerializeField] public float maxTimeLevel;
+    [HideInInspector] public float currentTime;
+
     public UIManager UIManager;
+
     [SerializeField] private AudioClip decorationAudioClip;
     [SerializeField] private AudioClip cafeteriaAudioClip;
     [SerializeField] private AudioSource audioSource;
 
+    private bool isDone = false;
 
     private void Awake()
     {
@@ -78,6 +88,37 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeGameMode(initialGameMode);
+        m_maxTimeLevel = maxTimeLevel;
+        currentTime = m_maxTimeLevel;
+        tempTime = currentTime;
+    }
+
+    private void Update()
+    {
+        if(currentGameMode == GameModes.Cafeteria)
+        {
+            if (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+            }
+
+            if (currentTime <= 0 && !isDone)
+            {
+                currentTime = 0;           
+                isDone = true;
+                EndDay();
+            }
+            CheckTimerValueChange();
+        }
+    }
+
+    private void CheckTimerValueChange()
+    {
+        if (tempTime != currentTime && OnTimeChange != null)
+        {
+            tempTime = currentTime;
+            OnTimeChange(currentTime);
+        }
     }
 
     public void ChangeGameMode(GameModes gameMode)
@@ -94,6 +135,7 @@ public class GameManager : MonoBehaviour
                 catListManager.ResetCatList();
                 SetCatsForTheDay();
                 FurnitureManager.instance.ResetFurnitureManagerData();
+                UIManager.instance.timerSlider.SetActive(false);
                 audioSource?.Stop();
                 audioSource.clip = decorationAudioClip;
                 audioSource?.Play();
@@ -104,8 +146,11 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 //FurnitureManager.instance.SetFurnitureData();
+                isDone = false;
+                m_maxTimeLevel = maxTimeLevel;
                 DecorationMode?.SetActive(false);
                 CafeteriaGameMode();
+                UIManager.instance.timerSlider.SetActive(true);
                 audioSource?.Stop();
                 audioSource.clip = cafeteriaAudioClip;
                 audioSource?.Play();

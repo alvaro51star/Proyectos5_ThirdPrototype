@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject changeModeMenu;
     public GameObject loadingPanel;
     public GameObject creditsPanel;
+    public GameObject timerSlider;
 
     [SerializeField] private GameObject noFurnitureText;
     private bool textVisible = false;
