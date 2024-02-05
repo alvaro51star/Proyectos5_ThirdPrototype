@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float hardCatsPercentage = 0f;
     [SerializeField] private float richCatsPercentage = 0f;
 
+    [Space]
+    [Header("Feedback Variables")]
     public UIManager UIManager;
     [SerializeField] private AudioClip decorationAudioClip;
     [SerializeField] private AudioClip cafeteriaAudioClip;
