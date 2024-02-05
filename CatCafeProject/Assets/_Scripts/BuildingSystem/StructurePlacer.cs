@@ -69,6 +69,7 @@ public class StructurePlacer : MonoBehaviour
         newObject.transform.DOScaleY(0, destroyDelay).OnComplete(() => Destroy(newObject));
         //Destroy(newObject);
         placedObjects[index] = null;
+        placedObjects.RemoveAt(index);
     }
 
     private void OnDisable()
