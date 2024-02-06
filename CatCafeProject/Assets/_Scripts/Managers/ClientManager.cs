@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
@@ -71,6 +72,19 @@ public class ClientManager : MonoBehaviour
             GameObject currentCat = Instantiate(GameManager.instance.catsForTheDay[i].catPrefab, parent);
             currentCat.SetActive(false);
             clients.Add(currentCat);
+        }
+    }
+
+    /// <summary>Use this to destroy all the cats in scene</summary>
+    public void DestroyCats()
+    {
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Transform cat = parent.GetChild(i);
+            if (cat.gameObject != null)
+            {
+                Destroy(cat.gameObject);
+            }
         }
     }
 

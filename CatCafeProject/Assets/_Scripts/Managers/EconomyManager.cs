@@ -235,7 +235,7 @@ public class EconomyManager : MonoBehaviour
                     item.Value.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{GetFoodValue(item.Key)} x {orders[item.Key]}";
                     item.Value.SetActive(true);
                     SoundManager.instance.ReproduceSound(moneySound, audioSource);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSecondsRealtime(0.5f);
                 }
             }
         }
@@ -243,11 +243,11 @@ public class EconomyManager : MonoBehaviour
         receiptManagement._tipsText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalTips} $";
         receiptManagement._tipsText.transform.GetChild(0).gameObject.SetActive(true);
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         receiptManagement._totalMoneyText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{totalMoneyEarnedForTheDay} $";
         receiptManagement._totalMoneyText.transform.GetChild(0).gameObject.SetActive(true);
         SoundManager.instance.ReproduceSound(moneySound, audioSource);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         yield return null;
     }
