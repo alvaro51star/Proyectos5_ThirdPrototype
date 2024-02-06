@@ -44,11 +44,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float richCatsPercentage = 0f;
 
     [Space]
-    [Header("Feedback Variables")]
+    [Header("Time Variables")]
+    public float maxTimeLevel;
     private float tempTime;
-    [SerializeField] public float maxTimeLevel;
     [HideInInspector] public float currentTime;
 
+    [Space]
+    [Header("Feedback Variables")]
     public UIManager UIManager;
 
     [SerializeField] private AudioClip decorationAudioClip;
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(currentGameMode == GameModes.Cafeteria)
+        if (currentGameMode == GameModes.Cafeteria)
         {
             if (currentTime > 0)
             {
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour
 
             if (currentTime <= 0 && !isDone)
             {
-                currentTime = 0;           
+                currentTime = 0;
                 isDone = true;
                 EndDay();
             }
@@ -274,6 +276,9 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         catsForTheDay.Clear();
+        EconomyManager.instance.PrintReceipt();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         UIManager.IsInGame(false);
         UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
 

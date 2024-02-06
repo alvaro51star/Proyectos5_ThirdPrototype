@@ -1380,6 +1380,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -102
       objectReference: {fileID: 0}
+    - target: {fileID: 1230437125859154249, guid: 478631c10a2264b41bb464ac3c7e33a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1550796959868491422, guid: 478631c10a2264b41bb464ac3c7e33a4,
         type: 3}
       propertyPath: m_IsActive
@@ -4369,7 +4374,7 @@ MonoBehaviour:
   normalCatsPercentage: 0.4
   hardCatsPercentage: 0
   richCatsPercentage: 0
-  maxTimeLevel: 80
+  maxTimeLevel: 10
   currentTime: 0
   UIManager: {fileID: 1401197321}
   decorationAudioClip: {fileID: 8300000, guid: e6d457447a6d41a48a45095ef620d972, type: 3}
