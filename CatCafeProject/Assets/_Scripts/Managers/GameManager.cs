@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     [Space]
     [Header("Time Variables")]
     public float maxTimeLevel;
+    [SerializeField] private float baseLevelTime = 30f;
+    [SerializeField] private float timePerCat = 5f;
     private float tempTime;
     [HideInInspector] public float currentTime;
 
@@ -90,8 +92,8 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameMode(initialGameMode);
         //m_maxTimeLevel = maxTimeLevel;
-        currentTime = maxTimeLevel;
-        tempTime = currentTime;
+        // currentTime = maxTimeLevel;
+        // tempTime = currentTime;
     }
 
     private void Update()
@@ -108,6 +110,9 @@ public class GameManager : MonoBehaviour
                 currentTime = 0;
                 isDone = true;
                 EndDay();
+                EconomyManager.instance.PrintReceipt();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             CheckTimerValueChange();
         }
@@ -143,6 +148,9 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameModes.Cafeteria:
+                maxTimeLevel = baseLevelTime + timePerCat * catsForTheDay.Count;
+                currentTime = maxTimeLevel;
+                tempTime = currentTime;
                 currentGameMode = GameModes.Cafeteria;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -276,12 +284,8 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         catsForTheDay.Clear();
-        EconomyManager.instance.PrintReceipt();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         UIManager.IsInGame(false);
-        UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
-
+        //UIManager.ActivateUIGameObjects(UIManager.nextDayMenu, true);
     }
 
     public void FinishBuildingPhase()
@@ -309,7 +313,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
         }
 
         UIManager.instance.SetPauseMenu(isPaused);

@@ -121,10 +121,12 @@ public class UIMenus : MonoBehaviour
         GameManager.instance.ChangeWeekNumber();
 
         //pantalla de carga
+        ClientManager.instance.DestroyCats();
         ClientManager.instance.QueueReset();
         ClientManager.instance.ClientReset();
         EconomyManager.instance.ResetDataForNextDay();
         GameManager.instance.ChangeGameMode(GameModes.Decoration);
+        m_UIManager.IsInGame(true);
     }
 
     public void LoadingPanel(int gameSceneNum)
